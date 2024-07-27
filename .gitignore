@@ -1,0 +1,4 @@
+# quarto output directories
+/.quarto/
+/_site/
+/_freeze/

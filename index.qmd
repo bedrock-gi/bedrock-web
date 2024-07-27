@@ -1,0 +1,63 @@
+---
+title: "Bedrock"
+
+format:
+  html:
+    subtitle: "The open source foundation for ground investigation data, subsurface modelling and Geo-BIM"
+    toc: false
+    repo-actions: false
+---
+
+
+## What?
+1. Open source Python package for converting ground investigation data in e.g. AGS v3 or v4 format to 3D GIS vector data.
+2. Documentation and tutorials on how to use this 
+
+### GI Data Model
+```{.json}
+{
+  "location": {
+    "properties": {},
+    "geometry": "Point / 3D LineString",    // <1>
+    "children": {
+      "materialClassification": {
+        "properties": {},
+        "geometry": "3D LineString"
+      },
+      "standardPenetrationTest": {
+        "properties": {},
+        "geometry": "3D Point"
+      },
+      "rockQualityDesignation": {
+        "properties": {},
+        "geometry": "3D LineString"
+      },
+      "otherInSituTests": {
+        "properties": {},
+        "geometry": "3D Point or 3D LineString"
+      },
+      "sample": {
+        "properties": {},
+        "geometry": "3D Point",
+        "children": {
+          "grainSizeDistribution": {},
+          "atterbergLimits": {},
+          "oedometerTest": {},
+          "triaxialTest": {},
+          "unconfinedCompressiveStrength": {},
+          "otherLabTests": {}
+        }
+      }
+    }
+  }
+}
+```
+1.  Points are sometimes easier to visualize in GIS, e.g. in Matplotlib vertical 3D LineStrings vanish in a top view.
+
+
+## Why?
+
+
+## How?
+- Open Source
+- Community

@@ -1,0 +1,36 @@
+{
+  "location": {
+    "properties": {},
+    "geometry": "Point / 3D LineString",
+    "children": {
+      "materialClassification": {
+        "properties": {},
+        "geometry": "3D LineString"
+      },
+      "standardPenetrationTest": {
+        "properties": {},
+        "geometry": "3D Point"
+      },
+      "rockQualityDesignation": {
+        "properties": {},
+        "geometry": "3D LineString"
+      },
+      "otherInSituTests": {
+        "properties": {},
+        "geometry": "3D Point or 3D LineString"
+      },
+      "sample": {
+        "properties": {},
+        "geometry": "3D Point",
+        "children": {
+          "grainSizeDistribution": {},
+          "atterbergLimits": {},
+          "oedometerTest": {},
+          "triaxialTest": {},
+          "unconfinedCompressiveStrength": {},
+          "otherLabTests": {}
+        }
+      }
+    }
+  }
+}

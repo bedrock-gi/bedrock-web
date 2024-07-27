@@ -1,0 +1,231 @@
+---
+# Front Matter
+title: "Bedrock ❤️ Quarto"
+description: "Why I chose [Quarto](https://quarto.org/) for building this website."
+author: "Joost Gevaert"
+date: "2024-07-21"
+date-modified: "2023-07-22"
+categories: [quarto]
+image: "quarto.png"
+
+# Quarto settings
+jupyter: python3
+execute:
+  eval: true
+format:
+  html:
+    code-fold: true
+    code-annotations: true
+---
+
+[Quarto](https://quarto.org/) makes it really easy to set up a smoothly working and beautiful website. It took me less than 3 days to set up Bedrock's website with:
+
+1. custom [Home](/index.qmd) landing page,
+2. a methodology for efficiently creating feature-rich [Documentation](/docs/index.qmd),
+3. "blog" under [Articles](/articles.qmd),
+4. [Community](/community.qmd) page,
+5. Help ▼ menu,
+6. [About](/about.qmd) page,
+7. and GitHub links to:
+   
+   - Bedrock's home on GitHub ([NavBar](#website-navigation) & Footer),
+   - Page specific "View source", "Edit this page", "Report an issue" GitHub links (Right SideBar) for documentation pages and articles, to make it as easy as possible for people to contribute to Bedrock's documentation or correct spelling mistakes in this article 😁.
+
+Quarto makes it easy to implement many features that are essential for modern (docs) websites, see below 🤩. Building all these features from without handy tooling is, ... daunting.
+
+Other tools I looked at:
+
+- [Sphinx](https://www.sphinx-doc.org/en/master/): I find Sphinx complicated to set up. (highlight: [Strawberry](https://strawberry.rocks/docs))
+- [MkDocs](https://www.mkdocs.org/): much easier to set up than Sphinx, but lacks many of the awesome features that come for free with Quarto. (highlight: [FastAPI](https://fastapi.tiangolo.com/))
+- Documentation sites based on JavaScript frameworks like Vue's [VuePress](https://vuepress.vuejs.org/) or Astro's [StarLight](https://starlight.astro.build/): for a web dev noob like me these feel like starting from scratch, because there's always stuff you need to create components for e.g. to get the desired level of interactivity or for the landing page. Moreover, I wouldn't know how to approach integration with Python.
+
+## Quarto?
+
+> Nice intro, but ... Quarto?
+
+- What
+- How: pandoc
+- Why
+- Who: Posix + Community
+- When
+
+## Markdown
+
+Markdown is an easy to read and write text format:
+
+- It's _plain text_ so works well with version control
+- It can be **rendered** into HTML (this website), PDF, Word (.docx), PowerPoint (.pptx) presentation and more...
+- Many very useful [basic features](https://quarto.org/docs/authoring/markdown-basics.html), see below.
+- Learn more at: <https://quarto.org/docs/authoring/>
+
+### [Equations](https://quarto.org/docs/authoring/markdown-basics.html#equations)
+
+Use LaTeX to write equations:
+$$
+x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+$$ {#eq-quadratic}
+
+### [Source Code](https://quarto.org/docs/authoring/markdown-basics.html#source-code)
+
+See [Static Code, Computed Code & Interactive Docs](#static-code-computed-code--interactive-docs) below.
+
+### [Lists](https://quarto.org/docs/authoring/markdown-basics.html#lists)
+
+Quarto's docs list some pretty awesome lists that I wasn't aware of, and creative ways of using them. My highlight, definitions:
+
+term or symbol, e.g. $\alpha$
+: definition
+  
+### [Footnotes](https://quarto.org/docs/authoring/markdown-basics.html#footnotes)
+
+Footnotes in a Quarto website get a hover preview 🤩^[Hey, that tickles 🤣]
+
+### ["Raw Content"](https://quarto.org/docs/authoring/markdown-basics.html#raw-content)
+
+A somewhat cryptic way of saying that you can use this to  to say that this is how you can embed other websites . For example:
+
+````{.markdown}
+```{=html}
+<iframe title="Kai Tak - Speckle" src="https://app.speckle.systems/projects/013aaf06e7/models/0fa0287ba8,a739490298,c59c767566#embed=%7B%22isEnabled%22%3Atrue%7D" width="100%" height="500" frameborder="0"></iframe>
+```
+````
+
+embeds ⬇️
+
+```{=html}
+<iframe title="Kai Tak - Speckle" src="https://app.speckle.systems/projects/013aaf06e7/models/0fa0287ba8,a739490298,c59c767566#embed=%7B%22isEnabled%22%3Atrue%7D" width="100%" height="500" frameborder="0"></iframe>
+```
+
+## Static Code, Computed Code & Interactivity
+
+### Gotchas
+
+A [Quarto Website](https://quarto.org/docs/websites/) project produces HTML documents (see `_site` directory) as output from the Quarto (`.qmd`), Markdown (`.md`), or Jupyter Notebook (`.ipynb`) files, which are then put together into a website with all the [features a modern (docs) site needs](#awesome-features-for-modern-websites) by Quarto. [Code blocks in these HTML documents](https://quarto.org/docs/output-formats/html-code.html) comes in 2 types:
+1. [Static Code](https://quarto.org/docs/authoring/markdown-basics.html#source-code). Cannot produce output such as figures.
+2. [Computed Code](https://quarto.org/docs/computations/python.html). Can produce output such as figures.
+
+In addition to static and computed code, Quarto also allows you to create [interactive stuff](https://quarto.org/docs/interactive/) 🎭
+
+For a demonstration of a line plot on a polar axis, see @fig-polar.
+
+```{python}
+#| label: fig-polar
+#| fig-cap: "A line plot on a polar axis"
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+r = np.arange(0, 2, 0.01)
+theta = 2 * np.pi * r
+fig, ax = plt.subplots(
+  subplot_kw = {'projection': 'polar'} 
+)
+ax.plot(theta, r)
+ax.set_rticks([0.5, 1, 1.5, 2])
+ax.grid(True)
+plt.show()
+```
+
+👆
+
+{python}
+```{python}
+import os
+os.cpu_count()
+```
+
+{python eval=false}
+```{python eval=false}
+import os
+os.cpu_count()
+```
+
+{python eval=false echo=false}
+```{python eval=false echo=false}
+import os
+os.cpu_count()
+```
+
+{python eval=false echo=false output=false}
+```{python eval=false echo=false output=false}
+import os
+os.cpu_count()
+```
+
+{python}  
+#| eval: false  
+#| echo: false  
+#| output: false  
+```{python}
+#| eval: false
+#| echo: false
+#| output: false
+
+import os
+os.cpu_count()
+```
+
+python
+```python
+import os
+os.cpu_count()
+```
+
+{.python}
+```{.python}
+import os
+os.cpu_count()
+```
+
+### Code Annotations
+
+Quarto has beatiful 
+
+This is a nice segway to the next section about awesome Quarto features
+
+## Awesome Features for Modern Websites
+
+So, [Markdown](#markdown) provides a great developer i.e. contributor experience, and the [Code & Interactivity](#static-code-computed-code--interactivity) features make Quarto documentation useful and engaging, but that doesn't give you a good website yet. Therefore, this section highlights some of the awesome Quarto features that are essential for modern (docs) websites.
+
+### Website Navigation
+
+- NavBar
+  - [Logo](https://quarto.org/docs/reference/projects/websites.html#navbar). Lacks Quarto docs though, so see the Quarto config of this website [`_quarto.yml`](https://github.com/bedrock-gi/bedrock-web/blob/main/_quarto.yml) on GitHub.
+  - [Help ▼ menu](https://quarto.org/docs/websites/website-navigation.html#top-navigation)
+  - [GitHub & Socials](https://quarto.org/docs/websites/website-navigation.html#navbar-tools)
+  - [Website Search](https://quarto.org/docs/websites/website-search.html)
+- Right Sidebar
+  - See "On this Page", and [Table of Contents](https://quarto.org/docs/reference/formats/html.html#table-of-contents) in the Quarto docs.
+  - Page specific [GitHub Links](https://quarto.org/docs/websites/website-navigation.html#github-links)
+- [Left Sidebar](https://quarto.org/docs/websites/website-navigation.html#side-navigation)  
+  Relevant for Bedrock's Documentation, but not yet implemented. Look at [Hybrid Navigation](https://quarto.org/docs/websites/website-navigation.html#hybrid-navigation), meaning Sidebar Navigation for inside the Documentation part of the website only, while maintaining the NavBar.
+
+::: {#wrn-no-search-placeholder .callout-warning}
+
+## 🐞 No Search Placeholder
+
+When editing the [search appearance](https://quarto.org/docs/websites/website-search.html#search-appearance) when using a search `textbox`, the ["Search" placeholder](https://quarto.org/docs/websites/website-search.html#search-appearance:~:text=language%3A%20%0A%20%20search%2Dbox%2Dplaceholder%3A%20Search) is not showing up in the website.
+
+:::
+
+### Cross-References with Hover Preview
+
+The way that [cross-referencing](https://quarto.org/docs/authoring/cross-references.html) is implemented in Quarto is very slick as well:
+
+- [Callout Blocks](https://quarto.org/docs/authoring/callouts.html), e.g. @wrn-no-search-placeholder
+- [Figures](https://quarto.org/docs/authoring/cross-references.html#figures):, e.g. @fig-polar
+- [Equations](https://quarto.org/docs/authoring/cross-references.html#equations), e.g. @eq-quadratic
+- The list above only highlights some of the [basics](https://quarto.org/docs/authoring/cross-references.html) of cross-referencing with Quarto. Learn more at: [Options](https://quarto.org/docs/authoring/cross-reference-options.html), [Div Syntaz](https://quarto.org/docs/authoring/cross-references-divs.html), [Custom Floats](https://quarto.org/docs/authoring/cross-references-custom.html)
+
+## Promising Features
+
+Several other Quarto features that I like and (might) want to make use of in the future:
+
+- [Tabsets](https://quarto.org/docs/output-formats/html-basics.html#tabsets)
+- [Dark Mode](https://quarto.org/docs/websites/website-tools.html#dark-mode)
+- [Diagrams](https://quarto.org/docs/authoring/diagrams.html)
+- In addition to [Reference Popups](https://quarto.org/docs/output-formats/html-basics.html#reference-popups), i.e. hover previews for [footnotes](#footnotes) and [cross-references](#cross-references-with-hover-preview), Quarto also has reference popups for citations.
+- [Links to Source Notebooks](https://quarto.org/docs/authoring/notebook-embed.html#linked-source-notebooks), such that you can open up a docs page that's based on a Jupyter Notebook directly in Google Colab (see [Notebook Embed # View Options](https://quarto.org/docs/authoring/notebook-embed.html#view-options) & [Reference > Formats > HTML Options # Links `notebook-view`](https://quarto.org/docs/reference/formats/html.html#links)).
+- [Open Graph](https://quarto.org/docs/websites/website-tools.html#open-graph) config for richer sharing of links to specific pages of websites.
+- [`quartodoc`](https://machow.github.io/quartodoc/get-started/overview.html) is a Python package for generating API reference documentation of a Python package with proper `docstrings` that is based on, and integrates with Quarto.
+- [Commenting](https://quarto.org/docs/output-formats/html-basics.html#commenting) such that you all can leave your thoughts right here 👇

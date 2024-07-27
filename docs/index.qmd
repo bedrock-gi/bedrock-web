@@ -1,0 +1,19 @@
+---
+# Front Matter
+title: "Documentation"
+description: "Documentation for Bedrock."
+
+# Quarto settings
+format:
+  html:
+    code-fold: true
+    code-annotations: true
+---
+
+# Getting Started
+
+# Tutorials
+
+# Fundamentals
+
+# Reference

@@ -1,0 +1,73 @@
+project:
+  type: website
+
+website:
+  title: "Bedrock"
+  description: "Bedrock is the open source foundation for ground investigation data, subsurface modelling and Geo-BIM."
+  image: "public/Bedrock.png"
+  favicon: "public/favicon.ico"
+  open-graph: true
+  site-url: https://bedrock.engineer
+  repo-url: https://github.com/bedrock-gi/bedrock-web
+  issue-url: https://github.com/bedrock-gi/bedrock-gi/issues/new/choose
+  repo-actions: [source, edit, issue]
+  page-navigation: true
+  bread-crumbs: true
+  navbar:
+    logo: "public/Bedrock.png"
+    logo-alt: "Bedrock"
+    left:
+      - text: "Documentation"
+        href: docs/index.qmd
+      - text: "Articles"
+        href: articles.qmd
+      - text: "Community"
+        href: community.qmd
+      - text: "Help"
+        menu:
+          - text: "Report a Bug"
+            icon: "bug"
+            href: "https://github.com/bedrock-gi/bedrock-gi/issues"
+          - text: "Ask Bedrock a Question"
+            icon: "chat-right-text"
+            href: "https://github.com/orgs/bedrock-gi/discussions"
+          - text: "Ask Speckle a Question"
+            icon: "question-square-fill"
+            href: "https://speckle.community/"
+          - text: "FAQ"
+            icon: "question-circle"
+            href: faq.qmd
+      - text: "About"
+        href: about.qmd
+    tools:
+      - icon: github
+        href: https://github.com/bedrock-gi/bedrock-gi
+        text: Bedrock's GitHub
+      - icon: linkedin
+        href: https://www.linkedin.com/company/bedrock-gi/
+        text: Bedrock's LinkedIn
+  page-footer: 
+    right:
+      - icon: github
+        href: https://github.com/bedrock-gi/bedrock-gi
+      - icon: linkedin
+        href: https://www.linkedin.com/company/bedrock-gi/
+  search:
+    type: textbox
+    show-item-context: true
+
+language: 
+  search-box-placeholder: Search
+
+format:
+  html:
+    theme:
+      light: [cosmo, theme.scss]
+    toc: true
+    toc-depth: 2
+    link-external-icon: true
+    link-external-newwindow: true
+    jupyter: python3
+    code-copy: true
+    code-fold: true
+    code-annotations: hover

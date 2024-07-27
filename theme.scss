@@ -1,0 +1,20 @@
+// Bedrock variables
+$bedrock-green: #63805e;
+$bedrock-teal: #538f99;
+$bedrock-brown: #998468;
+$bedrock-gray: #868b85;
+
+/*-- scss:defaults --*/
+// Overwrite bootstrap _variables.scss
+$link-color: $bedrock-green;
+$code-color: $bedrock-teal;
+$text-muted: $bedrock-gray;
+
+/*-- scss:rules --*/
+// Define custom CSS rules for CSS selectors such as .classes and #ids here
+
+// I like the external link icon, but find the default too big.
+// ChatGPT gave me the below, but it doesn't work :(
+// a.external-link::after {
+//   background-size: 1.2em;
+// }
