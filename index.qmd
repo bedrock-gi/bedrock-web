@@ -17,27 +17,27 @@ format:
 ```{.json}
 {
   "location": {
-    "properties": {},
+    "attributes": {},
     "geometry": "Point / 3D LineString",    // <1>
     "children": {
       "materialClassification": {
-        "properties": {},
+        "attributes": {},
         "geometry": "3D LineString"
       },
       "standardPenetrationTest": {
-        "properties": {},
+        "attributes": {},
         "geometry": "3D Point"
       },
       "rockQualityDesignation": {
-        "properties": {},
+        "attributes": {},
         "geometry": "3D LineString"
       },
       "otherInSituTests": {
-        "properties": {},
+        "attributes": {},
         "geometry": "3D Point or 3D LineString"
       },
       "sample": {
-        "properties": {},
+        "attributes": {},
         "geometry": "3D Point",
         "children": {
           "grainSizeDistribution": {},
