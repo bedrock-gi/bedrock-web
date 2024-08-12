@@ -1,0 +1,4 @@
+- source: project
+  netlify:
+    - id: c075ebf8-b30d-49ba-aab4-2eadfac349c2
+      url: 'https://zingy-toffee-f1c4e6.netlify.app'
