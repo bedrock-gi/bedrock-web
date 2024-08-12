@@ -15,7 +15,7 @@ execute:
 format:
   html:
     code-fold: true
-    code-annotations: true
+    # code-annotations: true
 ---
 
 [Quarto](https://quarto.org/) makes it really easy to set up a smoothly working and beautiful website. It took me less than 3 days to set up Bedrock's website with:
@@ -98,15 +98,35 @@ embeds ⬇️
 
 ## Static Code, Computed Code & Interactivity
 
-### Gotchas
-
 A [Quarto Website](https://quarto.org/docs/websites/) project produces HTML documents (see `_site` directory) as output from the Quarto (`.qmd`), Markdown (`.md`), or Jupyter Notebook (`.ipynb`) files, which are then put together into a website with all the [features a modern (docs) site needs](#awesome-features-for-modern-websites) by Quarto. [Code blocks in these HTML documents](https://quarto.org/docs/output-formats/html-code.html) comes in 2 types:
-1. [Static Code](https://quarto.org/docs/authoring/markdown-basics.html#source-code). Cannot produce output such as figures.
-2. [Computed Code](https://quarto.org/docs/computations/python.html). Can produce output such as figures.
 
-In addition to static and computed code, Quarto also allows you to create [interactive stuff](https://quarto.org/docs/interactive/) 🎭
+1. [Static Code](https://quarto.org/docs/authoring/markdown-basics.html#source-code). Static code is not executed by Quarto when the website is generated, and can therefore not produce output such as figures. Static code blocks can be generated like this:
+   ````{.markdown}
+  ```{.python}
+  print("This is a static code block. The code in this block will not be executed.")
+  ```
+  ````
+  Result 👇  
 
-For a demonstration of a line plot on a polar axis, see @fig-polar.
+```{.python}
+print("This is a static code block. The code in this block will not be executed.")
+```
+
+2. [Computed Code](https://quarto.org/docs/computations/python.html). Computed code is executed by Quarto when the website it generated, and can therefore produce output such as figures. These figures can also be made interactive when you use a library such as `plotly`. Computed code blocks can be generated like this:  
+   ````{.markdown}
+  ```{{python}}
+  print("This is a computed code block. The code block will be executed.")
+  ```
+  ````
+  Result 👇
+
+```{python}
+print("This is a computed code block. The code block will be executed.")
+```
+
+As you can see, this is a bit tricky, because the difference between a code block being static (`{.python}`) and computed (`{python}`) is only a single ".".
+
+Below a little more exciting example of a computed Python code block. @fig-polar actually comes from Quarto's [Get Started Guide](https://quarto.org/docs/get-started/hello/jupyter.html).
 
 ```{python}
 #| label: fig-polar
@@ -126,62 +146,21 @@ ax.grid(True)
 plt.show()
 ```
 
-👆
-
-{python}
-```{python}
-import os
-os.cpu_count()
-```
-
-{python eval=false}
-```{python eval=false}
-import os
-os.cpu_count()
-```
-
-{python eval=false echo=false}
-```{python eval=false echo=false}
-import os
-os.cpu_count()
-```
-
-{python eval=false echo=false output=false}
-```{python eval=false echo=false output=false}
-import os
-os.cpu_count()
-```
-
-{python}  
-#| eval: false  
-#| echo: false  
-#| output: false  
-```{python}
-#| eval: false
-#| echo: false
-#| output: false
-
-import os
-os.cpu_count()
-```
-
-python
-```python
-import os
-os.cpu_count()
-```
-
-{.python}
-```{.python}
-import os
-os.cpu_count()
-```
-
 ### Code Annotations
 
-Quarto has beatiful 
+Quarto also has beatiful code annotations:
 
-This is a nice segway to the next section about awesome Quarto features
+```{.json}
+{
+  "location": {
+    "attributes": {},
+    "geometry": "Point / 3D LineString",    // <1>
+    "children": {}
+  }
+}
+```
+1. The geometry of a borehole location is best represented by a "3D LineString". However, when visualizing the locations for which GI data is available on a 2D map, vertical lines vanish, in such cases using "Point" geometry for the GI location is better.
+
 
 ## Awesome Features for Modern Websites
 
