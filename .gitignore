@@ -1,4 +1,7 @@
+# The /_site/ directory contains the rendered website.
+# Netlify deploys bedrock.engineer directory from the /_site/ directory.
+# /_site/
+
 # quarto output directories
 /.quarto/
-/_site/
 /_freeze/

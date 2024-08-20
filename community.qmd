@@ -3,6 +3,14 @@ title: "Community"
 description: "Bedrock Community"
 ---
 
+::: {.callout-caution}
+
+## Under Construction 🏗️
+
+This page of Bedrock's website is still under construction.
+
+:::
+
 The community of Bedrock has its home in the SWUNG (Software Underground) community.
 
 However, because Bedrock also has a strong link with Speckle - to make it possible to use ground investigation easily in all the software that are commonly used in the AEC (Architecture, Engineering & Construction) industry - you may want to post your questions on the Speckle community forum.

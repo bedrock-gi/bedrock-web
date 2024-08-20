@@ -1,0 +1,23 @@
+---
+# Front Matter
+title: "Welcome to Bedrock"
+description: "An introduction to Bedrock and Bedrock's website."
+author: "Joost Gevaert"
+date: "2024-08-17"
+date-modified: "2023-08-20"
+categories: [news]
+---
+
+This is the first article on Bedrock's website. Welcome!
+
+::: {.callout-caution}
+
+## Under Construction 🏗️
+
+This page of Bedrock's website is still under construction.
+
+:::
+
+![](thumbnail.jpg)
+
+Since this post doesn't specify an explicit `image`, the first image in the post will be used in the listing page of posts.

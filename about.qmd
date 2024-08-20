@@ -3,6 +3,14 @@ title: "About"
 subtitle: "The open source foundation for ground investigation data, subsurface modelling and Geo-BIM."
 ---
 
+::: {.callout-caution}
+
+## Under Construction 🏗️
+
+This page of Bedrock's website is still under construction. The content below comes from [Quarto's about page](https://quarto.org/about.html).
+
+:::
+
 ## Goals
 
 The overarching goal of Quarto is to make the process of creating and collaborating on scientific and technical documents dramatically better. We hope to do this in several dimensions:
