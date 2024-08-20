@@ -7,6 +7,14 @@ format:
     toc: true
 ---
 
+::: {.callout-caution}
+
+## 🏗️ Under Construction
+
+This page of Bedrock's website is still under construction. The content below comes from [Quarto's FAQ page](https://quarto.org/docs/faq/). Most links on this page are broken.
+
+:::
+
 ### What can I use Quarto for?
 
 Quarto® is an open source scientific and technical publishing system built on Pandoc. You can weave together narrative text and code to produce elegantly formatted output as documents, web pages, blog posts, books and more.

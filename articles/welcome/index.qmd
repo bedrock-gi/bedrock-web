@@ -1,11 +1,22 @@
 ---
-title: "Welcome To My Blog"
-author: "Tristan O'Malley"
-date: "2024-07-18"
+# Front Matter
+title: "Welcome to Bedrock"
+description: "An introduction to Bedrock and Bedrock's website."
+author: "Joost Gevaert"
+date: "2024-08-17"
+date-modified: "2023-08-20"
 categories: [news]
 ---
 
-This is the first post in a Quarto blog. Welcome!
+This is the first article on Bedrock's website. Welcome!
+
+::: {.callout-caution}
+
+## 🏗️ Under Construction
+
+This page of Bedrock's website is still under construction.
+
+:::
 
 ![](thumbnail.jpg)
 
