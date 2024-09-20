@@ -1,0 +1,32 @@
+---
+draft: true
+
+# Front Matter
+title: "Setting up Python"
+description: "Setting up Python the easy way without having to think about "
+author: "Joost Gevaert"
+date: "2024-09-20"
+categories: [python]
+image: "uv.png"
+
+# Quarto settings
+jupyter: python3
+execute:
+  eval: true
+format:
+  html:
+    code-fold: true
+    code-annotations: true
+---
+
+This article helps you set up Python and the tools you need for developing and running Python scripts quickly. Links are provided to background info.
+
+### Scoop
+[Scoop](https://scoop.sh/) is a command-line installer for Windows. 
+
+- Eliminates permission popup windows, because programs are installed for users
+- Hides GUI wizard-style installers
+- Prevents PATH pollution from installing lots of programs
+- Avoids unexpected side-effects from installing and uninstalling programs
+- Finds and installs dependencies automatically
+- Performs all the extra setup steps itself to get a working program
