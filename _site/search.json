@@ -28,18 +28,53 @@
     "text": "How?\n\nOpen Source\nCommunity"
   },
   {
-    "objectID": "docs/index.html",
-    "href": "docs/index.html",
-    "title": "Documentation",
+    "objectID": "docs/Tutorials/ags3_to_gis_and_speckle.html",
+    "href": "docs/Tutorials/ags3_to_gis_and_speckle.html",
+    "title": "Bedrock",
     "section": "",
-    "text": "Under Construction 🏗️\n\n\n\nThis page of Bedrock’s website is still under construction.\n\n\n\nGetting Started\n\n\nTutorials\n\n\nFundamentals\n\n\nReference"
+    "text": "Code\nimport bedrock.gi as brgi\n\n\n\n\nCode\nbrgi.ags3_to_dfs()"
   },
   {
-    "objectID": "articles.html",
-    "href": "articles.html",
-    "title": "Articles",
+    "objectID": "community.html",
+    "href": "community.html",
+    "title": "Community",
     "section": "",
-    "text": "Bedrock ❤️ Quarto\n\n\n\n\n\n\nquarto\n\n\n\nWhy I chose Quarto for building this website.\n\n\n\n\n\nAug 18, 2024\n\n\nJoost Gevaert\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome to Bedrock\n\n\n\n\n\n\nnews\n\n\n\nAn introduction to Bedrock and Bedrock’s website.\n\n\n\n\n\nAug 17, 2024\n\n\nJoost Gevaert\n\n\n\n\n\n\nNo matching items"
+    "text": "Under Construction 🏗️\n\n\n\nThis page of Bedrock’s website is still under construction.\n\n\nThe community of Bedrock has its home in the SWUNG (Software Underground) community.\nHowever, because Bedrock also has a strong link with Speckle - to make it possible to use ground investigation easily in all the software that are commonly used in the AEC (Architecture, Engineering & Construction) industry - you may want to post your questions on the Speckle community forum."
+  },
+  {
+    "objectID": "articles/2024-08-17-welcome/index.html",
+    "href": "articles/2024-08-17-welcome/index.html",
+    "title": "Welcome to Bedrock",
+    "section": "",
+    "text": "This is the first article on Bedrock’s website. Welcome!\n\n\n\n\n\n\nUnder Construction 🏗️\n\n\n\nThis page of Bedrock’s website is still under construction.\n\n\nBedrock is the open source foundation for ground investigation data, subsurface modelling and Geo-BIM.\nI studied a masters in applied geophysics and a masters in geotechnical engineering. While studying this I was always thinking that geophysics should be used more in geotechnical engineering, because in geotechnical engineering"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Under Construction 🏗️\n\n\n\nThis page of Bedrock’s website is still under construction. The content below comes from Quarto’s about page."
+  },
+  {
+    "objectID": "about.html#goals",
+    "href": "about.html#goals",
+    "title": "About",
+    "section": "Goals",
+    "text": "Goals\nThe overarching goal of Quarto is to make the process of creating and collaborating on scientific and technical documents dramatically better. We hope to do this in several dimensions:\n\nCreate a writing and publishing environment with great integrated tools for technical content. We want to make authoring with embedded code, equations, figures, complex diagrams, interactive widgets, citations, cross references, and the myriad other special requirements of scientific discourse straightforward and productive for everyone.\nHelp authors take full advantage of the web as a connected, interactive platform for communications, while still providing the ability to create excellent printed output from the same document source. Researchers shouldn’t need to choose between LaTeX, MS Word, and HTML but rather be able to author documents that target all of them at the same time.\nMake reproducible research and publications the norm rather than the exception. Reproducibility requires that the code and data required to create a manuscript are an integrated part of it. However, this isn’t often straightforward in practice—Quarto aims to make it easier to adopt a reproducible workflow than not.\n\nQuarto is open source software. We believe that it’s better for everyone if the tools used for research and science are free and open. Reproducibility, widespread sharing of knowledge and techniques, and the leveling of the playing field by eliminating cost barriers are but a few of the shared benefits of free software in science."
+  },
+  {
+    "objectID": "about.html#project",
+    "href": "about.html#project",
+    "title": "About",
+    "section": "Project",
+    "text": "Project\nAt the core of Quarto is Pandoc, a powerful and flexible document processing tool. Quarto adds a number of facilities to Pandoc aimed at scientific and technical publishing, including:\n\nEmbedding code and output from Python, R, and JavaScript via integration with Jupyter, Knitr, and Observable.\nA variety of extensions to Pandoc markdown useful for technical writing including cross-references, sub-figures, layout panels, hoverable citations and footnotes, callouts, and more.\nA project system for rendering groups of documents at once, sharing options across documents, and producing aggregate output like websites and books.\n\nDevelopment of Quarto is sponsored by Posit, PBC, where we previously created a similar system (R Markdown) that shared the same goals, but was targeted principally at users of the R language. The same core team works on both Quarto and R Markdown:\n\nJ.J. Allaire (@jjallaire)\nChristophe Dervieux (@cderv)\nCarlos Scheidegger (@cscheid)\nCharles Teague (@dragonstyle)\nYihui Xie (@yihui)\n\nWith Quarto, we are hoping to bring these tools to a much wider audience.\nQuarto is a registered trademark of Posit. Please see our trademark policy for guidelines on usage of the Quarto trademark."
+  },
+  {
+    "objectID": "about.html#contribute",
+    "href": "about.html#contribute",
+    "title": "About",
+    "section": "Contribute",
+    "text": "Contribute\nYou can contribute to Quarto in many ways:\n\nBy opening issues to provide feedback and share ideas.\nBy submitting Pull Request (PR) to fix opened issues\nBy submitting Pull Request (PR) to suggest new features (it is considered good practice to open an issue for discussion before working on a pull request for a new feature).\n\nPlease be mindful of our code of conduct as you interact with other community members.\n\nPull Requests\nPull requests are very welcome! Here’s how to contribute via PR:\n\nFork the repository, clone it locally, and make your changes in a new branch specific to the PR. For example:\n\n\nTerminal\n\n# clone your fork\n$ git clone https://github.com/&lt;username&gt;/quarto-cli\n\n# configure for your platform (./configure.sh or ./configure.cmd for windows)\n$ cd quarto-cli\n$ ./configure.sh\n\n# checkout a new branch\n$ git checkout -b feature/newthing\n\nFor significant changes (e.g more than small bug fixes), ensure that you have signed the individual or corporate contributor agreement as appropriate. You can send the signed copy to jj@rstudio.com.\nSubmit the pull request. It is ok to submit as draft in your are still working on it but would like some feedback from us. It always good to share in the open that you are working on it.\n\nWe’ll try to be as responsive as possible in reviewing and accepting pull requests."
   },
   {
     "objectID": "articles/2024-08-18-bedrock-loves-quarto/index.html",
@@ -91,46 +126,18 @@
     "text": "Footnotes\n\n\nHey, that tickles 🤣↩︎"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "articles.html",
+    "href": "articles.html",
+    "title": "Articles",
     "section": "",
-    "text": "Under Construction 🏗️\n\n\n\nThis page of Bedrock’s website is still under construction. The content below comes from Quarto’s about page."
+    "text": "Bedrock ❤️ Quarto\n\n\n\n\n\n\nquarto\n\n\n\nWhy I chose Quarto for building this website.\n\n\n\n\n\nAug 18, 2024\n\n\nJoost Gevaert\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome to Bedrock\n\n\n\n\n\n\nnews\n\n\n\nAn introduction to Bedrock and Bedrock’s website.\n\n\n\n\n\nAug 17, 2024\n\n\nJoost Gevaert\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "about.html#goals",
-    "href": "about.html#goals",
-    "title": "About",
-    "section": "Goals",
-    "text": "Goals\nThe overarching goal of Quarto is to make the process of creating and collaborating on scientific and technical documents dramatically better. We hope to do this in several dimensions:\n\nCreate a writing and publishing environment with great integrated tools for technical content. We want to make authoring with embedded code, equations, figures, complex diagrams, interactive widgets, citations, cross references, and the myriad other special requirements of scientific discourse straightforward and productive for everyone.\nHelp authors take full advantage of the web as a connected, interactive platform for communications, while still providing the ability to create excellent printed output from the same document source. Researchers shouldn’t need to choose between LaTeX, MS Word, and HTML but rather be able to author documents that target all of them at the same time.\nMake reproducible research and publications the norm rather than the exception. Reproducibility requires that the code and data required to create a manuscript are an integrated part of it. However, this isn’t often straightforward in practice—Quarto aims to make it easier to adopt a reproducible workflow than not.\n\nQuarto is open source software. We believe that it’s better for everyone if the tools used for research and science are free and open. Reproducibility, widespread sharing of knowledge and techniques, and the leveling of the playing field by eliminating cost barriers are but a few of the shared benefits of free software in science."
-  },
-  {
-    "objectID": "about.html#project",
-    "href": "about.html#project",
-    "title": "About",
-    "section": "Project",
-    "text": "Project\nAt the core of Quarto is Pandoc, a powerful and flexible document processing tool. Quarto adds a number of facilities to Pandoc aimed at scientific and technical publishing, including:\n\nEmbedding code and output from Python, R, and JavaScript via integration with Jupyter, Knitr, and Observable.\nA variety of extensions to Pandoc markdown useful for technical writing including cross-references, sub-figures, layout panels, hoverable citations and footnotes, callouts, and more.\nA project system for rendering groups of documents at once, sharing options across documents, and producing aggregate output like websites and books.\n\nDevelopment of Quarto is sponsored by Posit, PBC, where we previously created a similar system (R Markdown) that shared the same goals, but was targeted principally at users of the R language. The same core team works on both Quarto and R Markdown:\n\nJ.J. Allaire (@jjallaire)\nChristophe Dervieux (@cderv)\nCarlos Scheidegger (@cscheid)\nCharles Teague (@dragonstyle)\nYihui Xie (@yihui)\n\nWith Quarto, we are hoping to bring these tools to a much wider audience.\nQuarto is a registered trademark of Posit. Please see our trademark policy for guidelines on usage of the Quarto trademark."
-  },
-  {
-    "objectID": "about.html#contribute",
-    "href": "about.html#contribute",
-    "title": "About",
-    "section": "Contribute",
-    "text": "Contribute\nYou can contribute to Quarto in many ways:\n\nBy opening issues to provide feedback and share ideas.\nBy submitting Pull Request (PR) to fix opened issues\nBy submitting Pull Request (PR) to suggest new features (it is considered good practice to open an issue for discussion before working on a pull request for a new feature).\n\nPlease be mindful of our code of conduct as you interact with other community members.\n\nPull Requests\nPull requests are very welcome! Here’s how to contribute via PR:\n\nFork the repository, clone it locally, and make your changes in a new branch specific to the PR. For example:\n\n\nTerminal\n\n# clone your fork\n$ git clone https://github.com/&lt;username&gt;/quarto-cli\n\n# configure for your platform (./configure.sh or ./configure.cmd for windows)\n$ cd quarto-cli\n$ ./configure.sh\n\n# checkout a new branch\n$ git checkout -b feature/newthing\n\nFor significant changes (e.g more than small bug fixes), ensure that you have signed the individual or corporate contributor agreement as appropriate. You can send the signed copy to jj@rstudio.com.\nSubmit the pull request. It is ok to submit as draft in your are still working on it but would like some feedback from us. It always good to share in the open that you are working on it.\n\nWe’ll try to be as responsive as possible in reviewing and accepting pull requests."
-  },
-  {
-    "objectID": "articles/2024-08-17-welcome/index.html",
-    "href": "articles/2024-08-17-welcome/index.html",
-    "title": "Welcome to Bedrock",
+    "objectID": "docs/index.html",
+    "href": "docs/index.html",
+    "title": "Documentation",
     "section": "",
-    "text": "This is the first article on Bedrock’s website. Welcome!\n\n\n\n\n\n\nUnder Construction 🏗️\n\n\n\nThis page of Bedrock’s website is still under construction.\n\n\nBedrock is the open source foundation for ground investigation data, subsurface modelling and Geo-BIM.\nI studied a masters in applied geophysics and a masters in geotechnical engineering. While studying this I was always thinking that geophysics should be used more in geotechnical engineering, because in geotechnical engineering"
-  },
-  {
-    "objectID": "community.html",
-    "href": "community.html",
-    "title": "Community",
-    "section": "",
-    "text": "Under Construction 🏗️\n\n\n\nThis page of Bedrock’s website is still under construction.\n\n\nThe community of Bedrock has its home in the SWUNG (Software Underground) community.\nHowever, because Bedrock also has a strong link with Speckle - to make it possible to use ground investigation easily in all the software that are commonly used in the AEC (Architecture, Engineering & Construction) industry - you may want to post your questions on the Speckle community forum."
+    "text": "Under Construction 🏗️\n\n\n\nThis page of Bedrock’s website is still under construction.\n\n\n\nGetting Started\n\n\nTutorials\n\n\nFundamentals\n\n\nReference"
   },
   {
     "objectID": "faq.html",
