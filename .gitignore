@@ -2,6 +2,13 @@
 # Netlify deploys bedrock.engineer directory from the /_site/ directory.
 # /_site/
 
+# Environment variables
+.env
+
 # quarto output directories
 /.quarto/
 /_freeze/
+
+# Python
+/.venv/
+/.mypy_cache/

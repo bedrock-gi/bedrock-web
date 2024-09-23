@@ -1,10 +1,12 @@
 project:
   type: website
+  resources:
+    - "public/**/*"
 
 website:
   title: "Bedrock"
   description: "Bedrock is the open source foundation for ground investigation data, subsurface modelling and Geo-BIM."
-  image: "public/Bedrock.png"
+  image: "public/Bedrock_inCircle.png"
   favicon: "public/favicon.ico"
   open-graph: true
   site-url: https://bedrock.engineer
