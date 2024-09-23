@@ -6,6 +6,7 @@ author: "Joost Gevaert"
 date: "2024-08-17"
 date-modified: "2023-08-20"
 categories: [news]
+image: "Bedrock_TextRight.png"
 ---
 
 This is the first article on Bedrock's website. Welcome!
@@ -18,6 +19,6 @@ This page of Bedrock's website is still under construction.
 
 :::
 
-![](thumbnail.jpg)
+Bedrock is the open source foundation for ground investigation data, subsurface modelling and Geo-BIM.
 
-Since this post doesn't specify an explicit `image`, the first image in the post will be used in the listing page of posts.
+I studied a masters in applied geophysics and a masters in geotechnical engineering. While studying this I was always thinking that geophysics should be used more in geotechnical engineering, because in geotechnical engineering 
