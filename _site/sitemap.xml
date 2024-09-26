@@ -6,7 +6,7 @@
   </url>
   <url>
     <loc>https://bedrock.engineer/docs/Tutorials/ags3_to_gis_and_speckle.html</loc>
-    <lastmod>2024-09-23T08:54:59.567Z</lastmod>
+    <lastmod>2024-09-23T13:23:39.584Z</lastmod>
   </url>
   <url>
     <loc>https://bedrock.engineer/community.html</loc>
@@ -35,5 +35,9 @@
   <url>
     <loc>https://bedrock.engineer/faq.html</loc>
     <lastmod>2024-08-20T01:52:10.544Z</lastmod>
+  </url>
+  <url>
+    <loc>https://bedrock.engineer/sandbox/ags_pdf_to_json.html</loc>
+    <lastmod>2024-09-24T14:51:49.632Z</lastmod>
   </url>
 </urlset>
