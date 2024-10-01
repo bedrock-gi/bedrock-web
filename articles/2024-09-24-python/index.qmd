@@ -30,3 +30,11 @@ This article helps you set up Python and the tools you need for developing and r
 - Avoids unexpected side-effects from installing and uninstalling programs
 - Finds and installs dependencies automatically
 - Performs all the extra setup steps itself to get a working program
+
+## Learn Python on your way to work
+If you want to refresh or learn the basics of Python on your phone with a Duolingo-like app, there a several options
+- Mimo
+- SoloLearn
+- Codecademy
+- FreeCodeCamp?
+- DataCamp
