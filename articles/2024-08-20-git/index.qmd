@@ -1,0 +1,33 @@
+---
+draft: true
+
+# Front Matter
+title: "WTH is `git`"
+description: "What the heck is `git`? What about GitHub? And why should an AEC professional care about it?"
+author: "Joost Gevaert"
+date: "2024-10-20"
+categories: [git]
+image: "git.png"
+
+# Quarto settings
+jupyter: python3
+execute:
+  eval: true
+format:
+  html:
+    code-fold: true
+    code-annotations: true
+---
+
+## WTH is `git`?
+- [`git`](https://git-scm.com/)
+
+## Setup
+### Credentials
+- https://github.com/git-ecosystem/git-credential-manager
+- Installation: https://github.com/git-ecosystem/git-credential-manager/blob/release/docs/install.md
+- WSL: https://github.com/git-ecosystem/git-credential-manager/blob/release/docs/wsl.md
+
+```{.bash filename="Terminal"}
+git-credential-manager github login
+```
