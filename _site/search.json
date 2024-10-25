@@ -147,18 +147,11 @@
     "text": "👷 Contributing\n\n\n\n\n\n\nCaution\n\n\n\nWait, please read this too!\n\n\nContributing isn’t scary 😄\nContributing isn’t just about writing code:\n\nUse Bedrock and provide feedback 🪲\nShare how you use Bedrock 🏗️\nHelp each other out, e.g. by replying to questions in the discussions or bedrock-gi issues 🤝\nSpread the word about Bedrock 🤩\nDocumentation and tutorials 📃\nMost pages on the bedrock.engineer website can be edited, so if you see a spelling mistake or have a suggestion on how to explain something better, please smash that button! 🖱️💥\n\n\n\n\n\nIf you would like to contribute code, AWESOME! 💖\nPlease create an issue for what you’d like to contribute. If you don’t know how to get started, please indicate this in your issue, and we’ll help you out."
   },
   {
-    "objectID": "articles/2024-09-26-extract-from-ags-pdf/index.html",
-    "href": "articles/2024-09-26-extract-from-ags-pdf/index.html",
-    "title": "Data Dictionaries from AGS.pdf’s",
-    "section": "",
-    "text": "&gt;&gt; upload the AGS3-3-1-2005.pdf\n\nPut the Groups and Headings table in a CSV with columns group_name,contents,notes,parent_group\nThe Groups and Headings table starts at the bottom of page 13 and finishes on page 17."
-  },
-  {
     "objectID": "articles.html",
     "href": "articles.html",
     "title": "Articles",
     "section": "",
-    "text": "Data Dictionaries from AGS.pdf’s\n\n\n\n\n\n\npython\n\n\nags\n\n\nags3\n\n\nags4\n\n\n\nUsing ChatGPT and Python to extract AGS 3 and AGS 4 data dictionaries from their corresponding .pdf documentation.\n\n\n\n\n\nSep 26, 2024\n\n\nJoost Gevaert\n\n\n\n\n\n\n\n\n\n\n\n\nBedrock ❤️ Quarto\n\n\n\n\n\n\nquarto\n\n\n\nWhy I chose Quarto for building this website.\n\n\n\n\n\nAug 18, 2024\n\n\nJoost Gevaert\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome to Bedrock\n\n\n\n\n\n\nnews\n\n\n\nAn introduction to Bedrock and Bedrock’s website.\n\n\n\n\n\nAug 17, 2024\n\n\nJoost Gevaert\n\n\n\n\n\n\nNo matching items"
+    "text": "Bedrock ❤️ Quarto\n\n\n\n\n\n\nquarto\n\n\n\nWhy I chose Quarto for building this website.\n\n\n\n\n\nAug 18, 2024\n\n\nJoost Gevaert\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome to Bedrock\n\n\n\n\n\n\nnews\n\n\n\nAn introduction to Bedrock and Bedrock’s website.\n\n\n\n\n\nAug 17, 2024\n\n\nJoost Gevaert\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "docs/getting-started.html",

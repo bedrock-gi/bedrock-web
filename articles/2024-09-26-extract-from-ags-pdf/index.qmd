@@ -1,4 +1,6 @@
 ---
+draft: true
+
 # Front Matter
 title: "Data Dictionaries from AGS.pdf's"
 description: "Using ChatGPT and Python to extract AGS 3 and AGS 4 data dictionaries from their corresponding .pdf documentation."

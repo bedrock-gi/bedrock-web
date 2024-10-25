@@ -27,7 +27,7 @@ With Bedrock you can get your data from any Ground Investigation data format int
 The purpose of Bedrock is NOT to become THE standard for geotechnical data, because we don't need 15 instead of 14 competing standards:
 
 <p align="center">
-  <img src="https://bedrock.engineer/public/14Become15Standards.png" alt="14 competing standards become 15 competing standards | xkcd.com/927" width="60%"/>
+  <img src="https://bedrock.engineer/public/images/14Become15Standards.png" alt="14 competing standards become 15 competing standards | xkcd.com/927" width="60%"/>
   <br>
   Source: <a href="https://xkcd.com/927/" target="_blank">https://xkcd.com/927</a>
 </p>  
