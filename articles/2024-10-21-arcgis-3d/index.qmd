@@ -1,0 +1,42 @@
+---
+draft: true
+
+# Front Matter
+title: "3D Visualization of GI Data in ArcGIS Pro"
+description: "Setting up Python the easy way without having to think about "
+author: "Joost Gevaert"
+date: "2024-10-21"
+categories: [ArcGIS]
+image: "arcgis.png"
+
+# Quarto settings
+jupyter: python3
+execute:
+  eval: true
+format:
+  html:
+    code-fold: true
+    code-annotations: true
+---
+
+## Connect GeoPackage
+
+https://www.esri.com/arcgis-blog/products/product/data-management/how-to-use-ogc-geopackages-in-arcgis-pro/
+
+## Symbology
+
+### Make 3D Tubes
+
+![ArcGIS Pro 3D Tube Symbology from 3D Lines](3DTubes.png)
+
+## Depth Priority
+
+https://pro.arcgis.com/en/pro-app/latest/help/mapping/layer-properties/set-depth-priority-for-a-3d-layer.htm
+
+## Navigate Underground
+
+![Allow to Navigate Underground in ArcGIS Pro](NavigateUnderground.png)
+
+## Further Reading
+
+- [Voxel of Dutch Polders](https://learn.arcgis.com/en/projects/explore-and-animate-geological-data-with-voxels/)
