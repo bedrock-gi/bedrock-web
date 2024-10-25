@@ -23,8 +23,8 @@ website:
         href: docs/index.qmd
       - text: "Articles"
         href: articles.qmd
-      - text: "Community"
-        href: community.qmd
+      # - text: "Community"
+      #   href: community.qmd
       - text: "Help"
         menu:
           - text: "Report a Bug"
@@ -36,9 +36,9 @@ website:
           - text: "Ask Speckle a Question"
             icon: "question-square-fill"
             href: "https://speckle.community/"
-          - text: "FAQ"
-            icon: "question-circle"
-            href: faq.qmd
+          # - text: "FAQ"
+          #   icon: "question-circle"
+          #   href: faq.qmd
       - text: "About"
         href: about.qmd
     tools:
