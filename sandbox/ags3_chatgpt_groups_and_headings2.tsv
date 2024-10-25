@@ -1,0 +1,76 @@
+group_name	contents	parent_group
+ABBR	Abbreviation Definitions	-
+BKFL	Backfill Details	HOLE
+CBRG	CBR Test - General	SAMP
+CBRT	CBR Test	CBRG
+CDIA	Casing Diameter by Depth	HOLE
+CHEM	Chemical Tests	SAMP
+CHIS	Chiselling Details	HOLE
+CHLK	Chalk Tests	SAMP
+CLSS	Classification Tests	SAMP
+CMPG	Compaction Tests General	SAMP
+CMPT	Compaction Tests	CMPG
+CNMT	Contaminant and Chemical Testing	SAMP
+CODE	Chemical Testing Codes	-
+CONG	Consolidation Test - General	SAMP
+CONS	Consolidation Test	CONG
+CORE	Rotary Core Information	HOLE
+DETL	Stratum Detail Descriptions	HOLE
+DICT	User Defined Groups and Headings	-
+DISC	Discontinuity Data	HOLE
+DPRB	Dynamic Probe Test	DPRG
+DPRG	Dynamic Probe Test - General	HOLE
+DREM	Depth Related Remarks	HOLE
+FILE	Associated Files	-
+FLSH	Rotary Core Flush Details	HOLE
+FRAC	Fracture Spacing	HOLE
+FRST	Frost Susceptibility	SAMP
+GAST	Gas Constituents	SAMP
+GEOL	Stratum Descriptions	HOLE
+GRAD	Particle Size Distribution Analysis Data	SAMP
+HDIA	Hole Diameter by Depth	HOLE
+HDPH	Depth Related Drilling Information	HOLE
+HOLE	Hole Information	-
+HPGI	Horizontal Profile Gauge Installation	HOLE
+HPGO	Horizontal Profile Gauge Observations	HPGI
+ICBR	In Situ CBR Test	HOLE
+ICCT	In Situ Contaminant and Chemical Testing	MONP
+IDEN	In Situ Density Test	HOLE
+IFID	On Site Volatile Headspace Testing (FID)	HOLE
+INST	Single Point Instrument Installation	HOLE
+IOBS	Single Point Instrument Readings	INST
+IPID	On Site Volatile Headspace Testing (PID)	HOLE
+IPRM	In Situ Permeability Test	HOLE
+IRDX	In Situ Redox Test	HOLE
+IRES	In Situ Resistivity Test	HOLE
+ISPT	Standard Penetration Test Results	HOLE
+IVAN	In Situ Vane Test	HOLE
+MCVG	MCV Test - General	SAMP
+MCVT	MCV Test	MCVG
+MONP	Monitor Point	HOLE
+MONR	Monitor Point Reading	MONP
+POBS	Piezometer Readings	PREF
+PREF	Piezometer Installation Details	HOLE
+PROB	Profiling Instrument Readings	PROF
+PROF	Profiling Instrument Installation Details	HOLE
+PROJ	Project Information	-
+PRTD	Pressuremeter Test Data	PRTG
+PRTG	Pressuremeter Test Results, General	HOLE
+PRTL	Pressuremeter Test Results, Individual Loops	PRTG
+PTIM	Hole Progress by Time	HOLE
+PTST	Laboratory Permeability Tests	SAMP
+PUMP	Pumping Test	HOLE
+RELD	Relative Density Test	SAMP
+ROCK	Rock Testing	SAMP
+SAMP	Sample Reference Information	HOLE
+SHBG	Shear Box Testing - General	SAMP
+SHBT	Shear Box Testing	SHBG
+STCN	Static Cone Penetration Test	HOLE
+SUCT	Suction Tests	SAMP
+TNPC	Ten Per Cent Fines	SAMP
+TREM	Time Related Remarks	HOLE
+TRIG	Triaxial Test - General	SAMP
+TRIX	Triaxial Test	TRIG
+UNIT	Definition of Units	-
+WETH	Weathering Grades	HOLE
+WSTK	Water Strike Details	HOLE

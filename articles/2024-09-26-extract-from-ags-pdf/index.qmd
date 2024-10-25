@@ -1,0 +1,24 @@
+---
+# Front Matter
+title: "Data Dictionaries from AGS.pdf's"
+description: "Using ChatGPT and Python to extract AGS 3 and AGS 4 data dictionaries from their corresponding .pdf documentation."
+author: "Joost Gevaert"
+date: "2024-09-26"
+date-modified: "2023-09-26"
+categories: [python, ags, ags3, ags4]
+image: "ags_pdf.png"
+
+# Quarto settings
+jupyter: python3
+execute:
+  eval: true
+format:
+  html:
+    code-fold: true
+    code-annotations: true
+---
+
+\>> upload the AGS3-3-1-2005.pdf
+
+> Put the Groups and Headings table in a CSV with columns group_name,contents,notes,parent_group  
+> The Groups and Headings table starts at the bottom of page 13 and finishes on page 17.

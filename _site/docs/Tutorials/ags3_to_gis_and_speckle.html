@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>ags3_to_gis_and_speckle – Bedrock</title>
+<title>Kai Tak – Bedrock</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,7 +57,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -101,10 +101,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
-<meta property="og:title" content="Bedrock">
-<meta property="og:image" content="https://bedrock.engineer/docs/Tutorials/public/Bedrock_inCircle.png">
+<meta property="og:title" content="Kai Tak – Bedrock">
+<meta property="og:description" content="Bedrock is the open source foundation for ground investigation data, subsurface modelling and Geo-BIM.">
+<meta property="og:image" content="https://bedrock.engineer/docs/tutorials/public/Bedrock_inCircle.png">
 <meta property="og:site_name" content="Bedrock">
 </head>
 
@@ -136,10 +140,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="../../articles.html"> 
 <span class="menu-text">Articles</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../community.html"> 
-<span class="menu-text">Community</span></a>
-  </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-help" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Help</span>
@@ -159,11 +159,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="dropdown-item" href="https://speckle.community/"><i class="bi bi-question-square-fill" role="img">
 </i> 
  <span class="dropdown-text">Ask Speckle a Question</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../faq.html"><i class="bi bi-question-circle" role="img">
-</i> 
- <span class="dropdown-text">FAQ</span></a>
   </li>  
     </ul>
   </li>
@@ -190,20 +185,580 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Kai Tak</h1>
+</div>
 
 
 
-<div id="cell-0" class="cell" data-execution_count="1">
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Kai Tak is a neighborhood in Kowloon, Hong Kong. One of the highlights of Kai Tak used to be it’s airport, which holds a special place in aviation history due to its unique and challenging approach, which involved pilots making a steep descent over a densely populated area while making a sharp turn at the same time and then landing on a single runway that jutted out into Victoria Harbor. <a href="https://www.youtube.com/watch?v=OtnL4KYVtDE">Landing at Kai Tak Airport | YouTube</a></p>
+<p>In 1998 the new Hong Kong International Airport opened, and operations at Kai Tak Airport were ceased. After the closure, the former Kai Tak Airport and surrounding neighborhood underwent a massive redevelopment project to transform it into a new residential and commercial district, which is still continuing today.</p>
+<p>Have a look at the <a href="https://app.speckle.systems/projects/013aaf06e7/models/0e43d1f003,a739490298">Kai Tak Speckle Project</a> to get an idea what Kai Tak looks like now. (Developents are going fast, so <a href="https://www.google.com/maps/@22.3065043,114.2020499,462a,35y,343.1h,75.5t/data=!3m1!1e3?entry=ttu">Google Earth 3D</a> is a bit outdated.)</p>
+<p>Ground Investigation Data for Hong Kong can be found here:<br>
+<a href="https://www.ginfo.cedd.gov.hk/GEOOpenData/eng/Default.aspx">GEO Data for Public Use</a></p>
+<div id="cell-2" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> bedrock.gi <span class="im">as</span> brgi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> bedrock.gi <span class="im">as</span> brgi</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="cell-1" class="cell">
+<div id="cell-3" class="cell" data-execution_count="14">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>brgi.ags3_to_dfs()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>data_root <span class="op">=</span> <span class="st">"https://github.com/bedrock-gi/bedrock-web/raw/main/public/gi-data/kaitak"</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>report_number <span class="op">=</span> <span class="dv">31241</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>file_name <span class="op">=</span> <span class="st">"GE9908.7.ags"</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>data_url <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>data_root<span class="sc">}</span><span class="ss">/</span><span class="sc">{</span><span class="bu">str</span>(report_number)<span class="sc">}</span><span class="ss">/</span><span class="sc">{</span>file_name<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(data_url)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> response.status_code <span class="op">==</span> <span class="dv">200</span>:</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    ags3_str <span class="op">=</span> response.content.decode(<span class="st">"utf-8"</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Failed to retrieve data: </span><span class="sc">{</span>response<span class="sc">.</span>status_code<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+</div>
+<div id="cell-4" class="cell" data-execution_count="15">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>data_url</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="15">
+<pre><code>'https://github.com/bedrock-gi/bedrock-web/raw/main/public/gi-data/kaitak/31241/GE9908.7.ags'</code></pre>
+</div>
+</div>
+<div id="cell-5" class="cell" data-execution_count="4">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ags3_dfs <span class="op">=</span> brgi.ags3_to_dfs(ags3_str)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>No data was found on line 3. Last Group: PROJ
+No data was found on line 43. Last Group: HOLE
+No data was found on line 44. Last Group: HOLE
+No data was found on line 45. Last Group: HOLE
+No data was found on line 84. Last Group: PTIM
+No data was found on line 125. Last Group: SAMP
+No data was found on line 194. Last Group: GEOL
+No data was found on line 195. Last Group: GEOL
+No data was found on line 196. Last Group: GEOL
+No data was found on line 197. Last Group: GEOL
+No data was found on line 198. Last Group: GEOL
+No data was found on line 199. Last Group: GEOL</code></pre>
+</div>
+</div>
+<div id="cell-6" class="cell" data-execution_count="10">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>ags3_dfs.keys()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<pre><code>dict_keys(['PROJ', 'HOLE', 'PTIM', 'SAMP', 'GEOL'])</code></pre>
+</div>
+</div>
+<div id="cell-7" class="cell" data-execution_count="12">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>ags3_dfs[<span class="st">"HOLE"</span>].columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<pre><code>Index(['HOLE_ID', 'HOLE_TYPE', 'HOLE_NATE', 'HOLE_NATN', 'HOLE_GL',
+       'HOLE_FDEP', 'HOLE_STAR', 'HOLE_LOG', 'HOLE_REM', 'HOLE_LOCX',
+       'HOLE_LOCY', 'HOLE_LOCZ', 'HOLE_ENDD', 'HOLE_BACD', 'HOLE_CREW',
+       'HOLE_ORNT', 'HOLE_INCL', 'HOLE_EXC', 'HOLE_SHOR",', 'HOLE_STAB',
+       'HOLE_DIMW', 'HOLE_DIML'],
+      dtype='object')</code></pre>
+</div>
+</div>
+<div id="cell-8" class="cell" data-execution_count="13">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>ags3_dfs[<span class="st">"HOLE"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="13">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">HOLE_ID</th>
+<th data-quarto-table-cell-role="th">HOLE_TYPE</th>
+<th data-quarto-table-cell-role="th">HOLE_NATE</th>
+<th data-quarto-table-cell-role="th">HOLE_NATN</th>
+<th data-quarto-table-cell-role="th">HOLE_GL</th>
+<th data-quarto-table-cell-role="th">HOLE_FDEP</th>
+<th data-quarto-table-cell-role="th">HOLE_STAR</th>
+<th data-quarto-table-cell-role="th">HOLE_LOG</th>
+<th data-quarto-table-cell-role="th">HOLE_REM</th>
+<th data-quarto-table-cell-role="th">HOLE_LOCX</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">HOLE_ENDD</th>
+<th data-quarto-table-cell-role="th">HOLE_BACD</th>
+<th data-quarto-table-cell-role="th">HOLE_CREW</th>
+<th data-quarto-table-cell-role="th">HOLE_ORNT</th>
+<th data-quarto-table-cell-role="th">HOLE_INCL</th>
+<th data-quarto-table-cell-role="th">HOLE_EXC</th>
+<th data-quarto-table-cell-role="th">HOLE_SHOR",</th>
+<th data-quarto-table-cell-role="th">HOLE_STAB</th>
+<th data-quarto-table-cell-role="th">HOLE_DIMW</th>
+<th data-quarto-table-cell-role="th">HOLE_DIML</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>AC1</td>
+<td>VC</td>
+<td>838804.86</td>
+<td>820146.79</td>
+<td>-4.40</td>
+<td>6.00</td>
+<td>16/06/2000</td>
+<td>MY LEE</td>
+<td>1. Sub-samples were taken at A) 0.10m to 1.10m...</td>
+<td></td>
+<td>...</td>
+<td>16/06/2000</td>
+<td>16/06/2000</td>
+<td></td>
+<td>000</td>
+<td>90</td>
+<td>G35</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>AC2(B)</td>
+<td>VC</td>
+<td>838924.24</td>
+<td>819940.24</td>
+<td>-2.00</td>
+<td>6.00</td>
+<td>17/06/2000</td>
+<td>MY LEE</td>
+<td>1. Sub-samples were taken at A) 0.00m to 1.00m...</td>
+<td></td>
+<td>...</td>
+<td>17/06/2000</td>
+<td>17/06/2000</td>
+<td></td>
+<td>000</td>
+<td>90</td>
+<td>G35</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>AC3</td>
+<td>VC</td>
+<td>839082.41</td>
+<td>819958.33</td>
+<td>-4.80</td>
+<td>6.00</td>
+<td>17/06/2000</td>
+<td>MY LEE</td>
+<td>1. Sub-samples were taken at A) 0.20m to 1.20m...</td>
+<td></td>
+<td>...</td>
+<td>17/06/2000</td>
+<td>17/06/2000</td>
+<td></td>
+<td>000</td>
+<td>90</td>
+<td>G35</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>AC4(A)</td>
+<td>VC</td>
+<td>839202.72</td>
+<td>819766.02</td>
+<td>-4.75</td>
+<td>6.00</td>
+<td>19/06/2000</td>
+<td>MY LEE</td>
+<td>1. Sub-samples were taken at A) 0.25m to 1.25m...</td>
+<td></td>
+<td>...</td>
+<td>19/06/2000</td>
+<td>19/06/2000</td>
+<td></td>
+<td>000</td>
+<td>90</td>
+<td>G35</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>AC5</td>
+<td>VC</td>
+<td>839315.26</td>
+<td>819565.15</td>
+<td>-3.20</td>
+<td>11.00</td>
+<td>16/06/2000</td>
+<td>MY LEE</td>
+<td>1. Sub-samples were taken at A) 0.00m to 0.75m...</td>
+<td></td>
+<td>...</td>
+<td>16/06/2000</td>
+<td>16/06/2000</td>
+<td></td>
+<td>000</td>
+<td>90</td>
+<td>DM2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>AC6</td>
+<td>VC</td>
+<td>839478.85</td>
+<td>819577.05</td>
+<td>-6.10</td>
+<td>5.00</td>
+<td>17/06/2000</td>
+<td>MY LEE</td>
+<td>1. Sub-samples were taken at A) 0.25m to 0.85m...</td>
+<td></td>
+<td>...</td>
+<td>17/06/2000</td>
+<td>17/06/2000</td>
+<td></td>
+<td>000</td>
+<td>90</td>
+<td>DM2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>AC7(B)</td>
+<td>VC</td>
+<td>839599.62</td>
+<td>819393.66</td>
+<td>-6.10</td>
+<td>5.00</td>
+<td>17/06/2000</td>
+<td>MY LEE</td>
+<td>1. Sub-samples were taken at A) 0.65m to 1.45m...</td>
+<td></td>
+<td>...</td>
+<td>17/06/2000</td>
+<td>17/06/2000</td>
+<td></td>
+<td>000</td>
+<td>90</td>
+<td>DM2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>KB1</td>
+<td>VC</td>
+<td>837972.72</td>
+<td>818966.22</td>
+<td>-7.90</td>
+<td>6.00</td>
+<td>21/06/2000</td>
+<td>MY LEE</td>
+<td>1. Sub-samples were taken at A) 0.00m to 0.90m...</td>
+<td></td>
+<td>...</td>
+<td>21/06/2000</td>
+<td>21/06/2000</td>
+<td></td>
+<td>000</td>
+<td>90</td>
+<td>DM2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>KB2(A)</td>
+<td>VC</td>
+<td>838048.56</td>
+<td>819357.17</td>
+<td>-6.80</td>
+<td>5.50</td>
+<td>21/06/2000</td>
+<td>MY LEE</td>
+<td>1. Sub-samples were taken at A) 0.00m to 0.74m...</td>
+<td></td>
+<td>...</td>
+<td>21/06/2000</td>
+<td>21/06/2000</td>
+<td></td>
+<td>000</td>
+<td>90</td>
+<td>DM2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>KB3</td>
+<td>VC</td>
+<td>838045.89</td>
+<td>819656.72</td>
+<td>-6.70</td>
+<td>4.00</td>
+<td>21/06/2000</td>
+<td>MY LEE</td>
+<td>1. Sub-samples were taken at A) 0.05m to 0.51m...</td>
+<td></td>
+<td>...</td>
+<td>21/06/2000</td>
+<td>21/06/2000</td>
+<td></td>
+<td>000</td>
+<td>90</td>
+<td>DM2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10</td>
+<td>KB4</td>
+<td>VC</td>
+<td>838450.29</td>
+<td>819374.58</td>
+<td>-7.10</td>
+<td>4.50</td>
+<td>22/06/2000</td>
+<td>MY LEE</td>
+<td>1. Sub-samples were taken at A) 0.10m to 0.63m...</td>
+<td></td>
+<td>...</td>
+<td>22/06/2000</td>
+<td>22/06/2000</td>
+<td></td>
+<td>000</td>
+<td>90</td>
+<td>DM2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>KB5(A)</td>
+<td>VC</td>
+<td>838271.87</td>
+<td>819591.33</td>
+<td>-6.00</td>
+<td>6.00</td>
+<td>22/06/2000</td>
+<td>MY LEE</td>
+<td>1. Sub-samples were taken at A) 0.10m to 0.43m...</td>
+<td></td>
+<td>...</td>
+<td>22/06/2000</td>
+<td>22/06/2000</td>
+<td></td>
+<td>000</td>
+<td>90</td>
+<td>DM2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">12</td>
+<td>KB6(A)</td>
+<td>VC</td>
+<td>838350.72</td>
+<td>819973.01</td>
+<td>-1.90</td>
+<td>6.00</td>
+<td>20/06/2000</td>
+<td>MY LEE</td>
+<td>1. Sub-samples were taken at A) 0.10m to 0.70m...</td>
+<td></td>
+<td>...</td>
+<td>20/06/2000</td>
+<td>20/06/2000</td>
+<td></td>
+<td>000</td>
+<td>90</td>
+<td>DM2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">13</td>
+<td>KB7</td>
+<td>VC</td>
+<td>838659.40</td>
+<td>819678.09</td>
+<td>-4.20</td>
+<td>6.00</td>
+<td>20/06/2000</td>
+<td>MY LEE</td>
+<td>1. Sub-samples were taken at A) 0.00m to 0.55m...</td>
+<td></td>
+<td>...</td>
+<td>20/06/2000</td>
+<td>20/06/2000</td>
+<td></td>
+<td>000</td>
+<td>90</td>
+<td>DM2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14</td>
+<td>KT1</td>
+<td>VC</td>
+<td>839914.66</td>
+<td>819393.56</td>
+<td>-5.75</td>
+<td>6.00</td>
+<td>19/06/2000</td>
+<td>MY LEE</td>
+<td>1. Sub-samples were taken at A) 0.30m to 0.60m...</td>
+<td></td>
+<td>...</td>
+<td>19/06/2000</td>
+<td>19/06/2000</td>
+<td></td>
+<td>000</td>
+<td>90</td>
+<td>DM2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">15</td>
+<td>KT2</td>
+<td>VC</td>
+<td>840073.08</td>
+<td>819241.19</td>
+<td>-5.60</td>
+<td>6.00</td>
+<td>19/06/2000</td>
+<td>MY LEE</td>
+<td>1. Sub-samples were taken at A) 0.35m to 0.92m...</td>
+<td></td>
+<td>...</td>
+<td>19/06/2000</td>
+<td>19/06/2000</td>
+<td></td>
+<td>000</td>
+<td>90</td>
+<td>DM2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">16</td>
+<td>KT3</td>
+<td>VC</td>
+<td>841064.83</td>
+<td>818296.58</td>
+<td>-10.20</td>
+<td>4.50</td>
+<td>20/06/2000</td>
+<td>MY LEE</td>
+<td>1. Sub-samples were taken at A) 0.10m to 1.10m...</td>
+<td></td>
+<td>...</td>
+<td>20/06/2000</td>
+<td>20/06/2000</td>
+<td></td>
+<td>000</td>
+<td>90</td>
+<td>DM2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">17</td>
+<td>KT4</td>
+<td>VC</td>
+<td>840912.49</td>
+<td>818138.16</td>
+<td>-8.00</td>
+<td>6.00</td>
+<td>19/06/2000</td>
+<td>MY LEE</td>
+<td>1. Sub-samples were taken at A) 0.00m to 1.00m...</td>
+<td></td>
+<td>...</td>
+<td>19/06/2000</td>
+<td>19/06/2000</td>
+<td></td>
+<td>000</td>
+<td>90</td>
+<td>DM2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<p>18 rows × 22 columns</p>
+</div>
+</div>
 </div>
 
 
@@ -683,7 +1238,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/bedrock-gi/bedrock-web/blob/main/docs/Tutorials/ags3_to_gis_and_speckle.ipynb" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.dev/bedrock-gi/bedrock-web/blob/main/docs/Tutorials/ags3_to_gis_and_speckle.ipynb" class="toc-action"><i class="bi empty"></i>Edit this page</a></li><li><a href="https://github.com/bedrock-gi/bedrock-gi/issues/new/choose" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions"><ul><li><a href="https://github.com/bedrock-gi/bedrock-web/blob/main/docs/tutorials/ags3_to_gis_and_speckle.ipynb" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.dev/bedrock-gi/bedrock-web/blob/main/docs/tutorials/ags3_to_gis_and_speckle.ipynb" class="toc-action"><i class="bi empty"></i>Edit this page</a></li><li><a href="https://github.com/bedrock-gi/bedrock-gi/issues/new/choose" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">

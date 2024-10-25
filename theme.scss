@@ -12,9 +12,6 @@ $text-muted: $bedrock-gray;
 
 /*-- scss:rules --*/
 // Define custom CSS rules for CSS selectors such as .classes and #ids here
-
-// I like the external link icon, but find the default too big.
-// ChatGPT gave me the below, but it doesn't work :(
-// a.external-link::after {
-//   background-size: 1.2em;
-// }
+a.external::after {
+  background-size: 0.5em;
+}

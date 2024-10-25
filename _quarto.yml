@@ -23,8 +23,8 @@ website:
         href: docs/index.qmd
       - text: "Articles"
         href: articles.qmd
-      - text: "Community"
-        href: community.qmd
+      # - text: "Community"
+      #   href: community.qmd
       - text: "Help"
         menu:
           - text: "Report a Bug"
@@ -36,9 +36,9 @@ website:
           - text: "Ask Speckle a Question"
             icon: "question-square-fill"
             href: "https://speckle.community/"
-          - text: "FAQ"
-            icon: "question-circle"
-            href: faq.qmd
+          # - text: "FAQ"
+          #   icon: "question-circle"
+          #   href: faq.qmd
       - text: "About"
         href: about.qmd
     tools:
@@ -60,6 +60,34 @@ website:
 
 language: 
   search-box-placeholder: Search
+
+# options specified here will apply to all pages in this folder
+# https://quarto.org/docs/websites/website-navigation.html#side-navigation
+# Sidebar Navigation goes into _quarto.yml, not here in the _metadata.yml
+# quarto.org uses id's to identify sections
+
+# website:
+#   sidebar:
+#     style: "floating"
+#     contents:
+#       - text: "Documentation"
+#         href: index.qmd
+#       - section: "Getting Started"
+#         href: getting-started.qmd
+#         contents:
+#           - index.qmd
+#           - basics-knitr.qmd
+#           - basics-jupyter.qmd
+#       - section: "Layout"
+#         contents:
+#           - layout.qmd
+#           - layout-knitr.qmd
+#           - layout-jupyter.qmd
+#       - section: advanced.qmd
+#         contents:
+#           - raw-code.qmd
+#           - custom-theme.qmd
+#       - acknowlegment.qmd
 
 format:
   html:

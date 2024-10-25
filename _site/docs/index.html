@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -104,10 +138,6 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="../articles.html"> 
 <span class="menu-text">Articles</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../community.html"> 
-<span class="menu-text">Community</span></a>
-  </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-help" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Help</span>
@@ -128,11 +158,6 @@ ul.task-list li input[type="checkbox"] {
 </i> 
  <span class="dropdown-text">Ask Speckle a Question</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="../faq.html"><i class="bi bi-question-circle" role="img">
-</i> 
- <span class="dropdown-text">FAQ</span></a>
-  </li>  
     </ul>
   </li>
   <li class="nav-item">
@@ -152,17 +177,8 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul class="collapse">
-  <li><a href="#getting-started" id="toc-getting-started" class="nav-link active" data-scroll-target="#getting-started">Getting Started</a></li>
-  <li><a href="#tutorials" id="toc-tutorials" class="nav-link" data-scroll-target="#tutorials">Tutorials</a></li>
-  <li><a href="#fundamentals" id="toc-fundamentals" class="nav-link" data-scroll-target="#fundamentals">Fundamentals</a></li>
-  <li><a href="#reference" id="toc-reference" class="nav-link" data-scroll-target="#reference">Reference</a></li>
-  </ul>
-<div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/bedrock-gi/bedrock-web/blob/main/docs/index.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/bedrock-gi/bedrock-web/edit/main/docs/index.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li><li><a href="https://github.com/bedrock-gi/bedrock-gi/issues/new/choose" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -191,33 +207,31 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Under Construction 🏗️
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This page of Bedrock’s website is still under construction.</p>
-</div>
-</div>
-<section id="getting-started" class="level1">
-<h1>Getting Started</h1>
-</section>
-<section id="tutorials" class="level1">
-<h1>Tutorials</h1>
-</section>
-<section id="fundamentals" class="level1">
-<h1>Fundamentals</h1>
-</section>
-<section id="reference" class="level1">
-<h1>Reference</h1>
+<blockquote class="blockquote">
+<p><strong>Definition of Bedrock</strong></p>
+<p>In an abstract sense, the main principles on which something is based. [1]</p>
+<p>In the real world, the bedrock is the hard area of rock in the ground that holds up the loose soil above. [1]</p>
+<p>In many civil engineering projects, the identification of the bedrock through digging, drilling or geophysical methods is an important task, which greatly influences (foundation) design. [2]</p>
+<p>Sources: <a href="https://dictionary.cambridge.org/us/dictionary/english/bedrock">[1] Bedrock | Cambridge Dictionary</a>, <a href="https://en.wikipedia.org/wiki/Bedrock">[2] Bedrock | Wikipedia</a></p>
+</blockquote>
+<p>Bedrock, this open source software project, forms the foundation for for ground investigation data, subsurface modelling and Geo-BIM.</p>
+<p>With Bedrock you can get your data from any Ground Investigation data format into a GIS database 🗺️, from a GIS database into Speckle 🟦, and from Speckle into all the software we work with in the AEC industry 🏗️.</p>
+<p>The purpose of Bedrock is NOT to become THE standard for geotechnical data, because we don’t need 15 instead of 14 competing standards:</p>
+<p align="center">
+<img src="https://bedrock.engineer/public/14Become15Standards.png" alt="14 competing standards become 15 competing standards | xkcd.com/927" width="60%"> <br> Source: <a href="https://xkcd.com/927/" target="_blank">https://xkcd.com/927</a>
+</p>
+<p>For example, us geotechnical engineers who are used to working with AGS data know that the “ISPT group” is a table that describes an In-Situ Standard Penetration Test and we know what headings, i.e.&nbsp;columns that AGS group, i.e.&nbsp;table has. Therefore, Bedrock doesn’t change that the naming of those columns. Bedrock just makes sure that the data is structured in a sensible way, such that Ground Investigation data from multiple sources can be converted into a GIS database.</p>
+<p>A GIS database with Ground Investigation data contains tables that describe the Ground Investigation <code>'Project'</code>, the <code>'Location'</code>s where GI data was collected, the <code>'Sample'</code>s and <code>'InSitu'</code> measurements taken at these <code>'Location'</code>s, and the <code>'Lab'</code> tests that were performed on the collected <code>'Sample'</code>s.</p>
+<p>The <code>'Project'</code>, <code>'Location'</code>, <code>'Sample'</code>, <code>'InSitu'</code> measurement and <code>'Lab'</code> test tables are related to each other: each lab test belongs to a sample, which belongs to a GI location, which belongs to a project. These relationships can be visualized in a hierarchy like this:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="st">'Project'</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a> <span class="ex">└───</span><span class="st">'Location'</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>     <span class="ex">├───</span><span class="st">'InSitu'</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>     <span class="ex">└───</span><span class="st">'Sample'</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>          <span class="ex">└───</span><span class="st">'Lab'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>These relationships are represented in the database tables with so-called “foreign keys”. For example, the results of an Atterberg Limits Lab test, i.e.&nbsp;Liquid Limit and Plastic Limit tests, that originated from an AGS file would be in stored in the <code>'Lab_LLPL'</code> table. Each row in this table represents the Atterberg Limit test results performed on a specific sample. Each row knows to which project, GI location and sample it belongs through its <code>project_uid</code>, <code>location_uid</code> and <code>sample_uid</code> respectively.</p>
+<p>This relational database (<a href="https://en.wikipedia.org/wiki/Relational_database">linked tables</a>) with Ground Investigation data becomes a GIS database by assigning a (3D) GIS geometry to each of the rows in each of the database tables (except for the <code>'Project'</code> table).</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -655,7 +669,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/bedrock-gi/bedrock-web/blob/main/docs/index.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/bedrock-gi/bedrock-web/edit/main/docs/index.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li><li><a href="https://github.com/bedrock-gi/bedrock-gi/issues/new/choose" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions"><ul><li><a href="https://github.com/bedrock-gi/bedrock-web/blob/main/docs/index.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/bedrock-gi/bedrock-web/edit/main/docs/index.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li><li><a href="https://github.com/bedrock-gi/bedrock-gi/issues/new/choose" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">
