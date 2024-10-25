@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>ags_data_dict_from_pdf_to_json – Bedrock</title>
+<title>Extract Data from .pdf with ChatGPT – Bedrock</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -106,7 +106,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
-<meta property="og:title" content="Bedrock">
+<meta property="og:title" content="Extract Data from .pdf with ChatGPT – Bedrock">
+<meta property="og:description" content="Bedrock is the open source foundation for ground investigation data, subsurface modelling and Geo-BIM.">
 <meta property="og:image" content="https://bedrock.engineer/sandbox/public/Bedrock_inCircle.png">
 <meta property="og:site_name" content="Bedrock">
 </head>
@@ -139,10 +140,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="../articles.html"> 
 <span class="menu-text">Articles</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../community.html"> 
-<span class="menu-text">Community</span></a>
-  </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-help" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Help</span>
@@ -163,11 +160,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </i> 
  <span class="dropdown-text">Ask Speckle a Question</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="../faq.html"><i class="bi bi-question-circle" role="img">
-</i> 
- <span class="dropdown-text">FAQ</span></a>
-  </li>  
     </ul>
   </li>
   <li class="nav-item">
@@ -187,16 +179,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#extract-ags-3-and-4-data-dictionaries-from-their-corresponding-ags-.pdf-documents" id="toc-extract-ags-3-and-4-data-dictionaries-from-their-corresponding-ags-.pdf-documents" class="nav-link active" data-scroll-target="#extract-ags-3-and-4-data-dictionaries-from-their-corresponding-ags-.pdf-documents">Extract AGS 3 and 4 Data Dictionaries from their corresponding AGS .pdf documents</a></li>
+  </ul>
+<div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/bedrock-gi/bedrock-web/blob/main/sandbox/ags_data_dict_from_pdf_to_json.ipynb" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.dev/bedrock-gi/bedrock-web/blob/main/sandbox/ags_data_dict_from_pdf_to_json.ipynb" class="toc-action"><i class="bi empty"></i>Edit this page</a></li><li><a href="https://github.com/bedrock-gi/bedrock-gi/issues/new/choose" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Extract Data from .pdf with ChatGPT</h1>
+</div>
 
 
 
-<div id="cell-0" class="cell" data-execution_count="1">
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div id="cell-1" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
@@ -207,359 +221,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>os.getcwd()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="1">
+<div class="cell-output cell-output-display" data-execution_count="8">
 <pre><code>'c:\\Users\\joost\\ReposWindows\\bedrock-web\\sandbox'</code></pre>
 </div>
 </div>
-<div id="cell-1" class="cell" data-execution_count="2">
+<p>Upload the AGS3-3-1-2005.pdf</p>
+<p>Then use a prompt like this:</p>
+<blockquote class="blockquote">
+<p>Put the Groups and Headings table in a CSV with columns group_name,contents,notes,parent_group<br>
+The Groups and Headings table starts at the bottom of page 13 and finishes on page 17.</p>
+</blockquote>
+<p>It might require a bit of chatting with ChatGPT before you get a proper table in your chat. Once you do, you can copy-paste it to a .tsv file. A .tsv file is a Tab Separated Value file instead of CSV - Comma Separated Value file, which is what you get when you copy the table from ChatGPT. TSV’s are also handy, because they don’t run into issues when one of the values contains a comma…</p>
+<p>Now it could be that ChatGPT doesn’t always return the same results and that the table isn’t exactly as in the AGS 3 .pdf document. This was the case for me:</p>
+<div id="cell-3" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="op">=</span> pd.read_csv(<span class="st">'ags3_groups_and_headings.tsv'</span>, sep<span class="op">=</span><span class="st">'</span><span class="ch">\t</span><span class="st">'</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> pd.read_csv(<span class="st">'ags3_groups_and_headings2.tsv'</span>, sep<span class="op">=</span><span class="st">'</span><span class="ch">\t</span><span class="st">'</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> df1.equals(df2):</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"The files are identical."</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"The files are different."</span>)</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(df1.compare(df2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>The files are different.</code></pre>
-</div>
-<div class="cell-output cell-output-error">
-<div class="ansi-escaped-output">
-<pre><span class="ansi-red-fg ansi-bold">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg ansi-bold">ValueError</span>                                Traceback (most recent call last)
-<span class="ansi-green-fg ansi-bold">~\AppData\Local\Temp\ipykernel_6192\2176789508.py</span> in <span class="ansi-cyan-fg">?</span><span class="ansi-blue-fg ansi-bold">()</span>
-<span class="ansi-green-fg">      4</span> <span class="ansi-green-fg ansi-bold">if</span> df1<span class="ansi-yellow-fg ansi-bold">.</span>equals<span class="ansi-yellow-fg ansi-bold">(</span>df2<span class="ansi-yellow-fg ansi-bold">)</span><span class="ansi-yellow-fg ansi-bold">:</span>
-<span class="ansi-green-fg">      5</span>     print<span class="ansi-yellow-fg ansi-bold">(</span><span class="ansi-blue-fg ansi-bold">"The files are identical."</span><span class="ansi-yellow-fg ansi-bold">)</span>
-<span class="ansi-green-fg">      6</span> <span class="ansi-green-fg ansi-bold">else</span><span class="ansi-yellow-fg ansi-bold">:</span>
-<span class="ansi-green-fg">      7</span>     print<span class="ansi-yellow-fg ansi-bold">(</span><span class="ansi-blue-fg ansi-bold">"The files are different."</span><span class="ansi-yellow-fg ansi-bold">)</span>
-<span class="ansi-green-fg ansi-bold">----&gt; 8</span><span class="ansi-yellow-fg ansi-bold">     </span>print<span class="ansi-yellow-fg ansi-bold">(</span>df1<span class="ansi-yellow-fg ansi-bold">.</span>compare<span class="ansi-yellow-fg ansi-bold">(</span>df2<span class="ansi-yellow-fg ansi-bold">)</span><span class="ansi-yellow-fg ansi-bold">)</span>
-
-<span class="ansi-green-fg ansi-bold">c:\Users\joost\ReposWindows\bedrock-web\.venv\Lib\site-packages\pandas\core\frame.py</span> in <span class="ansi-cyan-fg">?</span><span class="ansi-blue-fg ansi-bold">(self, other, align_axis, keep_shape, keep_equal, result_names)</span>
-<span class="ansi-green-fg">   8589</span>         keep_shape<span class="ansi-yellow-fg ansi-bold">:</span> bool <span class="ansi-yellow-fg ansi-bold">=</span> <span class="ansi-green-fg ansi-bold">False</span><span class="ansi-yellow-fg ansi-bold">,</span>
-<span class="ansi-green-fg">   8590</span>         keep_equal<span class="ansi-yellow-fg ansi-bold">:</span> bool <span class="ansi-yellow-fg ansi-bold">=</span> <span class="ansi-green-fg ansi-bold">False</span><span class="ansi-yellow-fg ansi-bold">,</span>
-<span class="ansi-green-fg">   8591</span>         result_names<span class="ansi-yellow-fg ansi-bold">:</span> Suffixes <span class="ansi-yellow-fg ansi-bold">=</span> <span class="ansi-yellow-fg ansi-bold">(</span><span class="ansi-blue-fg ansi-bold">"self"</span><span class="ansi-yellow-fg ansi-bold">,</span> <span class="ansi-blue-fg ansi-bold">"other"</span><span class="ansi-yellow-fg ansi-bold">)</span><span class="ansi-yellow-fg ansi-bold">,</span>
-<span class="ansi-green-fg">   8592</span>     ) -&gt; DataFrame:
-<span class="ansi-green-fg ansi-bold">-&gt; 8593</span><span class="ansi-yellow-fg ansi-bold">         return super().compare(
-</span><span class="ansi-green-fg">   8594</span>             other<span class="ansi-yellow-fg ansi-bold">=</span>other<span class="ansi-yellow-fg ansi-bold">,</span>
-<span class="ansi-green-fg">   8595</span>             align_axis<span class="ansi-yellow-fg ansi-bold">=</span>align_axis<span class="ansi-yellow-fg ansi-bold">,</span>
-<span class="ansi-green-fg">   8596</span>             keep_shape<span class="ansi-yellow-fg ansi-bold">=</span>keep_shape<span class="ansi-yellow-fg ansi-bold">,</span>
-
-<span class="ansi-green-fg ansi-bold">c:\Users\joost\ReposWindows\bedrock-web\.venv\Lib\site-packages\pandas\core\generic.py</span> in <span class="ansi-cyan-fg">?</span><span class="ansi-blue-fg ansi-bold">(self, other, align_axis, keep_shape, keep_equal, result_names)</span>
-<span class="ansi-green-fg">  10117</span>             raise TypeError(
-<span class="ansi-green-fg">  10118</span>                 <span class="ansi-blue-fg ansi-bold">f"can only compare '{cls_self}' (not '{cls_other}') with '{cls_self}'"</span>
-<span class="ansi-green-fg">  10119</span>             )
-<span class="ansi-green-fg">  10120</span> 
-<span class="ansi-green-fg ansi-bold">&gt; 10121</span><span class="ansi-yellow-fg ansi-bold">         </span>mask <span class="ansi-yellow-fg ansi-bold">=</span> <span class="ansi-yellow-fg ansi-bold">~</span><span class="ansi-yellow-fg ansi-bold">(</span><span class="ansi-yellow-fg ansi-bold">(</span>self <span class="ansi-yellow-fg ansi-bold">==</span> other<span class="ansi-yellow-fg ansi-bold">)</span> <span class="ansi-yellow-fg ansi-bold">|</span> <span class="ansi-yellow-fg ansi-bold">(</span>self<span class="ansi-yellow-fg ansi-bold">.</span>isna<span class="ansi-yellow-fg ansi-bold">(</span><span class="ansi-yellow-fg ansi-bold">)</span> <span class="ansi-yellow-fg ansi-bold">&amp;</span> other<span class="ansi-yellow-fg ansi-bold">.</span>isna<span class="ansi-yellow-fg ansi-bold">(</span><span class="ansi-yellow-fg ansi-bold">)</span><span class="ansi-yellow-fg ansi-bold">)</span><span class="ansi-yellow-fg ansi-bold">)</span>
-<span class="ansi-green-fg">  10122</span>         mask<span class="ansi-yellow-fg ansi-bold">.</span>fillna<span class="ansi-yellow-fg ansi-bold">(</span><span class="ansi-green-fg ansi-bold">True</span><span class="ansi-yellow-fg ansi-bold">,</span> inplace<span class="ansi-yellow-fg ansi-bold">=</span><span class="ansi-green-fg ansi-bold">True</span><span class="ansi-yellow-fg ansi-bold">)</span>
-<span class="ansi-green-fg">  10123</span> 
-<span class="ansi-green-fg">  10124</span>         <span class="ansi-green-fg ansi-bold">if</span> <span class="ansi-green-fg ansi-bold">not</span> keep_equal<span class="ansi-yellow-fg ansi-bold">:</span>
-
-<span class="ansi-green-fg ansi-bold">c:\Users\joost\ReposWindows\bedrock-web\.venv\Lib\site-packages\pandas\core\ops\common.py</span> in <span class="ansi-cyan-fg">?</span><span class="ansi-blue-fg ansi-bold">(self, other)</span>
-<span class="ansi-green-fg">     72</span>                     <span class="ansi-green-fg ansi-bold">return</span> NotImplemented
-<span class="ansi-green-fg">     73</span> 
-<span class="ansi-green-fg">     74</span>         other <span class="ansi-yellow-fg ansi-bold">=</span> item_from_zerodim<span class="ansi-yellow-fg ansi-bold">(</span>other<span class="ansi-yellow-fg ansi-bold">)</span>
-<span class="ansi-green-fg">     75</span> 
-<span class="ansi-green-fg ansi-bold">---&gt; 76</span><span class="ansi-yellow-fg ansi-bold">         </span><span class="ansi-green-fg ansi-bold">return</span> method<span class="ansi-yellow-fg ansi-bold">(</span>self<span class="ansi-yellow-fg ansi-bold">,</span> other<span class="ansi-yellow-fg ansi-bold">)</span>
-
-<span class="ansi-green-fg ansi-bold">c:\Users\joost\ReposWindows\bedrock-web\.venv\Lib\site-packages\pandas\core\arraylike.py</span> in <span class="ansi-cyan-fg">?</span><span class="ansi-blue-fg ansi-bold">(self, other)</span>
-<span class="ansi-green-fg">     38</span>     <span class="ansi-yellow-fg ansi-bold">@</span>unpack_zerodim_and_defer<span class="ansi-yellow-fg ansi-bold">(</span><span class="ansi-blue-fg ansi-bold">"__eq__"</span><span class="ansi-yellow-fg ansi-bold">)</span>
-<span class="ansi-green-fg">     39</span>     <span class="ansi-green-fg ansi-bold">def</span> __eq__<span class="ansi-yellow-fg ansi-bold">(</span>self<span class="ansi-yellow-fg ansi-bold">,</span> other<span class="ansi-yellow-fg ansi-bold">)</span><span class="ansi-yellow-fg ansi-bold">:</span>
-<span class="ansi-green-fg ansi-bold">---&gt; 40</span><span class="ansi-yellow-fg ansi-bold">         </span><span class="ansi-green-fg ansi-bold">return</span> self<span class="ansi-yellow-fg ansi-bold">.</span>_cmp_method<span class="ansi-yellow-fg ansi-bold">(</span>other<span class="ansi-yellow-fg ansi-bold">,</span> operator<span class="ansi-yellow-fg ansi-bold">.</span>eq<span class="ansi-yellow-fg ansi-bold">)</span>
-
-<span class="ansi-green-fg ansi-bold">c:\Users\joost\ReposWindows\bedrock-web\.venv\Lib\site-packages\pandas\core\frame.py</span> in <span class="ansi-cyan-fg">?</span><span class="ansi-blue-fg ansi-bold">(self, other, op)</span>
-<span class="ansi-green-fg">   7894</span>     <span class="ansi-green-fg ansi-bold">def</span> _cmp_method<span class="ansi-yellow-fg ansi-bold">(</span>self<span class="ansi-yellow-fg ansi-bold">,</span> other<span class="ansi-yellow-fg ansi-bold">,</span> op<span class="ansi-yellow-fg ansi-bold">)</span><span class="ansi-yellow-fg ansi-bold">:</span>
-<span class="ansi-green-fg">   7895</span>         axis<span class="ansi-yellow-fg ansi-bold">:</span> Literal<span class="ansi-yellow-fg ansi-bold">[</span><span class="ansi-cyan-fg ansi-bold">1</span><span class="ansi-yellow-fg ansi-bold">]</span> <span class="ansi-yellow-fg ansi-bold">=</span> <span class="ansi-cyan-fg ansi-bold">1</span>  <span class="ansi-red-fg ansi-bold"># only relevant for Series other case</span>
-<span class="ansi-green-fg">   7896</span> 
-<span class="ansi-green-fg ansi-bold">-&gt; 7897</span><span class="ansi-yellow-fg ansi-bold">         </span>self<span class="ansi-yellow-fg ansi-bold">,</span> other <span class="ansi-yellow-fg ansi-bold">=</span> self<span class="ansi-yellow-fg ansi-bold">.</span>_align_for_op<span class="ansi-yellow-fg ansi-bold">(</span>other<span class="ansi-yellow-fg ansi-bold">,</span> axis<span class="ansi-yellow-fg ansi-bold">,</span> flex<span class="ansi-yellow-fg ansi-bold">=</span><span class="ansi-green-fg ansi-bold">False</span><span class="ansi-yellow-fg ansi-bold">,</span> level<span class="ansi-yellow-fg ansi-bold">=</span><span class="ansi-green-fg ansi-bold">None</span><span class="ansi-yellow-fg ansi-bold">)</span>
-<span class="ansi-green-fg">   7898</span> 
-<span class="ansi-green-fg">   7899</span>         <span class="ansi-red-fg ansi-bold"># See GH#4537 for discussion of scalar op behavior</span>
-<span class="ansi-green-fg">   7900</span>         new_data <span class="ansi-yellow-fg ansi-bold">=</span> self<span class="ansi-yellow-fg ansi-bold">.</span>_dispatch_frame_op<span class="ansi-yellow-fg ansi-bold">(</span>other<span class="ansi-yellow-fg ansi-bold">,</span> op<span class="ansi-yellow-fg ansi-bold">,</span> axis<span class="ansi-yellow-fg ansi-bold">=</span>axis<span class="ansi-yellow-fg ansi-bold">)</span>
-
-<span class="ansi-green-fg ansi-bold">c:\Users\joost\ReposWindows\bedrock-web\.venv\Lib\site-packages\pandas\core\frame.py</span> in <span class="ansi-cyan-fg">?</span><span class="ansi-blue-fg ansi-bold">(self, other, axis, flex, level)</span>
-<span class="ansi-green-fg">   8192</span>                     left, right = left.align(
-<span class="ansi-green-fg">   8193</span>                         right<span class="ansi-yellow-fg ansi-bold">,</span> join<span class="ansi-yellow-fg ansi-bold">=</span><span class="ansi-blue-fg ansi-bold">"outer"</span><span class="ansi-yellow-fg ansi-bold">,</span> level<span class="ansi-yellow-fg ansi-bold">=</span>level<span class="ansi-yellow-fg ansi-bold">,</span> copy<span class="ansi-yellow-fg ansi-bold">=</span><span class="ansi-green-fg ansi-bold">False</span>
-<span class="ansi-green-fg">   8194</span>                     )
-<span class="ansi-green-fg">   8195</span>                 <span class="ansi-green-fg ansi-bold">else</span><span class="ansi-yellow-fg ansi-bold">:</span>
-<span class="ansi-green-fg ansi-bold">-&gt; 8196</span><span class="ansi-yellow-fg ansi-bold">                     raise ValueError(
-</span><span class="ansi-green-fg">   8197</span>                         <span class="ansi-blue-fg ansi-bold">"Can only compare identically-labeled (both index and columns) "</span>
-<span class="ansi-green-fg">   8198</span>                         <span class="ansi-blue-fg ansi-bold">"DataFrame objects"</span>
-<span class="ansi-green-fg">   8199</span>                     )
-
-<span class="ansi-red-fg ansi-bold">ValueError</span>: Can only compare identically-labeled (both index and columns) DataFrame objects</pre>
-</div>
-</div>
-</div>
-<div id="cell-2" class="cell" data-execution_count="4">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display" data-execution_count="4">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">group_name</th>
-<th data-quarto-table-cell-role="th">contents</th>
-<th data-quarto-table-cell-role="th">parent_group</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>ABBR</td>
-<td>Abbreviation Definitions</td>
-<td>-</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>BKFL</td>
-<td>Backfill Details</td>
-<td>HOLE</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>CBRG</td>
-<td>CBR Test - General</td>
-<td>SAMP</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>CBRT</td>
-<td>CBR Test</td>
-<td>CBRG</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>CDIA</td>
-<td>Casing Diameter by Depth</td>
-<td>HOLE</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">69</td>
-<td>TRIG</td>
-<td>Triaxial Test - General</td>
-<td>SAMP</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">70</td>
-<td>TRIX</td>
-<td>Triaxial Test</td>
-<td>TRIG</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">71</td>
-<td>UNIT</td>
-<td>Definition of &lt;UNITS&gt; and CNMT_UNIT</td>
-<td>-</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">72</td>
-<td>WETH</td>
-<td>Weathering Grades</td>
-<td>HOLE</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">73</td>
-<td>WSTK</td>
-<td>Water Strike Details</td>
-<td>HOLE</td>
-</tr>
-</tbody>
-</table>
-
-<p>74 rows × 3 columns</p>
-</div>
-</div>
-</div>
-<div id="cell-3" class="cell" data-execution_count="5">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display" data-execution_count="5">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">group_name</th>
-<th data-quarto-table-cell-role="th">contents</th>
-<th data-quarto-table-cell-role="th">parent_group</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>ABBR</td>
-<td>Abbreviation Definitions</td>
-<td>-</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>BKFL</td>
-<td>Backfill Details</td>
-<td>HOLE</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>CBRG</td>
-<td>CBR Test - General</td>
-<td>SAMP</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>CBRT</td>
-<td>CBR Test</td>
-<td>CBRG</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>CDIA</td>
-<td>Casing Diameter by Depth</td>
-<td>HOLE</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">70</td>
-<td>TRIG</td>
-<td>Triaxial Test - General</td>
-<td>SAMP</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">71</td>
-<td>TRIX</td>
-<td>Triaxial Test</td>
-<td>TRIG</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">72</td>
-<td>UNIT</td>
-<td>Definition of Units</td>
-<td>-</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">73</td>
-<td>WETH</td>
-<td>Weathering Grades</td>
-<td>HOLE</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">74</td>
-<td>WSTK</td>
-<td>Water Strike Details</td>
-<td>HOLE</td>
-</tr>
-</tbody>
-</table>
-
-<p>75 rows × 3 columns</p>
-</div>
-</div>
-</div>
-<div id="cell-4" class="cell" data-execution_count="3">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df1.compare(df2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-error">
-<div class="ansi-escaped-output">
-<pre><span class="ansi-red-fg ansi-bold">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg ansi-bold">ValueError</span>                                Traceback (most recent call last)
-<span class="ansi-green-fg ansi-bold">~\AppData\Local\Temp\ipykernel_6192\871738017.py</span> in <span class="ansi-cyan-fg">?</span><span class="ansi-blue-fg ansi-bold">()</span>
-<span class="ansi-green-fg ansi-bold">----&gt; 1</span><span class="ansi-yellow-fg ansi-bold"> </span>df1<span class="ansi-yellow-fg ansi-bold">.</span>compare<span class="ansi-yellow-fg ansi-bold">(</span>df2<span class="ansi-yellow-fg ansi-bold">)</span>
-
-<span class="ansi-green-fg ansi-bold">c:\Users\joost\ReposWindows\bedrock-web\.venv\Lib\site-packages\pandas\core\frame.py</span> in <span class="ansi-cyan-fg">?</span><span class="ansi-blue-fg ansi-bold">(self, other, align_axis, keep_shape, keep_equal, result_names)</span>
-<span class="ansi-green-fg">   8589</span>         keep_shape<span class="ansi-yellow-fg ansi-bold">:</span> bool <span class="ansi-yellow-fg ansi-bold">=</span> <span class="ansi-green-fg ansi-bold">False</span><span class="ansi-yellow-fg ansi-bold">,</span>
-<span class="ansi-green-fg">   8590</span>         keep_equal<span class="ansi-yellow-fg ansi-bold">:</span> bool <span class="ansi-yellow-fg ansi-bold">=</span> <span class="ansi-green-fg ansi-bold">False</span><span class="ansi-yellow-fg ansi-bold">,</span>
-<span class="ansi-green-fg">   8591</span>         result_names<span class="ansi-yellow-fg ansi-bold">:</span> Suffixes <span class="ansi-yellow-fg ansi-bold">=</span> <span class="ansi-yellow-fg ansi-bold">(</span><span class="ansi-blue-fg ansi-bold">"self"</span><span class="ansi-yellow-fg ansi-bold">,</span> <span class="ansi-blue-fg ansi-bold">"other"</span><span class="ansi-yellow-fg ansi-bold">)</span><span class="ansi-yellow-fg ansi-bold">,</span>
-<span class="ansi-green-fg">   8592</span>     ) -&gt; DataFrame:
-<span class="ansi-green-fg ansi-bold">-&gt; 8593</span><span class="ansi-yellow-fg ansi-bold">         return super().compare(
-</span><span class="ansi-green-fg">   8594</span>             other<span class="ansi-yellow-fg ansi-bold">=</span>other<span class="ansi-yellow-fg ansi-bold">,</span>
-<span class="ansi-green-fg">   8595</span>             align_axis<span class="ansi-yellow-fg ansi-bold">=</span>align_axis<span class="ansi-yellow-fg ansi-bold">,</span>
-<span class="ansi-green-fg">   8596</span>             keep_shape<span class="ansi-yellow-fg ansi-bold">=</span>keep_shape<span class="ansi-yellow-fg ansi-bold">,</span>
-
-<span class="ansi-green-fg ansi-bold">c:\Users\joost\ReposWindows\bedrock-web\.venv\Lib\site-packages\pandas\core\generic.py</span> in <span class="ansi-cyan-fg">?</span><span class="ansi-blue-fg ansi-bold">(self, other, align_axis, keep_shape, keep_equal, result_names)</span>
-<span class="ansi-green-fg">  10117</span>             raise TypeError(
-<span class="ansi-green-fg">  10118</span>                 <span class="ansi-blue-fg ansi-bold">f"can only compare '{cls_self}' (not '{cls_other}') with '{cls_self}'"</span>
-<span class="ansi-green-fg">  10119</span>             )
-<span class="ansi-green-fg">  10120</span> 
-<span class="ansi-green-fg ansi-bold">&gt; 10121</span><span class="ansi-yellow-fg ansi-bold">         </span>mask <span class="ansi-yellow-fg ansi-bold">=</span> <span class="ansi-yellow-fg ansi-bold">~</span><span class="ansi-yellow-fg ansi-bold">(</span><span class="ansi-yellow-fg ansi-bold">(</span>self <span class="ansi-yellow-fg ansi-bold">==</span> other<span class="ansi-yellow-fg ansi-bold">)</span> <span class="ansi-yellow-fg ansi-bold">|</span> <span class="ansi-yellow-fg ansi-bold">(</span>self<span class="ansi-yellow-fg ansi-bold">.</span>isna<span class="ansi-yellow-fg ansi-bold">(</span><span class="ansi-yellow-fg ansi-bold">)</span> <span class="ansi-yellow-fg ansi-bold">&amp;</span> other<span class="ansi-yellow-fg ansi-bold">.</span>isna<span class="ansi-yellow-fg ansi-bold">(</span><span class="ansi-yellow-fg ansi-bold">)</span><span class="ansi-yellow-fg ansi-bold">)</span><span class="ansi-yellow-fg ansi-bold">)</span>
-<span class="ansi-green-fg">  10122</span>         mask<span class="ansi-yellow-fg ansi-bold">.</span>fillna<span class="ansi-yellow-fg ansi-bold">(</span><span class="ansi-green-fg ansi-bold">True</span><span class="ansi-yellow-fg ansi-bold">,</span> inplace<span class="ansi-yellow-fg ansi-bold">=</span><span class="ansi-green-fg ansi-bold">True</span><span class="ansi-yellow-fg ansi-bold">)</span>
-<span class="ansi-green-fg">  10123</span> 
-<span class="ansi-green-fg">  10124</span>         <span class="ansi-green-fg ansi-bold">if</span> <span class="ansi-green-fg ansi-bold">not</span> keep_equal<span class="ansi-yellow-fg ansi-bold">:</span>
-
-<span class="ansi-green-fg ansi-bold">c:\Users\joost\ReposWindows\bedrock-web\.venv\Lib\site-packages\pandas\core\ops\common.py</span> in <span class="ansi-cyan-fg">?</span><span class="ansi-blue-fg ansi-bold">(self, other)</span>
-<span class="ansi-green-fg">     72</span>                     <span class="ansi-green-fg ansi-bold">return</span> NotImplemented
-<span class="ansi-green-fg">     73</span> 
-<span class="ansi-green-fg">     74</span>         other <span class="ansi-yellow-fg ansi-bold">=</span> item_from_zerodim<span class="ansi-yellow-fg ansi-bold">(</span>other<span class="ansi-yellow-fg ansi-bold">)</span>
-<span class="ansi-green-fg">     75</span> 
-<span class="ansi-green-fg ansi-bold">---&gt; 76</span><span class="ansi-yellow-fg ansi-bold">         </span><span class="ansi-green-fg ansi-bold">return</span> method<span class="ansi-yellow-fg ansi-bold">(</span>self<span class="ansi-yellow-fg ansi-bold">,</span> other<span class="ansi-yellow-fg ansi-bold">)</span>
-
-<span class="ansi-green-fg ansi-bold">c:\Users\joost\ReposWindows\bedrock-web\.venv\Lib\site-packages\pandas\core\arraylike.py</span> in <span class="ansi-cyan-fg">?</span><span class="ansi-blue-fg ansi-bold">(self, other)</span>
-<span class="ansi-green-fg">     38</span>     <span class="ansi-yellow-fg ansi-bold">@</span>unpack_zerodim_and_defer<span class="ansi-yellow-fg ansi-bold">(</span><span class="ansi-blue-fg ansi-bold">"__eq__"</span><span class="ansi-yellow-fg ansi-bold">)</span>
-<span class="ansi-green-fg">     39</span>     <span class="ansi-green-fg ansi-bold">def</span> __eq__<span class="ansi-yellow-fg ansi-bold">(</span>self<span class="ansi-yellow-fg ansi-bold">,</span> other<span class="ansi-yellow-fg ansi-bold">)</span><span class="ansi-yellow-fg ansi-bold">:</span>
-<span class="ansi-green-fg ansi-bold">---&gt; 40</span><span class="ansi-yellow-fg ansi-bold">         </span><span class="ansi-green-fg ansi-bold">return</span> self<span class="ansi-yellow-fg ansi-bold">.</span>_cmp_method<span class="ansi-yellow-fg ansi-bold">(</span>other<span class="ansi-yellow-fg ansi-bold">,</span> operator<span class="ansi-yellow-fg ansi-bold">.</span>eq<span class="ansi-yellow-fg ansi-bold">)</span>
-
-<span class="ansi-green-fg ansi-bold">c:\Users\joost\ReposWindows\bedrock-web\.venv\Lib\site-packages\pandas\core\frame.py</span> in <span class="ansi-cyan-fg">?</span><span class="ansi-blue-fg ansi-bold">(self, other, op)</span>
-<span class="ansi-green-fg">   7894</span>     <span class="ansi-green-fg ansi-bold">def</span> _cmp_method<span class="ansi-yellow-fg ansi-bold">(</span>self<span class="ansi-yellow-fg ansi-bold">,</span> other<span class="ansi-yellow-fg ansi-bold">,</span> op<span class="ansi-yellow-fg ansi-bold">)</span><span class="ansi-yellow-fg ansi-bold">:</span>
-<span class="ansi-green-fg">   7895</span>         axis<span class="ansi-yellow-fg ansi-bold">:</span> Literal<span class="ansi-yellow-fg ansi-bold">[</span><span class="ansi-cyan-fg ansi-bold">1</span><span class="ansi-yellow-fg ansi-bold">]</span> <span class="ansi-yellow-fg ansi-bold">=</span> <span class="ansi-cyan-fg ansi-bold">1</span>  <span class="ansi-red-fg ansi-bold"># only relevant for Series other case</span>
-<span class="ansi-green-fg">   7896</span> 
-<span class="ansi-green-fg ansi-bold">-&gt; 7897</span><span class="ansi-yellow-fg ansi-bold">         </span>self<span class="ansi-yellow-fg ansi-bold">,</span> other <span class="ansi-yellow-fg ansi-bold">=</span> self<span class="ansi-yellow-fg ansi-bold">.</span>_align_for_op<span class="ansi-yellow-fg ansi-bold">(</span>other<span class="ansi-yellow-fg ansi-bold">,</span> axis<span class="ansi-yellow-fg ansi-bold">,</span> flex<span class="ansi-yellow-fg ansi-bold">=</span><span class="ansi-green-fg ansi-bold">False</span><span class="ansi-yellow-fg ansi-bold">,</span> level<span class="ansi-yellow-fg ansi-bold">=</span><span class="ansi-green-fg ansi-bold">None</span><span class="ansi-yellow-fg ansi-bold">)</span>
-<span class="ansi-green-fg">   7898</span> 
-<span class="ansi-green-fg">   7899</span>         <span class="ansi-red-fg ansi-bold"># See GH#4537 for discussion of scalar op behavior</span>
-<span class="ansi-green-fg">   7900</span>         new_data <span class="ansi-yellow-fg ansi-bold">=</span> self<span class="ansi-yellow-fg ansi-bold">.</span>_dispatch_frame_op<span class="ansi-yellow-fg ansi-bold">(</span>other<span class="ansi-yellow-fg ansi-bold">,</span> op<span class="ansi-yellow-fg ansi-bold">,</span> axis<span class="ansi-yellow-fg ansi-bold">=</span>axis<span class="ansi-yellow-fg ansi-bold">)</span>
-
-<span class="ansi-green-fg ansi-bold">c:\Users\joost\ReposWindows\bedrock-web\.venv\Lib\site-packages\pandas\core\frame.py</span> in <span class="ansi-cyan-fg">?</span><span class="ansi-blue-fg ansi-bold">(self, other, axis, flex, level)</span>
-<span class="ansi-green-fg">   8192</span>                     left, right = left.align(
-<span class="ansi-green-fg">   8193</span>                         right<span class="ansi-yellow-fg ansi-bold">,</span> join<span class="ansi-yellow-fg ansi-bold">=</span><span class="ansi-blue-fg ansi-bold">"outer"</span><span class="ansi-yellow-fg ansi-bold">,</span> level<span class="ansi-yellow-fg ansi-bold">=</span>level<span class="ansi-yellow-fg ansi-bold">,</span> copy<span class="ansi-yellow-fg ansi-bold">=</span><span class="ansi-green-fg ansi-bold">False</span>
-<span class="ansi-green-fg">   8194</span>                     )
-<span class="ansi-green-fg">   8195</span>                 <span class="ansi-green-fg ansi-bold">else</span><span class="ansi-yellow-fg ansi-bold">:</span>
-<span class="ansi-green-fg ansi-bold">-&gt; 8196</span><span class="ansi-yellow-fg ansi-bold">                     raise ValueError(
-</span><span class="ansi-green-fg">   8197</span>                         <span class="ansi-blue-fg ansi-bold">"Can only compare identically-labeled (both index and columns) "</span>
-<span class="ansi-green-fg">   8198</span>                         <span class="ansi-blue-fg ansi-bold">"DataFrame objects"</span>
-<span class="ansi-green-fg">   8199</span>                     )
-
-<span class="ansi-red-fg ansi-bold">ValueError</span>: Can only compare identically-labeled (both index and columns) DataFrame objects</pre>
-</div>
-</div>
-</div>
-<div id="cell-5" class="cell" data-execution_count="8">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Concatenate the two DataFrames</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>df_concat <span class="op">=</span> pd.concat([df1, df2])</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Find the duplicate rows</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>duplicates <span class="op">=</span> df_concat.duplicated(keep<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Find the rows that are not duplicates (i.e., the rows that are unique to one DataFrame)</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>unique_rows <span class="op">=</span> df_concat[<span class="op">~</span>duplicates]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<div id="cell-6" class="cell" data-execution_count="9">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>unique_rows</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="op">=</span> pd.read_csv(<span class="st">"ags3_chatgpt_groups_and_headings.tsv"</span>, sep<span class="op">=</span><span class="st">"</span><span class="ch">\t</span><span class="st">"</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df1[<span class="st">"df"</span>] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> pd.read_csv(<span class="st">"ags3_chatgpt_groups_and_headings2.tsv"</span>, sep<span class="op">=</span><span class="st">"</span><span class="ch">\t</span><span class="st">"</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>df2[<span class="st">"df"</span>] <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Concatenate the two DataFrames</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>df_concat <span class="op">=</span> pd.concat([df1, df2])</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Find the duplicate rows</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>manual_duplicates <span class="op">=</span> df_concat.duplicated(</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    subset<span class="op">=</span>df_concat.columns.difference([<span class="st">"df"</span>]), keep<span class="op">=</span><span class="va">False</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Find the rows that are not duplicates (i.e., the rows that are unique to one DataFrame)</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>unique_rows <span class="op">=</span> df_concat[<span class="op">~</span>manual_duplicates]</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>unique_rows.sort_index()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="9">
 <div>
@@ -572,6 +265,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <th data-quarto-table-cell-role="th">group_name</th>
 <th data-quarto-table-cell-role="th">contents</th>
 <th data-quarto-table-cell-role="th">parent_group</th>
+<th data-quarto-table-cell-role="th">df</th>
 </tr>
 </thead>
 <tbody>
@@ -580,54 +274,63 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>HPGI</td>
 <td>Horizontal Profile Gauge Installation Details</td>
 <td>HOLE</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">32</td>
+<td>HPGI</td>
+<td>Horizontal Profile Gauge Installation</td>
+<td>HOLE</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">37</td>
+<td>IFID</td>
+<td>On Site Volatile Headspace Testing (FID)</td>
+<td>HOLE</td>
+<td>2</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">37</td>
 <td>IFID</td>
 <td>On Site Volatile Headspace Testing Using Flame...</td>
 <td>HOLE</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">38</td>
-<td>INST</td>
-<td>Single Point Instrument Installation Details</td>
-<td>HOLE</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">71</td>
-<td>UNIT</td>
-<td>Definition of &lt;UNITS&gt; and CNMT_UNIT</td>
-<td>-</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">32</td>
-<td>HPGI</td>
-<td>Horizontal Profile Gauge Installation</td>
-<td>HOLE</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">37</td>
-<td>IFID</td>
-<td>On Site Volatile Headspace Testing (FID)</td>
-<td>HOLE</td>
+<td>1</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">38</td>
 <td>INST</td>
 <td>Single Point Instrument Installation</td>
 <td>HOLE</td>
+<td>2</td>
 </tr>
 <tr class="even">
+<td data-quarto-table-cell-role="th">38</td>
+<td>INST</td>
+<td>Single Point Instrument Installation Details</td>
+<td>HOLE</td>
+<td>1</td>
+</tr>
+<tr class="odd">
 <td data-quarto-table-cell-role="th">40</td>
 <td>IPID</td>
 <td>On Site Volatile Headspace Testing (PID)</td>
 <td>HOLE</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">71</td>
+<td>UNIT</td>
+<td>Definition of &lt;UNITS&gt; and CNMT_UNIT</td>
+<td>-</td>
+<td>1</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">72</td>
 <td>UNIT</td>
 <td>Definition of Units</td>
 <td>-</td>
+<td>2</td>
 </tr>
 </tbody>
 </table>
@@ -635,292 +338,364 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="cell-7" class="cell" data-execution_count="9">
+<section id="extract-ags-3-and-4-data-dictionaries-from-their-corresponding-ags-.pdf-documents" class="level2">
+<h2 class="anchored" data-anchor-id="extract-ags-3-and-4-data-dictionaries-from-their-corresponding-ags-.pdf-documents">Extract AGS 3 and 4 Data Dictionaries from their corresponding AGS .pdf documents</h2>
+<div id="cell-5" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> extract_ags3_data_dict_table(table):</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    headings <span class="op">=</span> []</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> row <span class="kw">in</span> table[<span class="dv">2</span>:]:  <span class="co"># Skip first 2 rows: 1st = title, 2nd = headings</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>        headings.append(</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>            {</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>                <span class="st">"status"</span>: <span class="va">None</span> <span class="cf">if</span> row[<span class="dv">0</span>] <span class="op">==</span> <span class="st">""</span> <span class="cf">else</span> row[<span class="dv">0</span>].strip(),</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>                <span class="st">"heading"</span>: row[<span class="dv">1</span>].strip(),</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>                <span class="st">"unit"</span>: <span class="va">None</span> <span class="cf">if</span> row[<span class="dv">2</span>] <span class="op">==</span> <span class="st">""</span> <span class="cf">else</span> row[<span class="dv">2</span>].strip().replace(<span class="st">"</span><span class="ch">\n</span><span class="st">"</span>, <span class="st">" "</span>),</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>                <span class="st">"description"</span>: row[<span class="dv">3</span>].strip().replace(<span class="st">"</span><span class="ch">\n</span><span class="st">"</span>, <span class="st">" "</span>),</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>                <span class="st">"example"</span>: <span class="va">None</span> <span class="cf">if</span> row[<span class="dv">4</span>] <span class="op">==</span> <span class="st">""</span> <span class="cf">else</span> row[<span class="dv">4</span>].strip().replace(<span class="st">"</span><span class="ch">\n</span><span class="st">"</span>, <span class="st">" "</span>),</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>            }</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> headings</span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> extract_ags4_data_dict_table(table):</span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Skip rows that don't contain data</span></span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, row <span class="kw">in</span> <span class="bu">enumerate</span>(table):</span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="st">"Suggested</span><span class="ch">\n</span><span class="st">Unit / Type"</span> <span class="kw">in</span> row <span class="kw">or</span> <span class="st">"Unit / Type"</span> <span class="kw">in</span> row:</span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>            first_data_row <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span></span>
-<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span></span>
-<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>    headings <span class="op">=</span> []</span>
-<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> row <span class="kw">in</span> table[first_data_row:]:</span>
-<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>        row <span class="op">=</span> [x <span class="cf">for</span> x <span class="kw">in</span> row <span class="cf">if</span> x <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>]</span>
-<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>        headings.append(</span>
-<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>            {</span>
-<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>                <span class="st">"status"</span>: <span class="va">None</span> <span class="cf">if</span> row[<span class="dv">0</span>] <span class="op">==</span> <span class="st">""</span> <span class="cf">else</span> row[<span class="dv">0</span>].strip(),</span>
-<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>                <span class="st">"heading"</span>: row[<span class="dv">1</span>].strip(),</span>
-<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>                <span class="st">"unit"</span>: <span class="va">None</span> <span class="cf">if</span> row[<span class="dv">2</span>] <span class="op">==</span> <span class="st">""</span> <span class="cf">else</span> row[<span class="dv">2</span>].strip().replace(<span class="st">"</span><span class="ch">\n</span><span class="st">"</span>, <span class="st">""</span>),</span>
-<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>                <span class="st">"type"</span>: row[<span class="dv">3</span>].strip(),</span>
-<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>                <span class="st">"description"</span>: row[<span class="dv">4</span>].strip().replace(<span class="st">"</span><span class="ch">\n</span><span class="st">"</span>, <span class="st">" "</span>),</span>
-<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>                <span class="st">"example"</span>: <span class="va">None</span> <span class="cf">if</span> row[<span class="dv">5</span>] <span class="op">==</span> <span class="st">""</span> <span class="cf">else</span> row[<span class="dv">5</span>].strip().replace(<span class="st">"</span><span class="ch">\n</span><span class="st">"</span>, <span class="st">" "</span>),</span>
-<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>            }</span>
-<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> headings</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> extract_ags3_data_dict_table(table):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    headings <span class="op">=</span> []</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> row <span class="kw">in</span> table[<span class="dv">2</span>:]:  <span class="co"># Skip first 2 rows: 1st = title, 2nd = headings</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        headings.append(</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>            {</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>                <span class="st">"status"</span>: <span class="va">None</span> <span class="cf">if</span> row[<span class="dv">0</span>] <span class="op">==</span> <span class="st">""</span> <span class="cf">else</span> row[<span class="dv">0</span>].strip(),</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>                <span class="st">"heading"</span>: row[<span class="dv">1</span>].strip(),</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>                <span class="st">"unit"</span>: <span class="va">None</span> <span class="cf">if</span> row[<span class="dv">2</span>] <span class="op">==</span> <span class="st">""</span> <span class="cf">else</span> row[<span class="dv">2</span>].strip().replace(<span class="st">"</span><span class="ch">\n</span><span class="st">"</span>, <span class="st">" "</span>),</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>                <span class="st">"description"</span>: row[<span class="dv">3</span>].strip().replace(<span class="st">"</span><span class="ch">\n</span><span class="st">"</span>, <span class="st">" "</span>),</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>                <span class="st">"example"</span>: <span class="va">None</span> <span class="cf">if</span> row[<span class="dv">4</span>] <span class="op">==</span> <span class="st">""</span> <span class="cf">else</span> row[<span class="dv">4</span>].strip().replace(<span class="st">"</span><span class="ch">\n</span><span class="st">"</span>, <span class="st">" "</span>),</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>            }</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> headings</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> extract_ags4_data_dict_table(table):</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Skip rows that don't contain data</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, row <span class="kw">in</span> <span class="bu">enumerate</span>(table):</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="st">"Suggested</span><span class="ch">\n</span><span class="st">Unit / Type"</span> <span class="kw">in</span> row <span class="kw">or</span> <span class="st">"Unit / Type"</span> <span class="kw">in</span> row:</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>            first_data_row <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    headings <span class="op">=</span> []</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> row <span class="kw">in</span> table[first_data_row:]:</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>        row <span class="op">=</span> [x <span class="cf">for</span> x <span class="kw">in</span> row <span class="cf">if</span> x <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>]</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>        headings.append(</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>            {</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>                <span class="st">"status"</span>: <span class="va">None</span> <span class="cf">if</span> row[<span class="dv">0</span>] <span class="op">==</span> <span class="st">""</span> <span class="cf">else</span> row[<span class="dv">0</span>].strip(),</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>                <span class="st">"heading"</span>: row[<span class="dv">1</span>].strip(),</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>                <span class="st">"unit"</span>: <span class="va">None</span> <span class="cf">if</span> row[<span class="dv">2</span>] <span class="op">==</span> <span class="st">""</span> <span class="cf">else</span> row[<span class="dv">2</span>].strip().replace(<span class="st">"</span><span class="ch">\n</span><span class="st">"</span>, <span class="st">""</span>),</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>                <span class="st">"type"</span>: row[<span class="dv">3</span>].strip(),</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>                <span class="st">"description"</span>: row[<span class="dv">4</span>].strip().replace(<span class="st">"</span><span class="ch">\n</span><span class="st">"</span>, <span class="st">" "</span>),</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>                <span class="st">"example"</span>: <span class="va">None</span> <span class="cf">if</span> row[<span class="dv">5</span>] <span class="op">==</span> <span class="st">""</span> <span class="cf">else</span> row[<span class="dv">5</span>].strip().replace(<span class="st">"</span><span class="ch">\n</span><span class="st">"</span>, <span class="st">" "</span>),</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>            }</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> headings</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="cell-8" class="cell" data-execution_count="10">
+<div id="cell-6" class="cell" data-execution_count="11">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>ags_version <span class="op">=</span> <span class="dv">3</span>  <span class="co"># AGS version 3 or 4</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>pdf_dict <span class="op">=</span> {</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="dv">3</span>: {<span class="st">"pdf_file"</span>: <span class="st">"AGS3_v3-1-2005.pdf"</span>, <span class="st">"from_page"</span>: <span class="dv">22</span>, <span class="st">"to_page"</span>: <span class="dv">68</span>},</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="dv">4</span>: {<span class="st">"pdf_file"</span>: <span class="st">"AGS4-v4-1-1-2022.pdf"</span>, <span class="st">"from_page"</span>: <span class="dv">18</span>, <span class="st">"to_page"</span>: <span class="dv">159</span>},</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ags_version <span class="op">=</span> <span class="dv">4</span>  <span class="co"># AGS version 3 or 4</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>pdf_dict <span class="op">=</span> {</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="dv">3</span>: {<span class="st">"pdf_file"</span>: <span class="st">"AGS3_v3-1-2005.pdf"</span>, <span class="st">"from_page"</span>: <span class="dv">22</span>, <span class="st">"to_page"</span>: <span class="dv">69</span>},</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="dv">4</span>: {<span class="st">"pdf_file"</span>: <span class="st">"AGS4-v4-1-1-2022.pdf"</span>, <span class="st">"from_page"</span>: <span class="dv">18</span>, <span class="st">"to_page"</span>: <span class="dv">160</span>},</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="cell-9" class="cell" data-execution_count="11">
+<div id="cell-7" class="cell" data-execution_count="12">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>pdf_file, from_page, to_page <span class="op">=</span> pdf_dict[ags_version].values()</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># List to store extracted data for each group</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>extracted_data <span class="op">=</span> []</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>previous_group_name <span class="op">=</span> <span class="st">""</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> pdfplumber.<span class="bu">open</span>(pdf_file) <span class="im">as</span> pdf:</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Adjust the page range based on where the tables are located</span></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> page_number <span class="kw">in</span> <span class="bu">range</span>(from_page, to_page):</span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>        page <span class="op">=</span> pdf.pages[page_number <span class="op">-</span> <span class="dv">1</span>]  <span class="co"># pdfplumber is 0-based, so subtract 1</span></span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>        tables_on_current_page <span class="op">=</span> page.extract_tables()  <span class="co"># Extract tables from the page</span></span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Iterate through all tables found on the page</span></span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> table <span class="kw">in</span> tables_on_current_page:</span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> ags_version <span class="op">==</span> <span class="dv">3</span>:</span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>                table_title <span class="op">=</span> table[<span class="dv">0</span>][<span class="dv">0</span>].strip()  <span class="co"># Get table title from AGS3</span></span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> ags_version <span class="op">==</span> <span class="dv">4</span>:</span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>                table_title <span class="op">=</span> table[<span class="dv">0</span>][<span class="dv">1</span>].strip()  <span class="co"># Get table title from AGS4</span></span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(table_title)</span>
-<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>            parts <span class="op">=</span> table_title.split(<span class="st">": "</span>, <span class="dv">1</span>)  <span class="co"># Split on the first occurrence of ': '</span></span>
-<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="st">"Group Name"</span> <span class="kw">in</span> parts[<span class="dv">0</span>]:</span>
-<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>                group_name <span class="op">=</span> parts[<span class="dv">1</span>].split(<span class="st">" - "</span>)[<span class="dv">0</span>]</span>
-<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>                group_description <span class="op">=</span> <span class="st">" - "</span>.join(parts[<span class="dv">1</span>].split(<span class="st">" - "</span>)[<span class="dv">1</span>:])</span>
-<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>                group_description <span class="op">=</span> group_description.replace(<span class="st">"</span><span class="ch">\n</span><span class="st">"</span>, <span class="st">" "</span>)</span>
-<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> ags_version <span class="op">==</span> <span class="dv">3</span>:</span>
-<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>                    headings <span class="op">=</span> extract_ags3_data_dict_table(table)</span>
-<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>                <span class="cf">elif</span> ags_version <span class="op">==</span> <span class="dv">4</span>:</span>
-<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>                    headings <span class="op">=</span> extract_ags4_data_dict_table(table)</span>
-<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> group_name <span class="op">==</span> previous_group_name:</span>
-<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>                    extracted_data[<span class="op">-</span><span class="dv">1</span>][<span class="st">"headings"</span>].extend(headings)</span>
-<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>                <span class="cf">else</span>:</span>
-<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>                    extracted_data.append(</span>
-<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a>                        {</span>
-<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"group_name"</span>: group_name,</span>
-<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"group_description"</span>: group_description,</span>
-<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"headings"</span>: headings,</span>
-<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a>                        }</span>
-<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a>                    )</span>
-<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a>                previous_group_name <span class="op">=</span> group_name</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>pdf_file, from_page, to_page <span class="op">=</span> pdf_dict[ags_version].values()</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># List to store extracted data for each group</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>extracted_data <span class="op">=</span> []</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>previous_group_name <span class="op">=</span> <span class="st">""</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> pdfplumber.<span class="bu">open</span>(pdf_file) <span class="im">as</span> pdf:</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Adjust the page range based on where the tables are located</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> page_number <span class="kw">in</span> <span class="bu">range</span>(from_page, to_page):</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>        page <span class="op">=</span> pdf.pages[page_number <span class="op">-</span> <span class="dv">1</span>]  <span class="co"># pdfplumber is 0-based, so subtract 1</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        tables_on_current_page <span class="op">=</span> page.extract_tables()  <span class="co"># Extract tables from the page</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Iterate through all tables found on the page</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> table <span class="kw">in</span> tables_on_current_page:</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> ags_version <span class="op">==</span> <span class="dv">3</span>:</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>                table_title <span class="op">=</span> table[<span class="dv">0</span>][<span class="dv">0</span>].strip()  <span class="co"># Get table title from AGS3</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> ags_version <span class="op">==</span> <span class="dv">4</span>:</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>                table_title <span class="op">=</span> table[<span class="dv">0</span>][<span class="dv">1</span>].strip()  <span class="co"># Get table title from AGS4</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(table_title)</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>            parts <span class="op">=</span> table_title.split(<span class="st">": "</span>, <span class="dv">1</span>)  <span class="co"># Split on the first occurrence of ': '</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="st">"Group Name"</span> <span class="kw">in</span> parts[<span class="dv">0</span>]:</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>                group_name <span class="op">=</span> parts[<span class="dv">1</span>].split(<span class="st">" - "</span>)[<span class="dv">0</span>]</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>                group_description <span class="op">=</span> <span class="st">" - "</span>.join(parts[<span class="dv">1</span>].split(<span class="st">" - "</span>)[<span class="dv">1</span>:])</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>                group_description <span class="op">=</span> group_description.replace(<span class="st">"</span><span class="ch">\n</span><span class="st">"</span>, <span class="st">" "</span>)</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> ags_version <span class="op">==</span> <span class="dv">3</span>:</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>                    headings <span class="op">=</span> extract_ags3_data_dict_table(table)</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>                <span class="cf">elif</span> ags_version <span class="op">==</span> <span class="dv">4</span>:</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>                    headings <span class="op">=</span> extract_ags4_data_dict_table(table)</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> group_name <span class="op">==</span> previous_group_name:</span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>                    extracted_data[<span class="op">-</span><span class="dv">1</span>][<span class="st">"headings"</span>].extend(headings)</span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>                <span class="cf">else</span>:</span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>                    extracted_data.append(</span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>                        {</span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"group_name"</span>: group_name,</span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"group_description"</span>: group_description,</span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"headings"</span>: headings,</span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>                        }</span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>                    )</span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>                previous_group_name <span class="op">=</span> group_name</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>Group Name : PROJ - Project Information
-Group Name : ABBR - Abbreviation Definitions
-Group Name : ?BKFL - Backfill Details
-Group Name : CBRG - CBR Test – General
-Group Name : CBRT - CBR Test
-Group Name : CDIA - Casing Diameter by Depth
-Group Name : CHEM - Chemical Tests
-N.B. Provision for reporting of this data is included in groups CNMT and ?ICCT. These groups should be used as
-appropriate in preference.
-Group CHEM will be deleted from future editions.
-Group Name : CHIS - Chiselling Details
-Group Name : CHLK - Chalk Tests
-Group Name : CLSS - Classification Tests
-Group Name : CMPG - Compaction Tests - General
-Group Name : CMPT - Compaction Tests
-Group Name : CNMT - Contaminant and Chemical Testing
-NB. in situ measurement and monitoring of contamination and chemicals shoud be recorded in Group ?ICCT
-Group Name : CODE - Chemical Testing Codes
-Group Name : CONG - Consolidation Test - General
-Group Name : CONS - Consolidation Test
-Group Name : CORE - Rotary Core Information
-Group Name : DETL - Stratum Detail Descriptions
-Group Name : DICT - User Defined Groups and Headings
-Group Name : DISC - Discontinuity Data
-Group Name : DPRB - Dynamic Probe Test
-NB. The type of probe should be recorded in the Group DPRG
-Group Name : DPRG - Dynamic Probe Test - General
-Group Name : DREM - Depth Related Remarks
-Group Name : FILE - Associated Files
-Group Name : FLSH - Rotary Core Flush Details
-Group Name : FRAC - Fracture Spacing
-Group Name : FRST - Frost Susceptibility
-Group Name : GAST - Gas Constituents
-N.B. Provision for reporting of this data is included in groups CNMT and ?ICCT. These groups should be used as
-appropriate in preference.
-Group GAST will be deleted from future editions
-Group Name : GEOL - Stratum Descriptions
-Group Name : GRAD - Particle Size Distribution Analysis Data
-Group Name : HDIA - Hole Diameter by Depth
-NB. Casing information should be recorded in the CDIA group
-Group Name : ?HDPH - Depth Related Hole Information
-Group Name : HOLE - Hole Or Location Equivalent
-Group Name : HPGI - Horizontal Profile Gauge Installation Details
-N.B. Provision for reporting of this data is included in group ?MONP, group ?MONP should be used in preference.
-Group HPGI will be marked for deletion in the next edition.
-Group Name : HPGO - Horizontal Profile Gauge Observations
-N.B. Provision for reporting of this data is included in group ?MONR, group ?MONR should be used in preference.
-Group HPGO will be marked for deletion in the next edition.
-Group Name : ICBR - In Situ CBR Test
-Group Name : ?ICCT - In Situ Contaminant and Chemical Testing
-Group Name : IDEN - In Situ Density Test
-Group Name : ?IFID - On Site Volatile Headspace Testing Using Flame Ionisation Detector
-Group Name : INST - Single Point Instrument Installation Details
-N.B. Provision for reporting of this data is included in group ?MONP, group ?MONP should be used in preference.
-Group INST will be marked for deletion in the next edition.
-Group Name : IOBS - Single Point Instrument Readings
-N.B. Provision for reporting of this data is included in group ?MONR, group ?MONR should be used in preference.
-Group IOBS will be marked for deletion in the next edition.
-Group Name : ?IPID - On Site Volatile Headspace Testing by Photo Ionisation Detector
-Group Name : IPRM - In Situ Permeability Test
-Group Name : IRDX - In Situ Redox Test
-Group Name : IRES - In Situ Resistivity Test
-Group Name : ISPT - Standard Penetration Test Results
-Group Name : IVAN - In Situ Vane Test
-Group Name : MCVG - MCV Test - General
-Group Name : MCVT - MCV Test
-Group Name : ?MONP - Monitor Point
-Group Name : ?MONR - Monitor Point Reading
-Group Name : POBS - Piezometer Readings
-N.B. Provision for reporting of this data is included in group ?MONR, group ?MONR should be used in preference.
-Group POBS will be marked for deletion in the next edition.
-Group Name : PREF - Piezometer Installation Details
-N.B. Provision for reporting of this data is included in group ?MONP, group ?MONP should be used in preference.
-Group PREF will be marked for deletion in the next edition.
-Group Name : PROB - Profiling Instrument Readings
-N.B. Provision for reporting of this data is included in group ?MONR, group ?MONR should be used in preference.
-Group PROB will be marked for deletion in the next edition.
-Group Name : PROF - Profiling Instrument Installation Details
-N.B. Provision for reporting of this data is included in group ?MONP, group ?MONP should be used in preference.
-Group PROF will be marked for deletion in the next edition.
-Group Name : PRTD - Pressuremeter Test Data
-Group Name : PRTG - Pressuremeter Test Results, General
-Group Name : PRTL - Pressuremeter Test Results, Individual Loops
-Group Name : PTIM - Hole Progress by Time
-Group Name : PTST - Laboratory Permeability Tests
-Group Name : PUMP - Pumping Test
-Group Name: RELD - Relative Density Test
-Group Name : ROCK - Rock Testing
-Group Name : ROCK - Rock Testing
-Group Name : SAMP - Sample Reference Information
-Group Name : SHBG - Shear Box Testing - General
-Group Name : SHBT - Shear Box Testing
-Group Name : STCN - Static Cone Penetration Test
-Group Name : SUCT - Suction Tests
-Group Name : TNPC - Ten Per Cent Fines
-Group Name : ?TREM - Time Related Remarks
-Group Name : TRIG - Triaxial Test - General
-Group Name : TRIX - Triaxial Test
-Group Name : UNIT - Definition of &lt;UNITS&gt; and CNMT_UNIT</code></pre>
+<pre><code>Group Name: PROJ - Project Information
+Group Name: ABBR - Abbreviation Definitions
+Group Name: DICT - User Defined Groups and Headings
+Group Name: FILE - Associated Files
+Group Name: TRAN - Data File Transmission Information / Data Status
+Group Name: TYPE - Definition of Data Types
+Group Name: UNIT - Definition of Units
+Group Name: AAVT - Aggregate Abrasion Tests
+Group Name: AAVT - Aggregate Abrasion Tests
+Group Name: ACVT - Aggregate Crushing Value Tests
+Group Name: AELO - Aggregate Elongation Index Tests
+Group Name: AFLK - Aggregate Flakiness Tests
+Group Name: AFLK - Aggregate Flakiness Tests
+Group Name: AIVT - Aggregate Impact Value Tests
+Group Name: AIVT - Aggregate Impact Value Tests
+Group Name: ALOS - Los Angeles Abrasion Tests
+Group Name: ALOS - Los Angeles Abrasion Tests
+Group Name: APSV - Aggregate Polished Stone Tests
+Group Name: ARTW - Aggregate Determination of the Resistance to Wear (micro-Deval)
+Group Name: ASDI - Slake Durability Index Tests
+Group Name: ASNS - Aggregate Soundness Tests
+Group Name: AWAD - Aggregate Water Absorption Tests
+Group Name: AWAD - Aggregate Water Absorption Tests
+Group Name: BKFL - Exploratory Hole Backfill Details
+Group Name: CBRG - California Bearing Ratio Tests - General
+Group Name: CBRT - California Bearing Ratio Tests - Data
+Group Name: CDIA - Casing Diameter by Depth
+Group Name: CHIS - Chiselling Details
+Group Name: CHOC - Chain of Custody Information
+Group Name: CMPG - Compaction Tests - General
+Group Name: CMPT - Compaction Tests - Data
+Group Name: CONG - Consolidation Tests - General
+Group Name: CONG - Consolidation Tests - General
+Group Name: CONS - Consolidation Tests - Data
+Group Name: CONS - Consolidation Tests - Data
+Group Name: CTRC - Cyclic Triaxial Tests - Consolidation
+Group Name: CTRC - Cyclic Triaxial Tests - Consolidation
+Group Name: CTRD - Cyclic Triaxial Tests - Data
+Group Name: CTRG - Cyclic Triaxial Test - General
+Group Name: CTRG - Cyclic Triaxial Test - General
+Group Name: CTRP - Cyclic Triaxial Test - Derived Parameters
+Group Name: CTRP - Cyclic Triaxial Test - Derived Parameters
+Group Name: CTRS - Cyclic Triaxial Test - Saturation
+Group Name: CORE - Coring Information
+Group Name: DCPG - Dynamic Cone Penetrometer Tests - General
+Group Name: DCPG - Dynamic Cone Penetrometer Tests - General
+Group Name: DCPT - Dynamic Cone Penetrometer Tests - Data
+Group Name: DETL - Stratum Detail Descriptions
+Group Name: DETL - Stratum Detail Descriptions
+Group Name: DISC - Discontinuity Data
+Group Name: DISC - Discontinuity Data
+Group Name: DLOG - Driller Geological Description
+Group Name: DOBS - Drilling/Advancement Observations &amp; Parameters
+Group Name: DOBS - Drilling/Advancement Observations &amp; Parameters
+Group Name: DPRG - Dynamic Probe Tests - General
+Group Name: DPRB - Dynamic Probe Tests - Data
+Group Name: DREM - Depth Related Remarks
+Group Name: ECTN - Sample Container Details
+Group Name: ELRG - Environmental Laboratory Reporting
+Group Name: ELRG - Environmental Laboratory Reporting
+Description
+Depth to top of test
+specimen
+Laboratory analytical
+name
+
+Group Name: ERES - Environmental Contaminant Testing
+Group Name: ERES - Environmental Contaminant Testing
+Group Name: ESCG - Effective Stress Consolidation Tests - General
+Group Name: ESCG - Effective Stress Consolidation Tests - General
+Group Name: ESCT - Effective Stress Consolidation Tests - Data
+Group Name: ESCT - Effective Stress Consolidation Tests - Data
+Group Name: FGHG - Field Geohydraulic Testing - General
+Group Name: FGHI - Field Geohydraulic Testing - Instrumentation Details
+Group Name: FGHS - Field Geohydraulic Testing - Test Results (per stage)
+Group Name: FGHT - Field Geohydraulic Testing - Data
+Group Name: FLSH - Drilling Flush Details
+Group Name: FRAC - Fracture Spacing
+Group Name: FRST - Frost Susceptibility Tests
+Group Name: FRST - Frost Susceptibility Tests
+Group Name: GCHM - Geotechnical Chemistry Testing
+Group Name: GCHM - Geotechnical Chemistry Testing
+Group Name: GEOL - Field Geological Descriptions
+Group Name: GRAG - Particle Size Distribution Analysis - General
+Group Name: GRAG - Particle Size Distribution Analysis - General
+Group Name: GRAT - Particle Size Distribution Analysis - Data
+Group Name: GRAT - Particle Size Distribution Analysis - Data
+Group Name: HDIA - Hole Diameter by Depth
+Group Name: HDPH - Depth Related Exploratory Hole Information
+Group Name: HDPH - Depth Related Exploratory Hole Information
+Group Name: HORN - Exploratory Hole Orientation and Inclination
+Group Name: ICBR - In Situ California Bearing Ratio Tests
+Group Name: ICBR - In Situ California Bearing Ratio Tests
+Group Name: IDEN - In Situ Density Tests
+Group Name: IFID - On Site Volatile Headspace Testing Using Flame Ionisation Detector
+Group Name: IPEN - In Situ Hand Penetrometer Tests
+Group Name: IPID - On Site Volatile Headspace Testing by Photo Ionisation Detector
+Group Name: IPID - On Site Volatile Headspace Testing by Photo Ionisation Detector
+Group Name: IPRG - In Situ Permeability Tests - General
+Group Name: IPRG - In Situ Permeability Tests - General
+Group Name: IPRT - In Situ Permeability Tests - Data
+Group Name: IRDX - In Situ Redox Tests
+Group Name: IRES - In Situ Resistivity Tests
+Group Name: IRES - In Situ Resistivity Tests
+Group Name: ISAG - Soakaway Tests - General
+Group Name: ISAG - Soakaway Tests - General
+Group Name: ISAT - Soakaway Tests - Data
+Group Name: ISPT - Standard Penetration Test Results
+Group Name: ISPT - Standard Penetration Test Results
+Group Name: IVAN - In Situ Vane Tests
+Group Name: LBSG - Testing Schedule
+Group Name: LBST - Testing Schedule Details
+Group Name: LBST - Testing Schedule Details
+Group Name: LDEN - Density Tests
+Group Name: LDEN - Density Tests
+Group Name: LDYN - Dynamic Testing
+Group Name: LDYN - Dynamic Testing
+Group Name: LFCN – Laboratory Fall Cone Test
+Group Name: LFCN – Laboratory Fall Cone Test
+Group Name: LLIN - Linear Shrinkage Tests
+Group Name: LLIN - Linear Shrinkage Tests
+Group Name: LLPL - Liquid and Plastic Limit Tests
+Group Name: LLPL - Liquid and Plastic Limit Tests
+Group Name: LNMC - Water/moisture Content Tests
+Group Name: LOCA - Location Details
+Group Name: LOCA - Location Details
+Group Name: LPDN - Particle Density Tests
+Group Name: LPEN - Laboratory Hand Penetrometer Tests
+Group Name: LRES - Laboratory Resistivity Tests
+Group Name: LRES - Laboratory Resistivity Tests
+Group Name: LSLT - Shrinkage Limit Tests
+Group Name: LSTG - Initial Consumption of Lime Tests - General
+Group Name: LSTG - Initial Consumption of Lime Tests - General
+Group Name: LSTT - Initial Consumption of Lime Tests - Data
+Group Name: LSWL - Swelling Index Testing
+Group Name: LSWL - Swelling Index Testing
+Group Name: LTCH - Laboratory Thermal Conductivity
+Group Name: LTCH - Laboratory Thermal Conductivity
+Group Name: LUCT - Laboratory Unconfined Compression Test
+Group Name: LUCT - Laboratory Unconfined Compression Test
+Group Name: LVAN - Laboratory Vane Tests
+Group Name: LVAN - Laboratory Vane Tests
+Group Name: MCVG - MCV Tests - General
+Group Name: MCVG - MCV Tests - General
+Group Name: MCVT - MCV Tests - Data
+Group Name: MCVT - MCV Tests - Data
+Group Name: MOND - Monitoring Readings
+Group Name: MONG - Monitoring Installations and Instruments
+Group Name: MONG - Monitoring Installations and Instruments
+Group Name: PIPE - Monitoring Installation Pipe Work
+Group Name: PLTG - Plate Loading Tests - General
+Group Name: PLTT - Plate Loading Tests - Data
+Group Name: PMTG - Pressuremeter Test Results - General
+Group Name: PMTG - Pressuremeter Test Results - General
+Group Name: PMTD - Pressuremeter Test Data
+Group Name: PMTL - Pressuremeter Test Results - Individual Loops
+Group Name: PREM - Project Specific Time Related Remarks
+Group Name: PTIM - Boring/Drilling Progress by Time
+Group Name: PTST - Laboratory Permeability Tests
+Group Name: PTST - Laboratory Permeability Tests
+Group Name: PTST - Laboratory Permeability Tests
+Group Name: PUMG - Pumping Tests - General
+Group Name: PUMT - Pumping Tests - Data
+Group Name: RCAG - Rock Abrasiveness Tests - General
+Group Name: RCAG - Rock Abrasiveness Tests - General
+Group Name: RCAT - Rock Abrasiveness Tests - Data
+Group Name: RCAT - Rock Abrasiveness Tests - Data
+Group Name: RCCV - Chalk Crushing Value Tests
+Group Name: RCCV - Chalk Crushing Value Tests
+Group Name: RDEN - Rock Porosity and Density Tests
+Group Name: RDEN - Rock Porosity and Density Tests
+Group Name: RELD - Relative Density Tests
+Group Name: RELD - Relative Density Tests
+Group Name: RESC - Resonant Column Test - Consolidation
+Group Name: RESC - Resonant Column Test - Consolidation
+Group Name: RESD - Resonant Column Test – Data
+Group Name: RESD - Resonant Column Test – Data
+Group Name: RESG - Resonant Column Test – General
+Group Name: RESG - Resonant Column Test – General
+Group Name: RESP - Resonant Column Test - Derived Parameters
+Group Name: RESS - Resonant Column Test – Saturation
+Group Name: RPLT - Point Load Testing
+Group Name: RPLT - Point Load Testing
+Group Name: RSCH - Schmidt Rebound Hardness Tests
+Group Name: RSCH - Schmidt Rebound Hardness Tests
+Group Name: RSCH - Schmidt Rebound Hardness Tests
+Group Name: RSHR - Shore Scleroscope Hardness Tests
+Group Name: RTEN - Tensile Strength Testing
+Group Name: RUCS - Rock Uniaxial Compressive Strength and Deformability Tests
+Group Name: RUCS - Rock Uniaxial Compressive Strength and Deformability Tests
+Group Name: RWCO - Water Content of Rock Tests
+Group Name: RWCO - Water Content of Rock Tests
+Group Name: SAMP - Sample Information
+Group Name: SAMP - Sample Information
+Group Name: SCDG - Static Cone Dissipation Tests - General
+Group Name: SCDT - Static Cone Dissipation Tests - Data
+Group Name: SCDT - Static Cone Dissipation Tests - Data
+Group Name: SCPG - Static Cone Penetration Tests - General
+Group Name: SCPP - Static Cone Penetration Tests - Derived Parameters
+Group Name: SCPT - Static Cone Penetration Tests - Data
+Group Name: SCPT - Static Cone Penetration Tests - Data
+Group Name: SHBG - Shear Box Testing - General
+Group Name: SHBG - Shear Box Testing - General
+Group Name: SHBT - Shear Box Testing - Data
+Group Name: SHBT - Shear Box Testing - Data
+Group Name: STND - Standards / Specifications
+Group Name: SUCT - Suction Tests
+Group Name: SUCT - Suction Tests
+Group Name: TNPC - Ten Per Cent Fines
+Group Name: TNPC - Ten Per Cent Fines
+Group Name: TREG - Triaxial Tests - Effective Stress - General
+Group Name: TRET - Triaxial Tests - Effective Stress - Data
+Group Name: TRET - Triaxial Tests - Effective Stress - Data
+Group Name: TREM - Location Specific Time Related Remarks
+Group Name: TRIG - Triaxial Tests - Total Stress - General
+Group Name: TRIT - Triaxial Tests - Total Stress - Data
+Group Name: TRIT - Triaxial Tests - Total Stress - Data
+Group Name: WADD - Water Added Records
+Group Name: WADD - Water Added Records
+Group Name: WETH - Weathering
+Group Name: WGPG - Wireline Geophysics - General
+Group Name: WGPT - Wireline Geophysics - Readings
+Tool
+Calliper X-Y (2 x two
+arm Calliper)
+Downhole Magnetic
+Resonance
+
+Group Name: WINS - Window or Windowless Sampling Run Details
+Group Name: WSTG - Water Strike - General
+Group Name: WSTD - Water Strike - Details</code></pre>
 </div>
 </div>
-<div id="cell-10" class="cell" data-execution_count="12">
+<div id="cell-8" class="cell" data-execution_count="13">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the extracted data to a JSON file</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="ss">f"ags</span><span class="sc">{</span>ags_version<span class="sc">}</span><span class="ss">_data_dict_p</span><span class="sc">{</span>from_page<span class="sc">}</span><span class="ss">-</span><span class="sc">{</span>to_page<span class="sc">}</span><span class="ss">.json"</span>, <span class="st">"w"</span>) <span class="im">as</span> json_file:</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    json.dump(extracted_data, json_file, indent<span class="op">=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="ss">f"ags</span><span class="sc">{</span>ags_version<span class="sc">}</span><span class="ss">_manual_groups.json"</span>, <span class="st">"r"</span>) <span class="im">as</span> f:</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    manual_groups <span class="op">=</span> json.load(f)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>extracted_groups <span class="op">=</span> [d[<span class="st">"group_name"</span>] <span class="cf">for</span> d <span class="kw">in</span> extracted_data]</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">set</span>(manual_groups) <span class="op">-</span> <span class="bu">set</span>(extracted_groups))</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">set</span>(extracted_groups) <span class="op">-</span> <span class="bu">set</span>(manual_groups))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-output cell-output-stdout">
+<pre><code>{'LFCN'}
+{'LFCN – Laboratory Fall Cone Test'}</code></pre>
 </div>
-<div id="cell-11" class="cell" data-execution_count="13">
+</div>
+<div id="cell-9" class="cell" data-execution_count="14">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ss">f"The number of groups in the AGS</span><span class="sc">{</span>ags_version<span class="sc">}</span><span class="ss"> data dictionary is </span><span class="sc">{</span><span class="bu">len</span>(extracted_data)<span class="sc">}</span><span class="ss">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the extracted data to a JSON file</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="ss">f"ags</span><span class="sc">{</span>ags_version<span class="sc">}</span><span class="ss">_data_dict_p</span><span class="sc">{</span>from_page<span class="sc">}</span><span class="ss">-</span><span class="sc">{</span>to_page<span class="sc">}</span><span class="ss">.json"</span>, <span class="st">"w"</span>) <span class="im">as</span> json_file:</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    json.dump(extracted_data, json_file, indent<span class="op">=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="13">
-<pre><code>'The number of groups in the AGS3 data dictionary is 73'</code></pre>
-</div>
-</div>
-<div id="cell-12" class="cell" data-execution_count="10">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>extracted_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display" data-execution_count="10">
-<pre><code>[{'group_name': 'RELD',
-  'group_description': 'Relative Density Test',
-  'headings': [{'status': '*',
-    'heading': 'HOLE_ID',
-    'unit': None,
-    'description': 'Exploratory hole or location equivalent',
-    'example': '6431/A'},
-   {'status': '*',
-    'heading': 'SAMP_TOP',
-    'unit': 'm',
-    'description': 'Depth to TOP of test sample',
-    'example': '8.50'},
-   {'status': '*',
-    'heading': 'SAMP_REF',
-    'unit': None,
-    'description': 'Sample reference number',
-    'example': '16'},
-   {'status': '*',
-    'heading': 'SAMP_TYPE',
-    'unit': None,
-    'description': 'Sample type',
-    'example': 'LB (See Appendix 1)'},
-   {'status': '*',
-    'heading': 'SPEC_REF',
-    'unit': None,
-    'description': 'Specimen reference number',
-    'example': '2'},
-   {'status': '*',
-    'heading': 'SPEC_DPTH',
-    'unit': 'm',
-    'description': 'Specimen depth',
-    'example': '8.50'},
-   {'status': None,
-    'heading': 'RELD_REM',
-    'unit': None,
-    'description': 'Method of test',
-    'example': None},
-   {'status': None,
-    'heading': 'RELD_DMAX',
-    'unit': 'Mg/m3',
-    'description': 'Maximum dry density as BS 1377 part 4 cl 4',
-    'example': '2.15'},
-   {'status': None,
-    'heading': 'RELD_375',
-    'unit': '%',
-    'description': 'Weight percent of sample retained on 37.5mm sieve',
-    'example': '7.0'},
-   {'status': None,
-    'heading': 'RELD_Ø63',
-    'unit': '%',
-    'description': 'Weight percent of sample retained on 6.3mm sieve',
-    'example': '10'},
-   {'status': None,
-    'heading': 'RELD_Ø2Ø',
-    'unit': '%',
-    'description': 'Weight percent of sample retained on 2mm sieve',
-    'example': '5.0'},
-   {'status': None,
-    'heading': 'RELD_DMIN',
-    'unit': 'Mg/m3',
-    'description': 'Minimum dry density as BS 1377 part 4 cl 4',
-    'example': '1.65'}]}]</code></pre>
-</div>
 </div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1397,7 +1172,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/bedrock-gi/bedrock-web/blob/main/sandbox/ags_data_dict_from_pdf_to_json.ipynb" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.dev/bedrock-gi/bedrock-web/blob/main/sandbox/ags_data_dict_from_pdf_to_json.ipynb" class="toc-action"><i class="bi empty"></i>Edit this page</a></li><li><a href="https://github.com/bedrock-gi/bedrock-gi/issues/new/choose" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/bedrock-gi/bedrock-web/blob/main/sandbox/ags_data_dict_from_pdf_to_json.ipynb" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.dev/bedrock-gi/bedrock-web/blob/main/sandbox/ags_data_dict_from_pdf_to_json.ipynb" class="toc-action"><i class="bi empty"></i>Edit this page</a></li><li><a href="https://github.com/bedrock-gi/bedrock-gi/issues/new/choose" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">

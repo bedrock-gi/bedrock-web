@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>ags3_to_gis_and_speckle – Bedrock</title>
+<title>Kai Tak – Bedrock</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -106,8 +106,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
-<meta property="og:title" content="Bedrock">
-<meta property="og:image" content="https://bedrock.engineer/docs/Tutorials/public/Bedrock_inCircle.png">
+<meta property="og:title" content="Kai Tak – Bedrock">
+<meta property="og:description" content="Bedrock is the open source foundation for ground investigation data, subsurface modelling and Geo-BIM.">
+<meta property="og:image" content="https://bedrock.engineer/docs/tutorials/public/Bedrock_inCircle.png">
 <meta property="og:site_name" content="Bedrock">
 </head>
 
@@ -139,10 +140,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="../../articles.html"> 
 <span class="menu-text">Articles</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../community.html"> 
-<span class="menu-text">Community</span></a>
-  </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-help" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Help</span>
@@ -162,11 +159,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="dropdown-item" href="https://speckle.community/"><i class="bi bi-question-square-fill" role="img">
 </i> 
  <span class="dropdown-text">Ask Speckle a Question</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../faq.html"><i class="bi bi-question-circle" role="img">
-</i> 
- <span class="dropdown-text">FAQ</span></a>
   </li>  
     </ul>
   </li>
@@ -193,17 +185,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Kai Tak</h1>
+</div>
 
 
 
-<div id="cell-0" class="cell" data-execution_count="1">
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Kai Tak is a neighborhood in Kowloon, Hong Kong. One of the highlights of Kai Tak used to be it’s airport, which holds a special place in aviation history due to its unique and challenging approach, which involved pilots making a steep descent over a densely populated area while making a sharp turn at the same time and then landing on a single runway that jutted out into Victoria Harbor. <a href="https://www.youtube.com/watch?v=OtnL4KYVtDE">Landing at Kai Tak Airport | YouTube</a></p>
+<p>In 1998 the new Hong Kong International Airport opened, and operations at Kai Tak Airport were ceased. After the closure, the former Kai Tak Airport and surrounding neighborhood underwent a massive redevelopment project to transform it into a new residential and commercial district, which is still continuing today.</p>
+<p>Have a look at the <a href="https://app.speckle.systems/projects/013aaf06e7/models/0e43d1f003,a739490298">Kai Tak Speckle Project</a> to get an idea what Kai Tak looks like now. (Developents are going fast, so <a href="https://www.google.com/maps/@22.3065043,114.2020499,462a,35y,343.1h,75.5t/data=!3m1!1e3?entry=ttu">Google Earth 3D</a> is a bit outdated.)</p>
+<p>Ground Investigation Data for Hong Kong can be found here:<br>
+<a href="https://www.ginfo.cedd.gov.hk/GEOOpenData/eng/Default.aspx">GEO Data for Public Use</a></p>
+<div id="cell-2" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> bedrock.gi <span class="im">as</span> brgi</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="cell-1" class="cell" data-execution_count="14">
+<div id="cell-3" class="cell" data-execution_count="14">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>data_root <span class="op">=</span> <span class="st">"https://github.com/bedrock-gi/bedrock-web/raw/main/public/gi-data/kaitak"</span></span>
@@ -219,7 +232,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Failed to retrieve data: </span><span class="sc">{</span>response<span class="sc">.</span>status_code<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="cell-2" class="cell" data-execution_count="15">
+<div id="cell-4" class="cell" data-execution_count="15">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>data_url</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -228,7 +241,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>'https://github.com/bedrock-gi/bedrock-web/raw/main/public/gi-data/kaitak/31241/GE9908.7.ags'</code></pre>
 </div>
 </div>
-<div id="cell-3" class="cell" data-execution_count="4">
+<div id="cell-5" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ags3_dfs <span class="op">=</span> brgi.ags3_to_dfs(ags3_str)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -248,7 +261,7 @@ No data was found on line 198. Last Group: GEOL
 No data was found on line 199. Last Group: GEOL</code></pre>
 </div>
 </div>
-<div id="cell-4" class="cell" data-execution_count="10">
+<div id="cell-6" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>ags3_dfs.keys()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -257,7 +270,7 @@ No data was found on line 199. Last Group: GEOL</code></pre>
 <pre><code>dict_keys(['PROJ', 'HOLE', 'PTIM', 'SAMP', 'GEOL'])</code></pre>
 </div>
 </div>
-<div id="cell-5" class="cell" data-execution_count="12">
+<div id="cell-7" class="cell" data-execution_count="12">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>ags3_dfs[<span class="st">"HOLE"</span>].columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -271,7 +284,7 @@ No data was found on line 199. Last Group: GEOL</code></pre>
       dtype='object')</code></pre>
 </div>
 </div>
-<div id="cell-6" class="cell" data-execution_count="13">
+<div id="cell-8" class="cell" data-execution_count="13">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>ags3_dfs[<span class="st">"HOLE"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1225,7 +1238,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/bedrock-gi/bedrock-web/blob/main/docs/Tutorials/ags3_to_gis_and_speckle.ipynb" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.dev/bedrock-gi/bedrock-web/blob/main/docs/Tutorials/ags3_to_gis_and_speckle.ipynb" class="toc-action"><i class="bi empty"></i>Edit this page</a></li><li><a href="https://github.com/bedrock-gi/bedrock-gi/issues/new/choose" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions"><ul><li><a href="https://github.com/bedrock-gi/bedrock-web/blob/main/docs/tutorials/ags3_to_gis_and_speckle.ipynb" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.dev/bedrock-gi/bedrock-web/blob/main/docs/tutorials/ags3_to_gis_and_speckle.ipynb" class="toc-action"><i class="bi empty"></i>Edit this page</a></li><li><a href="https://github.com/bedrock-gi/bedrock-gi/issues/new/choose" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">
