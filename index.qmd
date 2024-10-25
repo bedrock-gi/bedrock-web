@@ -6,65 +6,55 @@ format:
     subtitle: "The open source foundation for ground investigation data, subsurface modelling and Geo-BIM"
     toc: false
     repo-actions: false
+    link-external-icon: false
 ---
 
-::: {.callout-caution}
+### 📖 Read / write Ground Investigation (GI) data in different formats
 
-## Under Construction 🏗️
+| Data Format | Read | Write |
+|-------------|------|-------|
+| AGS 3       | ✅  | ❌    |
+| AGS 4       | Soon | [python-ags4](https://pypi.org/project/python-AGS4/) |
+| Excel       | ✅  | ✅    |
+| CSV         | ✅  | ✅    |
+| JSON        | ✅  | ✅    |
+| GeoJSON     | ✅  | ✅    |
 
-This page of Bedrock's website is still under construction.
+What do you need? [DIGGS](https://diggsml.org/)? [NADAG](https://www.ngu.no/geologisk-kartlegging/om-nadag-nasjonal-database-grunnundersokelser)? [GEF](https://publicwiki.deltares.nl/display/STREAM/Dutch+National+GEF+Standards)?  Something else?  
+Let us know by creating an [issue](https://github.com/bedrock-gi/bedrock-gi/issues) or starting a [discussion](https://github.com/orgs/bedrock-gi/discussions) 💭
 
-:::
+Also, if you have a project with publicly available GI data, please share that in a [discussion](https://github.com/orgs/bedrock-gi/discussions), such that we can create a tutorial from it 🤩
 
-## What?
-1. Open source Python package for converting ground investigation data in e.g. AGS v3 or v4 format to 3D GIS vector data.
-2. Documentation and tutorials on how to use this 
+### ✅ Validate your GI data
 
-### GI Data Model
-```{.json}
-{
-  "location": {
-    "attributes": {},
-    "geometry": "Point / 3D LineString",    // <1>
-    "children": {
-      "materialClassification": {
-        "attributes": {},
-        "geometry": "3D LineString"
-      },
-      "standardPenetrationTest": {
-        "attributes": {},
-        "geometry": "3D Point"
-      },
-      "rockQualityDesignation": {
-        "attributes": {},
-        "geometry": "3D LineString"
-      },
-      "otherInSituTests": {
-        "attributes": {},
-        "geometry": "3D Point or 3D LineString"
-      },
-      "sample": {
-        "attributes": {},
-        "geometry": "3D Point",
-        "children": {
-          "grainSizeDistribution": {},
-          "atterbergLimits": {},
-          "oedometerTest": {},
-          "triaxialTest": {},
-          "unconfinedCompressiveStrength": {},
-          "otherLabTests": {}
-        }
-      }
-    }
-  }
-}
-```
-1.  Points are sometimes easier to visualize in GIS, e.g. in Matplotlib vertical 3D LineStrings vanish in a top view.
+`bedrock-gi` comes with data validation to make sure that you can combine Ground Investigation data from multiple files into a single GIS database with consistent relationships between GI locations, samples, in-situ measurements and lab tests.
 
+This data validation mechanism (based on [`pandera`](https://pandera.readthedocs.io/en/stable/)) is easily extensible, giving you the power to add your own data validation criteria 💪
 
-## Why?
+### 🗺️ Put your GI data from multiple files into a single 3D GIS database
 
+For example, you can take GI data from 100 AGS files and combine them into a single a [GeoPackage](https://en.wikipedia.org/wiki/GeoPackage) ([like a Shapefile, but then waaay better](http://switchfromshapefile.org/)). Such a GeoPackage can then be loaded into ArcGIS, such that you can visualize your GI data in 3D:
 
-## How?
-- Open Source
-- Community
+<p align="center">
+  <img src="./public/images/KaiTak_BrGI_ArcGIS.gif" alt="Edit this page on GitHub button on bedrock.engineer" width="90%"/>
+</p>
+
+### 🟦 Put your GI data into Speckle
+
+Once you have your GI data inside [Speckle](https://speckle.systems/), it's super easy to visualize your GI data together with your civil engineering designs:
+
+<p align="center">
+  <img src="./public/images/KaiTak_BrGI_Speckle.png" alt="Kai Tak, Hong Kong, data from many sources." width="56%" />
+  <img src="./public/images/BPFoundation.png" alt="Bored Pile foundation design." width="40%" />
+  <a href="https://app.speckle.systems/projects/013aaf06e7/models/0fa0287ba8@dfbec71408,1cbe68ed69@d3c4a34cff,44c8d1ecae@b962e2f29d,7f9d99cae2@bbed7cf165,9535541c2b@fafe06f9c0,a739490298@e858cc8cb3,ff81bfa02b@dda7c2f981" target="_blank">Click here to go to the Kai Tak Speckle project from the left image</a>
+</p>
+
+And your GI data becomes available in all the software that [Speckle has connectors](https://app.speckle.systems/downloads) for.
+
+### 🔓 Free and Open Source Software
+
+Free and Open Source Software (FOSS) gives you full access to the code, which means you can customize `bedrock-gi` to integrate with other tools and fit your workflows & project needs.
+
+As the name implies, FOSS is free to use, so you're not tied to expensive software licenses or locked into a specific software vendor ⛓️‍💥
+
+You can give [feedback](#-feedback) and [contribute](#-contributing), such that together we together can build the tools we've always wanted and needed 🤝
