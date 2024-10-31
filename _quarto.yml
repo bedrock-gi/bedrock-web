@@ -5,7 +5,7 @@ project:
 
 website:
   title: "Bedrock"
-  description: "Bedrock is the open source foundation for ground investigation data, subsurface modelling and Geo-BIM."
+  description: "Bedrock, the Open Source Foundation for Ground Investigation Data"
   image: "public/Bedrock_inCircle.png"
   favicon: "public/favicon.ico"
   open-graph: true
