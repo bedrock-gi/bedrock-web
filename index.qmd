@@ -3,7 +3,7 @@ title: "Bedrock"
 
 format:
   html:
-    subtitle: "The open source foundation for ground investigation data, subsurface modelling and Geo-BIM"
+    subtitle: "The Open Source Foundation for Ground Investigation Data"
     toc: false
     repo-actions: false
     link-external-icon: false
