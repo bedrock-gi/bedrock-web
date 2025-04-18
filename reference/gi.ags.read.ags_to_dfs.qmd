@@ -1,0 +1,17 @@
+# gi.ags.read.ags_to_dfs { #bedrock_ge.gi.ags.read.ags_to_dfs }
+
+```python
+gi.ags.read.ags_to_dfs(ags_data)
+```
+
+Convert AGS 3 or AGS 4 data to a dictionary of pandas DataFrames.
+
+Args:
+    ags_data (str): The AGS data as a string.
+
+Raises:
+    ValueError: If the data does not match AGS 3 or AGS 4 format.
+
+Returns:
+    Dict[str, pd.DataFrame]]: A dictionary where keys represent AGS group
+    names with corresponding DataFrames for the corresponding group data.

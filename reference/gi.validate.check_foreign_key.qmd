@@ -1,0 +1,25 @@
+# gi.validate.check_foreign_key { #bedrock_ge.gi.validate.check_foreign_key }
+
+```python
+gi.validate.check_foreign_key(foreign_key, parent_table, table_with_foreign_key)
+```
+
+Checks if a foreign key in a table exists in the parent table.
+
+Foreign keys describe the relationship between tables in a relational database.
+For example, all GI Locations belong to a project.
+All GI Locations are related to a project with the project_uid (Project Unique IDentifier).
+The project_uid is the foreign key in the Location table.
+This implies that the project_uid in the foreign key in the Location table must exist in the Project parent table.
+That is what this function checks.
+
+Args:
+    foreign_key (str): The name of the column of the foreign key.
+    parent_table (Union[pd.DataFrame, gpd.GeoDataFrame]): The parent table.
+    table_with_foreign_key (Union[pd.DataFrame, gpd.GeoDataFrame]): The table with the foreign key.
+
+Raises:
+    ValueError: If the table with the foreign key contains foreign keys that don't occur in the parent table.
+
+Returns:
+    bool: True if the foreign keys all exist in the parent table.

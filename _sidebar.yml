@@ -1,0 +1,14 @@
+website:
+  sidebar:
+  - contents:
+    - reference/index.qmd
+    - contents:
+      - reference/gi.ags.read.ags_to_dfs.qmd
+      section: AGS
+    - contents:
+      - reference/gi.validate.check_brgi_database.qmd
+      - reference/gi.validate.check_no_gis_brgi_database.qmd
+      - reference/gi.validate.check_foreign_key.qmd
+      section: Validate
+    id: reference
+  - id: dummy-sidebar

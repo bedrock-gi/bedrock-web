@@ -1,0 +1,6 @@
+# gi.validate.check_brgi_database { #bedrock_ge.gi.validate.check_brgi_database }
+
+```python
+gi.validate.check_brgi_database(brgi_db)
+```
+

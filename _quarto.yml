@@ -107,3 +107,22 @@ format:
     code-copy: true
     code-fold: true
     code-annotations: hover
+
+quartodoc:
+  # the name used to import the package you want to create reference docs for
+  package: bedrock_ge
+
+  # write sidebar data to this file
+  sidebar: _sidebar.yml
+
+  sections:
+    - title: AGS
+      desc: Read & Validate AGS Files
+      contents:
+        - gi.ags.read.ags_to_dfs
+    - title: Validate
+      desc: Validate Bedrock GI databases
+      contents: 
+        - gi.validate.check_brgi_database
+        - gi.validate.check_no_gis_brgi_database
+        - gi.validate.check_foreign_key

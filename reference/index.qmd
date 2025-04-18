@@ -1,0 +1,19 @@
+# Function reference {.doc .doc-index}
+
+## AGS
+
+Read & Validate AGS Files
+
+| | |
+| --- | --- |
+| [gi.ags.read.ags_to_dfs](gi.ags.read.ags_to_dfs.qmd#bedrock_ge.gi.ags.read.ags_to_dfs) | Convert AGS 3 or AGS 4 data to a dictionary of pandas DataFrames. |
+
+## Validate
+
+Validate Bedrock GI databases
+
+| | |
+| --- | --- |
+| [gi.validate.check_brgi_database](gi.validate.check_brgi_database.qmd#bedrock_ge.gi.validate.check_brgi_database) |  |
+| [gi.validate.check_no_gis_brgi_database](gi.validate.check_no_gis_brgi_database.qmd#bedrock_ge.gi.validate.check_no_gis_brgi_database) |  |
+| [gi.validate.check_foreign_key](gi.validate.check_foreign_key.qmd#bedrock_ge.gi.validate.check_foreign_key) | Checks if a foreign key in a table exists in the parent table. |
