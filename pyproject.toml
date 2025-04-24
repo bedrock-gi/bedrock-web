@@ -10,5 +10,6 @@ dependencies = [
     "jupyter>=1.1.1",
     "matplotlib>=3.10.1",
     "pdfplumber>=0.11.4",
+    "quartodoc>=0.9.1",
     "specklepy>=2.19.6",
 ]
