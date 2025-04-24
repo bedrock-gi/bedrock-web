@@ -1,0 +1,23 @@
+# gi.concatenate.concatenate_databases { #bedrock_ge.gi.concatenate.concatenate_databases }
+
+```python
+gi.concatenate.concatenate_databases(db1, db2)
+```
+
+Concatenate two dictionaries of pandas dataframes into one dict of dfs.
+
+The function concatenates the pandas dataframes of the second dict of dfs to the first dict of df for the keys that they have in common.
+Keys that don't occur in either of the dict of dfs need to end up in the final dict of dfs.
+
+## Parameters {.doc-section .doc-section-parameters}
+
+| Name   | Type                      | Description                                         | Default    |
+|--------|---------------------------|-----------------------------------------------------|------------|
+| db1    | Dict\[str, pd.DataFrame\] | A dictionary of pandas DataFrames, i.e. a database. | _required_ |
+| db2    | Dict\[str, pd.DataFrame\] | A dictionary of pandas DataFrames, i.e. a database. | _required_ |
+
+## Returns {.doc-section .doc-section-returns}
+
+| Name   | Type                      | Description                                     |
+|--------|---------------------------|-------------------------------------------------|
+| dict   | Dict\[str, pd.DataFrame\] | A dictionary of concatenated pandas DataFrames. |

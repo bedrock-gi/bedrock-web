@@ -1,0 +1,6 @@
+# gi.gis_geometry.calculate_gis_geometry { #bedrock_ge.gi.gis_geometry.calculate_gis_geometry }
+
+```python
+gi.gis_geometry.calculate_gis_geometry(no_gis_brgi_db)
+```
+

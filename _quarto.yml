@@ -23,6 +23,8 @@ website:
         href: docs/index.qmd
       - text: "Articles"
         href: articles.qmd
+      - text: "API Reference"
+        href: reference/index.qmd
       # - text: "Community"
       #   href: community.qmd
       - text: "Help"
@@ -111,18 +113,45 @@ format:
 quartodoc:
   # the name used to import the package you want to create reference docs for
   package: bedrock_ge
+  parser: google
 
   # write sidebar data to this file
   sidebar: _sidebar.yml
 
   sections:
     - title: AGS
-      desc: Read & Validate AGS Files
+      desc: Read, transform & validate AGS Files
       contents:
         - gi.ags.read.ags_to_dfs
+        - gi.ags.read.ags3_to_dfs
+        - gi.ags.read.ags4_to_dfs
+        - gi.ags.transform.ags3_db_to_no_gis_brgi_db
+        - gi.ags.transform.ags_proj_to_brgi_project
+        - gi.ags.validate.check_ags_proj_group
+
     - title: Validate
       desc: Validate Bedrock GI databases
       contents: 
         - gi.validate.check_brgi_database
         - gi.validate.check_no_gis_brgi_database
         - gi.validate.check_foreign_key
+    
+    - title: Write
+      desc: Write Bedrock GI databases to different file formats
+      contents: 
+        - gi.write.write_gi_db_to_gpkg
+        - gi.write.write_gi_db_to_excel
+        - gi.write.sanitize_table_name
+    
+    - title: Concatenate
+      contents: 
+        - gi.concatenate.concatenate_databases
+    
+    - title: GIS Geometry
+      desc: Calculate GIS Geometry for Bedrock GI databases and GI locations
+      contents: 
+        - gi.gis_geometry.calculate_gis_geometry
+        - gi.gis_geometry.calculate_location_gis_geometry
+        - gi.gis_geometry.calculate_wgs84_coordinates
+        - gi.gis_geometry.create_lon_lat_height_table
+        - gi.gis_geometry.calculate_in_situ_gis_geometry

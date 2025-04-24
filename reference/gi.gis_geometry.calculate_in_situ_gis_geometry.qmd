@@ -1,0 +1,6 @@
+# gi.gis_geometry.calculate_in_situ_gis_geometry { #bedrock_ge.gi.gis_geometry.calculate_in_situ_gis_geometry }
+
+```python
+gi.gis_geometry.calculate_in_situ_gis_geometry(brgi_in_situ, brgi_location, crs)
+```
+

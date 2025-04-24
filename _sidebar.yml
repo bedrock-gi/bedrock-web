@@ -4,11 +4,31 @@ website:
     - reference/index.qmd
     - contents:
       - reference/gi.ags.read.ags_to_dfs.qmd
+      - reference/gi.ags.read.ags3_to_dfs.qmd
+      - reference/gi.ags.read.ags4_to_dfs.qmd
+      - reference/gi.ags.transform.ags3_db_to_no_gis_brgi_db.qmd
+      - reference/gi.ags.transform.ags_proj_to_brgi_project.qmd
+      - reference/gi.ags.validate.check_ags_proj_group.qmd
       section: AGS
     - contents:
       - reference/gi.validate.check_brgi_database.qmd
       - reference/gi.validate.check_no_gis_brgi_database.qmd
       - reference/gi.validate.check_foreign_key.qmd
       section: Validate
+    - contents:
+      - reference/gi.write.write_gi_db_to_gpkg.qmd
+      - reference/gi.write.write_gi_db_to_excel.qmd
+      - reference/gi.write.sanitize_table_name.qmd
+      section: Write
+    - contents:
+      - reference/gi.concatenate.concatenate_databases.qmd
+      section: Concatenate
+    - contents:
+      - reference/gi.gis_geometry.calculate_gis_geometry.qmd
+      - reference/gi.gis_geometry.calculate_location_gis_geometry.qmd
+      - reference/gi.gis_geometry.calculate_wgs84_coordinates.qmd
+      - reference/gi.gis_geometry.create_lon_lat_height_table.qmd
+      - reference/gi.gis_geometry.calculate_in_situ_gis_geometry.qmd
+      section: GIS Geometry
     id: reference
   - id: dummy-sidebar

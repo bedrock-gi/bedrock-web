@@ -1,0 +1,27 @@
+# gi.gis_geometry.create_lon_lat_height_table { #bedrock_ge.gi.gis_geometry.create_lon_lat_height_table }
+
+```python
+gi.gis_geometry.create_lon_lat_height_table(brgi_location, crs)
+```
+
+Create a GeoDataFrame with GI locations in WGS84 (lon, lat, height) coordinates.
+
+The 'LonLatHeight' table makes it easier to visualize the GIS geometry on 2D maps,
+because vertical lines are often very small or completely hidden in 2D. This table
+only contains the 3D point of the GI locations at ground level, in WGS84 (Longitude,
+Latitude, Height) coordinates. Other attributes, such as the location type, sample
+type, geology description, etc., can be attached to this table by joining, i.e.
+merging those tables on the location_uid key.
+
+## Parameters {.doc-section .doc-section-parameters}
+
+| Name          | Type         | Description                                          | Default    |
+|---------------|--------------|------------------------------------------------------|------------|
+| brgi_location | GeoDataFrame | The GeoDataFrame with the GI locations.              | _required_ |
+| crs           | CRS          | The Coordinate Reference System of the GI locations. | _required_ |
+
+## Returns {.doc-section .doc-section-returns}
+
+| Name         | Type             | Description                      |
+|--------------|------------------|----------------------------------|
+| GeoDataFrame | gpd.GeoDataFrame | The 'LonLatHeight' GeoDataFrame. |

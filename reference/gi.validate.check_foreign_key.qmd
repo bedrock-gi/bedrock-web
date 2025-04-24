@@ -13,13 +13,22 @@ The project_uid is the foreign key in the Location table.
 This implies that the project_uid in the foreign key in the Location table must exist in the Project parent table.
 That is what this function checks.
 
-Args:
-    foreign_key (str): The name of the column of the foreign key.
-    parent_table (Union[pd.DataFrame, gpd.GeoDataFrame]): The parent table.
-    table_with_foreign_key (Union[pd.DataFrame, gpd.GeoDataFrame]): The table with the foreign key.
+## Parameters {.doc-section .doc-section-parameters}
 
-Raises:
-    ValueError: If the table with the foreign key contains foreign keys that don't occur in the parent table.
+| Name                   | Type                                    | Description                                | Default    |
+|------------------------|-----------------------------------------|--------------------------------------------|------------|
+| foreign_key            | str                                     | The name of the column of the foreign key. | _required_ |
+| parent_table           | Union\[pd.DataFrame, gpd.GeoDataFrame\] | The parent table.                          | _required_ |
+| table_with_foreign_key | Union\[pd.DataFrame, gpd.GeoDataFrame\] | The table with the foreign key.            | _required_ |
 
-Returns:
-    bool: True if the foreign keys all exist in the parent table.
+## Raises {.doc-section .doc-section-raises}
+
+| Name   | Type       | Description                                                                                   |
+|--------|------------|-----------------------------------------------------------------------------------------------|
+|        | ValueError | If the table with the foreign key contains foreign keys that don't occur in the parent table. |
+
+## Returns {.doc-section .doc-section-returns}
+
+| Name   | Type   | Description                                             |
+|--------|--------|---------------------------------------------------------|
+| bool   | bool   | True if the foreign keys all exist in the parent table. |

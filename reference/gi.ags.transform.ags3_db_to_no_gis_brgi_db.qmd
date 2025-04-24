@@ -1,0 +1,6 @@
+# gi.ags.transform.ags3_db_to_no_gis_brgi_db { #bedrock_ge.gi.ags.transform.ags3_db_to_no_gis_brgi_db }
+
+```python
+gi.ags.transform.ags3_db_to_no_gis_brgi_db(ags3_db, crs)
+```
+
