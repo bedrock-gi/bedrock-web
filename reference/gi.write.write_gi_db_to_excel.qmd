@@ -4,10 +4,11 @@
 gi.write.write_gi_db_to_excel(gi_db, excel_path)
 ```
 
-Write a database, i.e. a dictionary of DataFrames, with Ground Investigation data to an Excel file.
+Writes a database with Ground Investigation data to an Excel file.
 
-Each DataFrame will be saved in a separate sheet named after the keys of the dictionary.
-Function can be used on any GI database, whether in AGS, Bedrock, or another format.
+Each DataFrame in the database dictionary will be saved in a separate Excel sheet named
+after the dictionary keys. This function can be used on any GI database, whether in
+AGS, Bedrock, or another format.
 
 ## Parameters {.doc-section .doc-section-parameters}
 
@@ -18,6 +19,6 @@ Function can be used on any GI database, whether in AGS, Bedrock, or another for
 
 ## Returns {.doc-section .doc-section-returns}
 
-| Name   | Type   | Description                                                                         |
-|--------|--------|-------------------------------------------------------------------------------------|
-| None   | None   | This function does not return any value. It writes the DataFrames to an Excel file. |
+| Name   | Type   | Description   |
+|--------|--------|---------------|
+|        | None   | None          |

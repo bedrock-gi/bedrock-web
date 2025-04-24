@@ -4,8 +4,10 @@
 gi.write.sanitize_table_name(sheet_name)
 ```
 
-Replace invalid characters and spaces in GI table names with underscores,
-such that the name is consistent with SQL, GeoPackage and Excel naming conventions.
+Replaces invalid characters and spaces in GI table names with underscores and truncates to 31 characters.
+
+Makes table names consistent with SQL, GeoPackage and Excel naming conventions by
+replacing invalid characters and spaces with underscores.
 
 ## Parameters {.doc-section .doc-section-parameters}
 
@@ -15,6 +17,6 @@ such that the name is consistent with SQL, GeoPackage and Excel naming conventio
 
 ## Returns {.doc-section .doc-section-returns}
 
-| Name   | Type   | Description                                                         |
-|--------|--------|---------------------------------------------------------------------|
-| str    |        | A sanitized sheet name with invalid characters and spaces replaced. |
+| Name           | Type   | Description                                                         |
+|----------------|--------|---------------------------------------------------------------------|
+| sanitized_name |        | A sanitized sheet name with invalid characters and spaces replaced. |

@@ -9,8 +9,7 @@ gi.gis_geometry.calculate_wgs84_coordinates(
 )
 ```
 
-Transform coordinates from an arbitrary Coordinate Reference System (CRS) to
-the WGS84 CRS, which is the standard for geodetic coordinates.
+Transforms coordinates from an arbitrary Coordinate Reference System (CRS) to the WGS84 CRS, which is the standard for geodetic coordinates.
 
 ## Parameters {.doc-section .doc-section-parameters}
 

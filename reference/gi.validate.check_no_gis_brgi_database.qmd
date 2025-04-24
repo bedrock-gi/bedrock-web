@@ -4,3 +4,36 @@
 gi.validate.check_no_gis_brgi_database(brgi_db)
 ```
 
+Validates the structure and relationships of a 'Bedrock Ground Investigation' (BGI) database without GIS geometry.
+
+This function performs the same validation as `check_brgi_database` but uses schemas
+that don't require GIS geometry. It validates the following tables:
+- Project (never has GIS geometry)
+- Location (without GIS geometry)
+- Sample (without GIS geometry)
+- InSitu_TESTX (without GIS geometry)
+- Lab_TESTY (not yet implemented)
+
+## Parameters {.doc-section .doc-section-parameters}
+
+| Name    | Type                                                 | Description                                                                                                                                                  | Default    |
+|---------|------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|------------|
+| brgi_db | Dict\[str, Union\[pd.DataFrame, gpd.GeoDataFrame\]\] | A dictionary containing the Bedrock GI database tables, where keys are table names and values are the corresponding data tables (DataFrame or GeoDataFrame). | _required_ |
+
+## Returns {.doc-section .doc-section-returns}
+
+| Name   | Type   | Description                                                             |
+|--------|--------|-------------------------------------------------------------------------|
+| bool   |        | True if all tables are valid and relationships are properly maintained. |
+
+## Example {.doc-section .doc-section-example}
+
+```python
+brgi_db = {
+    "Project": projects_df,
+    "Location": locations_df,
+    "Sample": samples_df,
+    "InSitu_measurements": insitu_df,
+}
+check_no_gis_brgi_database(brgi_db)
+```

@@ -6,10 +6,10 @@ Read, transform & validate AGS Files
 
 | | |
 | --- | --- |
-| [gi.ags.read.ags_to_dfs](gi.ags.read.ags_to_dfs.qmd#bedrock_ge.gi.ags.read.ags_to_dfs) | Convert AGS 3 or AGS 4 data to a dictionary of pandas DataFrames. |
-| [gi.ags.read.ags3_to_dfs](gi.ags.read.ags3_to_dfs.qmd#bedrock_ge.gi.ags.read.ags3_to_dfs) | Convert AGS 3 data to a dictionary of pandas DataFrames. |
-| [gi.ags.read.ags4_to_dfs](gi.ags.read.ags4_to_dfs.qmd#bedrock_ge.gi.ags.read.ags4_to_dfs) | Convert AGS 4 data to a dictionary of pandas DataFrames. |
-| [gi.ags.transform.ags3_db_to_no_gis_brgi_db](gi.ags.transform.ags3_db_to_no_gis_brgi_db.qmd#bedrock_ge.gi.ags.transform.ags3_db_to_no_gis_brgi_db) |  |
+| [gi.ags.read.ags_to_dfs](gi.ags.read.ags_to_dfs.qmd#bedrock_ge.gi.ags.read.ags_to_dfs) | Converts AGS 3 or AGS 4 data to a dictionary of pandas DataFrames. |
+| [gi.ags.read.ags3_to_dfs](gi.ags.read.ags3_to_dfs.qmd#bedrock_ge.gi.ags.read.ags3_to_dfs) | Converts AGS 3 data to a dictionary of pandas DataFrames. |
+| [gi.ags.read.ags4_to_dfs](gi.ags.read.ags4_to_dfs.qmd#bedrock_ge.gi.ags.read.ags4_to_dfs) | Converts AGS 4 data to a dictionary of pandas DataFrames. |
+| [gi.ags.transform.ags3_db_to_no_gis_brgi_db](gi.ags.transform.ags3_db_to_no_gis_brgi_db.qmd#bedrock_ge.gi.ags.transform.ags3_db_to_no_gis_brgi_db) | Maps a database with GI data from a single AGS 3 file to a database with Bedrock's schema. |
 | [gi.ags.transform.ags_proj_to_brgi_project](gi.ags.transform.ags_proj_to_brgi_project.qmd#bedrock_ge.gi.ags.transform.ags_proj_to_brgi_project) | Maps the AGS 3 'PROJ' group to a Bedrock GI 'Project' table. |
 | [gi.ags.validate.check_ags_proj_group](gi.ags.validate.check_ags_proj_group.qmd#bedrock_ge.gi.ags.validate.check_ags_proj_group) | Checks if the AGS 3 or AGS 4 PROJ group is correct. |
 
@@ -19,9 +19,9 @@ Validate Bedrock GI databases
 
 | | |
 | --- | --- |
-| [gi.validate.check_brgi_database](gi.validate.check_brgi_database.qmd#bedrock_ge.gi.validate.check_brgi_database) |  |
-| [gi.validate.check_no_gis_brgi_database](gi.validate.check_no_gis_brgi_database.qmd#bedrock_ge.gi.validate.check_no_gis_brgi_database) |  |
-| [gi.validate.check_foreign_key](gi.validate.check_foreign_key.qmd#bedrock_ge.gi.validate.check_foreign_key) | Checks if a foreign key in a table exists in the parent table. |
+| [gi.validate.check_brgi_database](gi.validate.check_brgi_database.qmd#bedrock_ge.gi.validate.check_brgi_database) | Validates the structure and relationships of a 'Bedrock Ground Investigation' (BRGI) database (which is a dictionary of DataFrames). |
+| [gi.validate.check_no_gis_brgi_database](gi.validate.check_no_gis_brgi_database.qmd#bedrock_ge.gi.validate.check_no_gis_brgi_database) | Validates the structure and relationships of a 'Bedrock Ground Investigation' (BGI) database without GIS geometry. |
+| [gi.validate.check_foreign_key](gi.validate.check_foreign_key.qmd#bedrock_ge.gi.validate.check_foreign_key) | Validates referential integrity between two tables by checking foreign key relationships. |
 
 ## Write
 
@@ -29,15 +29,15 @@ Write Bedrock GI databases to different file formats
 
 | | |
 | --- | --- |
-| [gi.write.write_gi_db_to_gpkg](gi.write.write_gi_db_to_gpkg.qmd#bedrock_ge.gi.write.write_gi_db_to_gpkg) | Write a database, i.e. a dictionary of DataFrames, with Bedrock Ground Investigation data to a GeoPackage file. |
-| [gi.write.write_gi_db_to_excel](gi.write.write_gi_db_to_excel.qmd#bedrock_ge.gi.write.write_gi_db_to_excel) | Write a database, i.e. a dictionary of DataFrames, with Ground Investigation data to an Excel file. |
-| [gi.write.sanitize_table_name](gi.write.sanitize_table_name.qmd#bedrock_ge.gi.write.sanitize_table_name) | Replace invalid characters and spaces in GI table names with underscores, |
+| [gi.write.write_gi_db_to_gpkg](gi.write.write_gi_db_to_gpkg.qmd#bedrock_ge.gi.write.write_gi_db_to_gpkg) | Writes a database with Bedrock Ground Investigation data to a GeoPackage file. |
+| [gi.write.write_gi_db_to_excel](gi.write.write_gi_db_to_excel.qmd#bedrock_ge.gi.write.write_gi_db_to_excel) | Writes a database with Ground Investigation data to an Excel file. |
+| [gi.write.sanitize_table_name](gi.write.sanitize_table_name.qmd#bedrock_ge.gi.write.sanitize_table_name) | Replaces invalid characters and spaces in GI table names with underscores and truncates to 31 characters. |
 
 ## Concatenate
 
 | | |
 | --- | --- |
-| [gi.concatenate.concatenate_databases](gi.concatenate.concatenate_databases.qmd#bedrock_ge.gi.concatenate.concatenate_databases) | Concatenate two dictionaries of pandas dataframes into one dict of dfs. |
+| [gi.concatenate.concatenate_databases](gi.concatenate.concatenate_databases.qmd#bedrock_ge.gi.concatenate.concatenate_databases) | Concatenates two dictionaries of DataFrames into one dict of DataFrames. |
 
 ## GIS Geometry
 
@@ -45,8 +45,8 @@ Calculate GIS Geometry for Bedrock GI databases and GI locations
 
 | | |
 | --- | --- |
-| [gi.gis_geometry.calculate_gis_geometry](gi.gis_geometry.calculate_gis_geometry.qmd#bedrock_ge.gi.gis_geometry.calculate_gis_geometry) |  |
-| [gi.gis_geometry.calculate_location_gis_geometry](gi.gis_geometry.calculate_location_gis_geometry.qmd#bedrock_ge.gi.gis_geometry.calculate_location_gis_geometry) | Calculate GIS geometry for a set of Ground Investigation locations. |
-| [gi.gis_geometry.calculate_wgs84_coordinates](gi.gis_geometry.calculate_wgs84_coordinates.qmd#bedrock_ge.gi.gis_geometry.calculate_wgs84_coordinates) | Transform coordinates from an arbitrary Coordinate Reference System (CRS) to |
-| [gi.gis_geometry.create_lon_lat_height_table](gi.gis_geometry.create_lon_lat_height_table.qmd#bedrock_ge.gi.gis_geometry.create_lon_lat_height_table) | Create a GeoDataFrame with GI locations in WGS84 (lon, lat, height) coordinates. |
-| [gi.gis_geometry.calculate_in_situ_gis_geometry](gi.gis_geometry.calculate_in_situ_gis_geometry.qmd#bedrock_ge.gi.gis_geometry.calculate_in_situ_gis_geometry) |  |
+| [gi.gis_geometry.calculate_gis_geometry](gi.gis_geometry.calculate_gis_geometry.qmd#bedrock_ge.gi.gis_geometry.calculate_gis_geometry) | Calculates GIS geometry for tables in a Bedrock Ground Investigation database. |
+| [gi.gis_geometry.calculate_location_gis_geometry](gi.gis_geometry.calculate_location_gis_geometry.qmd#bedrock_ge.gi.gis_geometry.calculate_location_gis_geometry) | Calculates GIS geometry for a set of Ground Investigation locations. |
+| [gi.gis_geometry.calculate_wgs84_coordinates](gi.gis_geometry.calculate_wgs84_coordinates.qmd#bedrock_ge.gi.gis_geometry.calculate_wgs84_coordinates) | Transforms coordinates from an arbitrary Coordinate Reference System (CRS) to the WGS84 CRS, which is the standard for geodetic coordinates. |
+| [gi.gis_geometry.create_lon_lat_height_table](gi.gis_geometry.create_lon_lat_height_table.qmd#bedrock_ge.gi.gis_geometry.create_lon_lat_height_table) | Creates a GeoDataFrame with GI locations in WGS84 (lon, lat, height) coordinates. |
+| [gi.gis_geometry.calculate_in_situ_gis_geometry](gi.gis_geometry.calculate_in_situ_gis_geometry.qmd#bedrock_ge.gi.gis_geometry.calculate_in_situ_gis_geometry) | Calculates GIS geometry for a set of Ground Investigation in-situ data. |

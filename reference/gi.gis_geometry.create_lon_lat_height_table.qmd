@@ -4,7 +4,7 @@
 gi.gis_geometry.create_lon_lat_height_table(brgi_location, crs)
 ```
 
-Create a GeoDataFrame with GI locations in WGS84 (lon, lat, height) coordinates.
+Creates a GeoDataFrame with GI locations in WGS84 (lon, lat, height) coordinates.
 
 The 'LonLatHeight' table makes it easier to visualize the GIS geometry on 2D maps,
 because vertical lines are often very small or completely hidden in 2D. This table

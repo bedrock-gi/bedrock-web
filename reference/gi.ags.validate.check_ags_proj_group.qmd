@@ -8,9 +8,9 @@ Checks if the AGS 3 or AGS 4 PROJ group is correct.
 
 ## Parameters {.doc-section .doc-section-parameters}
 
-| Name    | Type         | Description                        | Default    |
-|---------|--------------|------------------------------------|------------|
-| proj_df | pd.DataFrame | The DataFrame with the PROJ group. | _required_ |
+| Name     | Type         | Description                        | Default    |
+|----------|--------------|------------------------------------|------------|
+| ags_proj | pd.DataFrame | The DataFrame with the PROJ group. | _required_ |
 
 ## Raises {.doc-section .doc-section-raises}
 

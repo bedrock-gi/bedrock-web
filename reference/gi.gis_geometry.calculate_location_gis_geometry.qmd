@@ -4,7 +4,7 @@
 gi.gis_geometry.calculate_location_gis_geometry(brgi_location, crs)
 ```
 
-Calculate GIS geometry for a set of Ground Investigation locations.
+Calculates GIS geometry for a set of Ground Investigation locations.
 
 ## Parameters {.doc-section .doc-section-parameters}
 
@@ -15,6 +15,6 @@ Calculate GIS geometry for a set of Ground Investigation locations.
 
 ## Returns {.doc-section .doc-section-returns}
 
-| Name   | Type             | Description                                                                                                                                                                                                                                                                                                                                                                                                         |
-|--------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|        | gpd.GeoDataFrame | gpd.GeoDataFrame: The GIS geometry for the given GI locations, with *additional* columns: longitude: The longitude of the location in the WGS84 CRS. latitude: The latitude of the location in the WGS84 CRS. wgs84_ground_level_height: The height of the ground level of the location in the WGS84 CRS. elevation_at_base: The elevation at the base of the location. geometry: The GIS geometry of the location. |
+| Name   | Type             | Description                                                                                                                                                                                                                                                                                                                                                                                                                 |
+|--------|------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|        | gpd.GeoDataFrame | gpd.GeoDataFrame: The GIS geometry for the given GI locations, with additional columns: - longitude: The longitude of the location in the WGS84 CRS. - latitude: The latitude of the location in the WGS84 CRS. - wgs84_ground_level_height: The height of the ground level of the location in the WGS84 CRS. - elevation_at_base: The elevation at the base of the location. - geometry: The GIS geometry of the location. |

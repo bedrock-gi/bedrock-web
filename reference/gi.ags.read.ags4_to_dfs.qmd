@@ -4,13 +4,13 @@
 gi.ags.read.ags4_to_dfs(ags4_data)
 ```
 
-Convert AGS 4 data to a dictionary of pandas DataFrames.
+Converts AGS 4 data to a dictionary of pandas DataFrames.
 
 ## Parameters {.doc-section .doc-section-parameters}
 
-| Name     | Type   | Description                 | Default    |
-|----------|--------|-----------------------------|------------|
-| ags_data | str    | The AGS 4 data as a string. | _required_ |
+| Name      | Type   | Description                 | Default    |
+|-----------|--------|-----------------------------|------------|
+| ags4_data | str    | The AGS 4 data as a string. | _required_ |
 
 ## Returns {.doc-section .doc-section-returns}
 
