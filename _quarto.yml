@@ -8,7 +8,12 @@ website:
   description: "Bedrock, the Open Source Foundation for Geotechnical Engineering"
   image: "public/Bedrock_inCircle.png"
   favicon: "public/favicon.ico"
-  open-graph: true
+  open-graph: 
+    title: "Bedrock"
+    description: "Bedrock, the Open Source Foundation for Geotechnical Engineering"
+    image: "public/Bedrock_TextRight.png"
+    locale: en_US
+  twitter-card: true
   site-url: https://bedrock.engineer
   repo-url: https://github.com/bedrock-engineer/bedrock-web
   issue-url: https://github.com/bedrock-engineer/bedrock-ge/issues/new/choose
@@ -109,6 +114,8 @@ format:
     code-copy: true
     code-fold: true
     code-annotations: hover
+    include-in-header:
+      - text: <link rel="icon" href="./public/Bedrock.svg" type="image/svg+xml">
 
 quartodoc:
   # the name used to import the package you want to create reference docs for
