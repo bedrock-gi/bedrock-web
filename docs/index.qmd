@@ -112,10 +112,10 @@ Tables can be related to each other using keys. A primary key uniquely identifie
 A foreign key creates a link between tables, allowing data from different tables to be combined and queried efficiently
 Relational databases are foundational to modern data management, and probably the most common type of database.
 
-Spatial databases are extensions of databases that with capabilities for storing, indexing, and analyzing location-based data. These databases add support for standardized coordinate systems to ensure spatial integrity.
+Geospatial databases are extensions of databases that with capabilities for storing, indexing, and analyzing location-based data. These databases add support for standardized coordinate systems to ensure spatial integrity.
 These additions enable efficient retrieval and analysis of spatial data.
 
-When we assign (3D) geospatial geometry to each of the features in GI data that have a geographic element (like locations, samples, in-situ tests), we turn convert it to a spatial database.
+When we assign (3D) geospatial geometry to each of the features in GI data that have a geographic element (like locations, samples, in-situ tests), we turn convert it to a geospatial database.
 
 ## Benefits of Geospatial Databases
 
@@ -131,11 +131,11 @@ This lets you bridge the gap between specialized GI data and the wider world of 
 
 <!-- and avoid proprietary software lock-in and . -->
 
-Spatial GI data gives you greater flexibility throughout engineering workflows.
+Geospatial GI data gives you greater flexibility throughout engineering workflows.
 The data becomes accessible through portable file formats like GeoPackage or GeoParquet or database systems like PostGIS, breaking data silos.
 This unlocks multiple workflows, from Python-based scientific computing for advanced analysis, 3D visualization, and machine learning, to traditional GIS software for mapping.
 The same dataset can be used in parametric design tools like Rhino3D or power interactive web maps.
 
 Geospatial databases ensure proper spatial referencing, allowing information to flow seamlessly across project teams and throughout the project lifecycle.
-This supports integration with the broader civil engineering ecosystem. Your subsurface data can connect with BIM environments, to be viewed with above-ground spatial information like satellite imagery, Digital Elevation Models, and built structures.
+This supports integration with the broader civil engineering ecosystem. Your subsurface data can connect with BIM environments, to be viewed with above-ground geospatial information like satellite imagery, Digital Elevation Models, and built structures.
 This way, Bedrock creates an open-source foundation for more holistic project understanding and more informed engineering decisions.
