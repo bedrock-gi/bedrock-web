@@ -33,9 +33,9 @@
 | GeoJSON     | ✅  | ✅    |
 
 What do you need? [DIGGS](https://diggsml.org/)? [NADAG](https://www.ngu.no/geologisk-kartlegging/om-nadag-nasjonal-database-grunnundersokelser)? [GEF](https://publicwiki.deltares.nl/display/STREAM/Dutch+National+GEF+Standards)?  Something else?  
-Let us know by creating an [issue](https://github.com/bedrock-engineer/bedrock-ge/issues) or starting a [discussion](https://github.com/orgs/bedrock-ge/discussions) 💭
+Let us know by creating an [issue](https://github.com/bedrock-engineer/bedrock-ge/issues) or starting a [discussion](https://github.com/orgs/bedrock-engineer/discussions) 💭
 
-Also, if you have a project with publicly available GI data, please share that in a [discussion](https://github.com/orgs/bedrock-ge/discussions), such that we can create a tutorial from it 🤩
+Also, if you have a project with publicly available GI data, please share that in a [discussion](https://github.com/orgs/bedrock-engineer/discussions), such that we can create a tutorial from it 🤩
 
 ### ✅ Validate your GI data
 
@@ -69,7 +69,7 @@ Free and Open Source Software (FOSS) gives you full access to the code, which me
 
 As the name implies, FOSS is free to use, so you're not tied to expensive software licenses or locked into a specific software vendor ⛓️‍💥
 
-You can give [feedback](#-feedback) and [contribute](#-contributing), such that together we together can build the tools we've always wanted and needed 🤝
+You can give [feedback](#-feedback) and [contribute](#-contributing), such that together we can build the tools we've always wanted and needed 🤝
 
 ## ℹ️ Overview
 
@@ -94,7 +94,7 @@ Got some feedback, a great idea, running into problems when working with Bedrock
 Please feel free to:
 
 1. open an issue for feature requests or bug reports: [`bedrock-ge` issues](https://github.com/bedrock-engineer/bedrock-ge/issues),
-2. start a discussion in this GitHub repo: [Bedrock discussions](https://github.com/orgs/bedrock-ge/discussions),
+2. start a discussion in this GitHub repo: [Bedrock discussions](https://github.com/orgs/bedrock-engineer/discussions),
 3. or start a discussion on the Speckle community forum if that's more appropriate: [Speckle community forum](https://speckle.community/)
 
 All feedback and engagement with the Bedrock community is welcome 🤗
@@ -109,7 +109,7 @@ Contributing isn't just about writing code:
 
 - Use Bedrock and provide [feedback](#-feedback) 🪲
 - Share how you use Bedrock 🏗️
-- Help each other out, e.g. by replying to questions in the [discussions](https://github.com/orgs/bedrock-ge/discussions) or [`bedrock-ge` issues](https://github.com/bedrock-engineer/bedrock-ge/issues) 🤝
+- Help each other out, e.g. by replying to questions in the [discussions](https://github.com/orgs/bedrock-engineer/discussions) or [`bedrock-ge` issues](https://github.com/bedrock-engineer/bedrock-ge/issues) 🤝
 - Spread the word about Bedrock 🤩
 - Documentation and tutorials 📃
 - Most pages on the [bedrock.engineer](https://bedrock.engineer/) website can be edited, so if you see a spelling mistake or have a suggestion on how to explain something better, please smash that button! 🖱️💥
