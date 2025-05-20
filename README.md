@@ -57,7 +57,7 @@ Once you have your GI data inside [Speckle](https://speckle.systems/), it's supe
 
 <p align="center">
   <img src="https://bedrock.engineer/public/images/KaiTak_BrGI_Speckle.png" alt="Kai Tak, Hong Kong, data from many sources." width="56%" />
-  <img src="https://bedrock.engineer/public/images/BPFoundation.png" alt="Bored Pile foundation design." width="40%" />
+  <img src="https://bedrock.engineer/public/images/WekaHills_Speckle.gif" alt="GI data, derived Leapfrog example ground model and a tunnel in Speckle." width="40%" />
   <a href="https://app.speckle.systems/projects/013aaf06e7/models/0fa0287ba8@dfbec71408,1cbe68ed69@d3c4a34cff,44c8d1ecae@b962e2f29d,7f9d99cae2@bbed7cf165,9535541c2b@fafe06f9c0,a739490298@e858cc8cb3,ff81bfa02b@dda7c2f981" target="_blank">Click here to go to the Kai Tak Speckle project from the left image</a>
 </p>
 
