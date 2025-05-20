@@ -42,10 +42,10 @@ This location can also yield multiple samples from different depths. In turn, th
 
 These hierarchical relationships can be visualized in a tree diagram like this:
 
-<svg viewBox="-12,-24,928,144" style="max-width: 100%; height: auto; font: 13px sans-serif; overflow: visible;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg viewBox="-12,-24,200,144" style="width: 50%; height: auto; font: 13px sans-serif; display: block;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <g fill="none" stroke="#999">
-    <path d="&#10;M0,0&#10;V24&#10;h24&#10;"/><path d="&#10;M24,24&#10;V48&#10;h24&#10;"/>
-    <path d="&#10;M24,24&#10;V72&#10;h24&#10;"/><path d="&#10;M48,72&#10;V96&#10;h24&#10;"/>
+    <path d="M0,0V24h24"/><path d="M24,24V48h24"/>
+    <path d="M24,24V72h24"/><path d="M48,72V96h24"/>
   </g>
   <g>
     <g transform="translate(0,0)">
@@ -92,15 +92,14 @@ These hierarchical relationships can be visualized in a tree diagram like this:
 
 ## AGS4 Data
 
-Traditional GI formats like AGS have attempted to hierarchical structure in specialized text-based file formats.
-It does this by organizing GI data into structured tables called "Groups".
-Each Group represents a specific aspect of s Ground Investigation, for example, project information (PROJ), location details (LOCA), sample information (SAMP), or an in-situ test like a Standard Penetration Test (ISPT).
+Industry GI formats like [AGS](/articles/2025-04-14-ags/) follow a hierarchical structure in a text-based file format.
+It does so by organizing GI data into structured tables called "Groups".
+Each group represents a specific aspect of s Ground Investigation, for example, project information (PROJ), location details (LOCA), sample information (SAMP), or an in-situ test like a Standard Penetration Test (ISPT).
 These groups are organised in a hierarchical manner: samples and in-situ tests belong to locations, which belong to projects, mirroring the natural structure of geotechnical investigations.
-
 
 AGS4 successfully addresses many aspects of GI data organization, but its specialized nature and age creates limitations.
 
-* Its specialized nature makes it confined to geotechnical engineering applications, meaning we can't easily process or view the data. This also inhibits sharing this data with others in the civil engineering sector.
+* Its use is limited to geotechnical engineering applications, meaning we can't easily process or view the data using common tools. This also inhibits sharing this data with others in the civil engineering sector.
 * One project's data is spread over multiple different files.
 * File size inefficiency. Text representation of data requires more storage space than binary formats.
 
@@ -115,7 +114,6 @@ Relational databases are foundational to modern data management, and probably th
 Geospatial databases are extensions of databases that with capabilities for storing, indexing, and analyzing location-based data. These databases add support for standardized coordinate systems to ensure spatial integrity.
 These additions enable efficient retrieval and analysis of spatial data.
 
-When we assign (3D) geospatial geometry to each of the features in GI data that have a geographic element (like locations, samples, in-situ tests), we turn convert it to a geospatial database.
 
 ## Benefits of Geospatial Databases
 
@@ -126,16 +124,16 @@ The purpose of Bedrock is NOT to become THE standard for GI data, because we don
   <figcaption>Source: <a href="https://xkcd.com/927/" target="_blank">https://xkcd.com/927</a></figcaption>
 </figure> 
 
-Bedrock converts GI data from specialized formats like AGS4 into geospatial databases to overcome these constraints while preserving the hierarchical relationships of the data.
+Rather, Bedrock converts GI data from specialized formats like AGS4 into geospatial databases to overcome these constraints while preserving the hierarchical relationships of the data.
+By assigning (3D) geospatial geometry to each of the features in GI data that have a geographic element (like locations, samples, in-situ tests), it becomes a geospatial database.
 This lets you bridge the gap between specialized GI data and the wider world of geospatial tools and standards.
 
-<!-- and avoid proprietary software lock-in and . -->
-
-Geospatial GI data gives you greater flexibility throughout engineering workflows.
-The data becomes accessible through portable file formats like GeoPackage or GeoParquet or database systems like PostGIS, breaking data silos.
-This unlocks multiple workflows, from Python-based scientific computing for advanced analysis, 3D visualization, and machine learning, to traditional GIS software for mapping.
+Geospatial GI data gives you greater flexibility in utilizing the data.
+It makes the data accessible through portable file formats like GeoPackage or GeoParquet or database systems like PostGIS.
+This breaks data silos and unlocks multiple workflows, from Python-based scientific computing for advanced analysis, 3D visualization, and machine learning, to traditional GIS software for mapping.
 The same dataset can be used in parametric design tools like Rhino3D or power interactive web maps.
 
-Geospatial databases ensure proper spatial referencing, allowing information to flow seamlessly across project teams and throughout the project lifecycle.
-This supports integration with the broader civil engineering ecosystem. Your subsurface data can connect with BIM environments, to be viewed with above-ground geospatial information like satellite imagery, Digital Elevation Models, and built structures.
-This way, Bedrock creates an open-source foundation for more holistic project understanding and more informed engineering decisions.
+Geospatial databases ensure proper spatial referencing, allowing information to flow across project boundaries.
+This supports integration with the broader civil engineering ecosystem and throughout the project lifecycle.
+Your subsurface data can connect with BIM environments, to be viewed with above-ground geospatial information like satellite imagery, Digital Elevation Models, and built structures.
+This way, Bedrock creates an open-source foundation for more comprehensive project understanding and more informed engineering decisions.
