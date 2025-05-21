@@ -167,7 +167,7 @@ Contributing isn't scary. Contributing isn't just about writing code:
 > I studied Applied Geoscience (Petroleum Engineering Reservoir Geology) but frustration with technical software led me to learn to code and as a result, I mostly worked in software development.
 >
 > Over the past 5 years, I’ve worked on data-rich applications across various domains, specifically in frontend development.
-> My primary interest is figuring out how to build tools for more thoughtful display and processing of technical information, for geoscience in particular.
+> My primary interest is figuring out how to build tools for more thoughtful processing and display of technical information, for geoscience in particular.
 
 ## Contributors
 
