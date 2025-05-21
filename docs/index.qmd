@@ -31,15 +31,13 @@ This enables integration of GI data with other software and workflows used in th
 ## Hierarchical Nature of GI data
 
 <!-- TODO: get the definition of Ground Investigation from the British Standard and create a glossary -->
-Ground investigation data is information collected about the soil, rock, and groundwater conditions at a site before construction begins.
-It includes test results and samples that reveal the ground's properties.
-This information helps engineers design safe and suitable foundations while identifying potential risks or hazards.
+Ground investigation data is information collected about the soil, rock, hydrological and environmental conditions.
+This information helps engineers design safe and suitable foundations while identifying potential risks and hazards.
 This is essential for making informed decisions and avoiding problems during construction.
 
 GI data inherently exists in a structured hierarchy. This hierarchy follows how ground investigations are performed.
-A project, say a new building or bridge, comprises multiple test locations.
-In-situ tests are performed at a specific locations.
-One test location can also yield multiple samples from different depths. In turn, these samples may undergo multiple laboratory tests.
+A GI project, say for a new building or bridge, comprises multiple GI locations, such as a borehole.
+Multiple in-situ tests can be performed at one GI location and can at the same time also yield multiple samples from different depths. In turn, these samples may undergo multiple laboratory tests.
 These hierarchical relationships can be visualized in a tree diagram like this:
 
 <svg viewBox="-12,-24,300,144" style="height: auto; font: 13px sans-serif; display: block;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -95,7 +93,7 @@ These hierarchical relationships can be visualized in a tree diagram like this:
 Industry GI data formats like [AGS](/articles/2025-04-14-ags/) implement a hierarchical data structure in text-based files.
 AGS does so by organizing GI data into structured tables called "Groups".
 Each group represents a specific aspect of a Ground Investigation, for example, project information (PROJ), location details (LOCA), sample information (SAMP), or an in-situ test like a Standard Penetration Test (ISPT).
-These groups are organised in a hierarchical manner: samples and in-situ tests belong to locations, which belong to projects, mirroring how ground investigations are conducted.
+These groups are organized in a hierarchical manner: samples and in-situ tests belong to locations, which belong to projects, mirroring how ground investigations are conducted.
 
 <svg viewBox="-12,-24,300,124" style="height: auto; font: 13px sans-serif; display: block;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <g fill="none" stroke="#999">
@@ -143,19 +141,19 @@ AGS4 successfully addresses many aspects of GI data organization, but its specia
 
 * Its use is limited to geotechnical engineering applications, meaning we can't easily process or view the data using common tools. This also inhibits sharing this data with others in the civil engineering sector.
 * One project's data is spread over multiple different files.
-* File size inefficiency. Text representation of data requires more storage space than binary formats.
 
 ## Geospatial Databases
 
-This hierarchical model aligns closely with [relational databases](https://observablehq.com/blog/databases-101-basics-data-analysts#what-are-relational-databases).
+The hierarchical structure of GI data aligns closely with [relational databases](https://observablehq.com/blog/databases-101-basics-data-analysts#what-are-relational-databases).
 Relational databases organize data in tables with rows and columns.
-Tables can be related to each other using keys. A primary key uniquely identifies each row in a table. 
-A foreign key creates a link between tables, allowing data from different tables to be combined and queried efficiently
+Tables can be related to each other using keys.
+A primary key uniquely identifies each row in a table. 
+A foreign key links the rows of one table to the primary keys of another one, allowing data from different tables to be combined and queried efficiently.
 Relational databases are foundational to modern data management, and probably the most common type of database.
 
-Geospatial databases are extensions of databases that with capabilities for storing, indexing, and analyzing location-based data. These databases add support for standardized coordinate systems to ensure spatial integrity.
-These additions enable efficient retrieval and analysis of spatial data.
-
+Geospatial databases are extensions of databases with capabilities for storing, accessing, analyzing and visualizing location-based data.
+Geospatial relational databases have one additional column in their tables, which contains the location or geometry linked to the data in each row.
+Each row in a geospatial database is called a feature.
 
 ## Benefits of Geospatial Databases
 
@@ -166,16 +164,15 @@ The purpose of Bedrock is NOT to become THE standard for GI data, because we don
   <figcaption>Source: <a href="https://xkcd.com/927/" target="_blank">https://xkcd.com/927</a></figcaption>
 </figure> 
 
-Rather, Bedrock lets you transform GI data from specialized formats like AGS4 into geospatial databases to overcome these constraints while preserving the hierarchical relationships of the data.
-By assigning (3D) geospatial geometry to each of the features in GI data that have a geographic element (like locations, samples, in-situ tests), it becomes a geospatial database.
-This lets you bridge the gap between specialized GI data and the wider world of geospatial tools and standards.
+Rather, Bedrock lets you transform GI data from specialized formats like AGS 4 into geospatial databases to overcome these constraints while preserving the hierarchical relationships of the data.
+By assigning (3D) geospatial geometry to each of the GI locations, in-situ tests and samples the GI data becomes a geospatial database.
+This lets you bridge the gap between specialized GI data formats and the wider world of geospatial / GIS tools and standards.
 
-Geospatial GI data gives you greater flexibility in utilizing the data.
-It makes the data accessible through portable file formats like [GeoPackage](https://www.geopackage.org/) or [GeoParquet](https://geoparquet.org/) or database systems like [PostGIS](https://postgis.net/).
-This breaks data silos and unlocks multiple workflows, from Python-based scientific computing for advanced analysis, 3D visualization, and machine learning, to traditional GIS software for mapping.
-The same dataset can be used in parametric design tools like Rhino3D or power interactive web maps.
+Geospatial GI data gives you greater flexibility in utilizing your GI data.
+It makes the GI data accessible through portable file formats like [GeoPackage](https://geopackage.org/), [GeoJSON](https://geojson.org/) or [GeoParquet](https://geoparquet.org/) or database systems like [PostGIS](https://postgis.net/).
+This breaks data silos and unlocks multiple workflows, from Python-based scientific computing for advanced analysis, machine learning, 3D visualization and creating dashboards, to traditional GIS software for mapping.
 
-Geospatial databases ensure proper spatial referencing, allowing information to flow across project boundaries.
+Lastly, geospatial databases ensure proper spatial referencing and Coordinate Reference System (CRS) transformations, allowing information to flow across project boundaries.
 This supports integration with the broader civil engineering ecosystem and throughout the project lifecycle.
-Your subsurface data can connect with BIM environments, to be viewed with above-ground geospatial information like satellite imagery, Digital Elevation Models, and built structures.
-This way, Bedrock creates an open-source foundation for more comprehensive project understanding and more informed engineering decisions.
+Allowing your GI data to be viewed with above-ground geospatial information like satellite imagery, Digital Elevation Models (DEM) and be connect with BIM environments through GeoBIM workflows or platforms like Speckle.
+This way, Bedrock lays the open-source foundation for more comprehensive project understanding and more informed engineering decisions.
