@@ -2,7 +2,9 @@ project:
   type: website
   resources:
     - "public/**/*"
-
+  preview:
+    port: 4200
+  
 website:
   title: "Bedrock"
   description: "Bedrock, the Open Source Foundation for Geotechnical Engineering"
