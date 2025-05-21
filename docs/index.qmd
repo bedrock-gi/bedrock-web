@@ -30,6 +30,7 @@ This enables integration of GI data with other software and workflows used in th
 
 ## Hierarchical Nature of GI data
 
+<!-- TODO: get the definition of Ground Investigation from the British Standard and create a glossary -->
 Ground investigation data is information collected about the soil, rock, and groundwater conditions at a site before construction begins.
 It includes test results and samples that reveal the ground's properties.
 This information helps engineers design safe and suitable foundations while identifying potential risks or hazards.
