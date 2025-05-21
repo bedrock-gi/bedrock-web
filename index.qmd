@@ -38,7 +38,7 @@ This data validation mechanism (based on [`pandera`](https://pandera.readthedocs
 For example, you can take GI data from 100 AGS files and combine them into a single a [GeoPackage](https://en.wikipedia.org/wiki/GeoPackage) ([like a Shapefile, but then waaay better](http://switchfromshapefile.org/)). Such a GeoPackage can then be loaded into ArcGIS, where you can visualize your GI data in 3D:
 
 <figure style="margin-inline: block; display: block;">
-  <img src="https://bedrock.engineer/public/images/KaiTak_BrGI_ArcGIS.gif" alt="Kai Tak, Hong Kong, 3D GI data visualization in ArcGIS" width="90%"/> 
+  <img src="https://bedrock.engineer/public/images/KaiTak_BrGI_ArcGIS.webp" alt="Kai Tak, Hong Kong, 3D GI data visualization in ArcGIS" width="90%"/> 
   <figcaption>
   GI data in Kai Tak, Hong Kong. <a href="https://arcg.is/0r9DG9">Click here to explore for yourself.</a>
 </figcaption>
@@ -56,7 +56,7 @@ From ArcGIS or QGIS you can publish your GI data to [Speckle](https://speckle.sy
 </figure>
 
 <figure style="margin-inline: block; display: block;">
-  <img src="https://bedrock.engineer/public/images/WekaHills_Speckle.gif" alt="GI data, the derived Leapfrog ground model and a tunnel in Speckle." width="90%"/> 
+  <img src="https://bedrock.engineer/public/images/WekaHills_Speckle.webp" alt="GI data, the derived Leapfrog ground model and a tunnel in Speckle." width="90%"/> 
   <figcaption>
   GI data, the derived Leapfrog ground model and a tunnel in Speckle. <a href="https://app.speckle.systems/projects/7a489ac0d4/models/$epsg:2193-7839%2Fgeo%2Fgeology-model,65b4cf97d5,9069ef2b2b">Click here to explore for yourself.</a>
 </figcaption>
@@ -79,7 +79,7 @@ Got some feedback, a great idea, running into problems when working with Bedrock
 Please feel free to:
 
 1. Open an issue for feature requests or bug reports: [`bedrock-ge` issues](https://github.com/bedrock-engineer/bedrock-ge/issues),
-2. Start a discussion in this GitHub repo: [Bedrock discussions](https://github.com/orgs/bedrock-ge/discussions),
+2. Start a discussion in this GitHub repo: [Bedrock discussions](https://github.com/orgs/bedrock-engineer/discussions),
 3. Or start a discussion on the Speckle community forum if that's more appropriate: [Speckle community forum](https://speckle.community/)
 
 All feedback and engagement with the Bedrock community is welcome 🤗
@@ -98,8 +98,8 @@ Contributing isn't just about writing code:
 
 - Use Bedrock and provide [feedback](#-feedback) 🪲
 - Share how you use Bedrock 🏗️
-- If you have a project with publicly available GI data, please share that in a [discussion](https://github.com/orgs/bedrock-ge/discussions), such that we can create a tutorial from it.
-- Help each other out, e.g. by replying to questions in the [discussions](https://github.com/orgs/bedrock-ge/discussions) or [`bedrock-ge` issues](https://github.com/bedrock-engineer/bedrock-ge/issues) 🤝
+- If you have a project with publicly available GI data, please share that in a [discussion](https://github.com/orgs/bedrock-engineer/discussions), such that we can create a tutorial from it.
+- Help each other out, e.g. by replying to questions in the [discussions](https://github.com/orgs/bedrock-engineer/discussions) or [`bedrock-ge` issues](https://github.com/bedrock-engineer/bedrock-ge/issues) 🤝
 - Spread the word about Bedrock 🤩
 - Documentation and tutorials 📃
 - Most pages on the [bedrock.engineer](https://bedrock.engineer/) website can be edited, so if you see a spelling mistake or have a suggestion on how to explain something better, please smash that button! 🖱️💥

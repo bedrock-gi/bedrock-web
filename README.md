@@ -70,7 +70,7 @@ This data validation mechanism (based on [`pandera`](https://pandera.readthedocs
 For example, you can take GI data from 100 AGS files and combine them into a single a [GeoPackage](https://en.wikipedia.org/wiki/GeoPackage) ([like a Shapefile, but then waaay better](http://switchfromshapefile.org/)). Such a GeoPackage can then be loaded into ArcGIS, where you can visualize your GI data in 3D:
 
 <figure style="margin-inline: block; display: block;">
-  <img src="https://bedrock.engineer/public/images/KaiTak_BrGI_ArcGIS.gif" alt="Kai Tak, Hong Kong, 3D GI data visualization in ArcGIS" width="90%"/> 
+  <img src="https://bedrock.engineer/public/images/KaiTak_BrGI_ArcGIS.webp" alt="Kai Tak, Hong Kong, 3D GI data visualization in ArcGIS" width="90%"/> 
   <figcaption>
   GI data in Kai Tak, Hong Kong. <a href="https://arcg.is/0r9DG9">Click here to explore for yourself.</a>
 </figcaption>
@@ -88,7 +88,7 @@ From ArcGIS or QGIS you can publish your GI data to [Speckle](https://speckle.sy
 </figure>
 
 <figure style="margin-inline: block; display: block;">
-  <img src="https://bedrock.engineer/public/images/WekaHills_Speckle.gif" alt="GI data, the derived Leapfrog ground model and a tunnel in Speckle." width="90%"/> 
+  <img src="https://bedrock.engineer/public/images/WekaHills_Speckle.webp" alt="GI data, the derived Leapfrog ground model and a tunnel in Speckle." width="90%"/> 
   <figcaption>
   GI data, the derived Leapfrog ground model and a tunnel in Speckle. <a href="https://app.speckle.systems/projects/7a489ac0d4/models/$epsg:2193-7839%2Fgeo%2Fgeology-model,65b4cf97d5,9069ef2b2b">Click here to explore for yourself.</a>
 </figcaption>
@@ -167,7 +167,7 @@ Contributing isn't scary. Contributing isn't just about writing code:
 > I studied Applied Geoscience (Petroleum Engineering Reservoir Geology) but frustration with technical software led me to learn to code and as a result, I mostly worked in software development.
 >
 > Over the past 5 years, I’ve worked on data-rich applications across various domains, specifically in frontend development.
-> My primary interest is figuring out how to build tools for more thoughtful display and processing of technical information, for geoscience in particular.
+> My primary interest is figuring out how to build tools for more thoughtful processing and display of technical information, for geoscience in particular.
 
 ## Contributors
 

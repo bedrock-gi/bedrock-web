@@ -22,25 +22,157 @@ format:
 
 Bedrock is an open-source Python library that forms the foundation for for Geotechnical Engineering, subsurface modelling and Geo-BIM.
 
-Ground Investigation data is often stored in specialized file formats that are not easily accessible for modern (geospatial) analysis and visualization workflows.
-Bedrock transforms this GI data into structured Python objects, enabling you to analyze it, and export it to GIS databases. This enable integration of GI data with other software and workflows used in the AEC industry.
+<!-- Ground investigation data has traditionally been trapped in specialized file formats that limit its accessibility and utility. -->
 
+Ground Investigation (GI) data is often stored in specialized file formats that are not easily accessible for modern (geospatial) analysis and visualization workflows.
+Bedrock lets you transform this GI data into structured objects in Python, enabling you to analyze it, and export it to geospatial databases.
+This enables integration of GI data with other software and workflows used in the AEC industry.
 
-The purpose of Bedrock is NOT to become THE standard for geotechnical data, because we don't need 15 instead of 14 competing standards:
+## Hierarchical Nature of GI data
+
+<!-- TODO: get the definition of Ground Investigation from the British Standard and create a glossary -->
+Ground investigation data is information collected about the soil, rock, hydrological and environmental conditions.
+This information helps engineers design safe and suitable foundations while identifying potential risks and hazards.
+This is essential for making informed decisions and avoiding problems during construction.
+
+GI data inherently exists in a structured hierarchy. This hierarchy follows how ground investigations are performed.
+A GI project, say for a new building or bridge, comprises multiple GI locations, such as a borehole.
+Multiple in-situ tests can be performed at one GI location and can at the same time also yield multiple samples from different depths. In turn, these samples may undergo multiple laboratory tests.
+These hierarchical relationships can be visualized in a tree diagram like this:
+
+<svg viewBox="-12,-24,300,144" style="height: auto; font: 13px sans-serif; display: block;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g fill="none" stroke="#999">
+    <path d="M0,0V24h24"/><path d="M24,24V48h24"/>
+    <path d="M24,24V72h24"/><path d="M48,72V96h24"/>
+  </g>
+  <g>
+    <g transform="translate(0,0)">
+      <circle cx="0" r="2.5"/>
+      <text dy="0.32em" x="6">
+        <tspan font-weight="600">Project</tspan><tspan dx="2"/>
+      </text>
+      <title>Project</title>
+    </g>
+    <g transform="translate(0,24)">
+      <circle cx="24" r="2.5"/>
+      <text dy="0.32em" x="30">
+        <tspan font-weight="600">Location</tspan>
+        <tspan dx="2"/>
+      </text>
+      <title>Project/Location</title>
+    </g>
+    <g transform="translate(0,48)">
+      <circle cx="48" r="2.5"/>
+      <text dy="0.32em" x="54">
+        <tspan font-weight="600">InSitu</tspan>
+        <tspan dx="2"/>
+      </text>
+      <title>Project/Location/InSitu</title>
+    </g>
+    <g transform="translate(0,72)">
+      <circle cx="48" r="2.5"/>
+      <text dy="0.32em" x="54">
+        <tspan font-weight="600">Sample</tspan>
+        <tspan dx="2"/>
+      </text>
+      <title>Project/Location/Sample</title>
+    </g>
+    <g transform="translate(0,96)">
+      <circle cx="72" r="2.5"/>
+      <text dy="0.32em" x="78">
+        <tspan font-weight="600">Lab</tspan>
+        <tspan dx="2"/>
+      </text>
+      <title>Project/Location/Sample/Lab</title>
+    </g>
+  </g>
+</svg>
+
+## AGS4 Data
+
+Industry GI data formats like [AGS](/articles/2025-04-14-ags/) implement a hierarchical data structure in text-based files.
+AGS does so by organizing GI data into structured tables called "Groups".
+Each group represents a specific aspect of a Ground Investigation, for example, project information (PROJ), location details (LOCA), sample information (SAMP), or an in-situ test like a Standard Penetration Test (ISPT).
+These groups are organized in a hierarchical manner: samples and in-situ tests belong to locations, which belong to projects, mirroring how ground investigations are conducted.
+
+<svg viewBox="-12,-24,300,124" style="height: auto; font: 13px sans-serif; display: block;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g fill="none" stroke="#999">
+        <path d="M0,0 V24 h24" />
+        <path d="M24,24 V48 h24" />
+        <path d="M24,24 V72 h24" />
+    </g>
+    <g>
+      <g transform="translate(0,0)">
+        <circle cx="0" r="2.5" />
+        <text dy="0.32em" x="6">
+            <tspan font-weight="600">PROJ</tspan>
+            <tspan dx="2">Project information</tspan>
+        </text>
+        <title>PROJ</title>
+      </g>
+      <g transform="translate(0,24)">
+          <circle cx="24" r="2.5" />
+          <text dy="0.32em" x="30">
+              <tspan font-weight="600">LOCA</tspan>
+              <tspan dx="2">Location details</tspan>
+          </text>
+          <title>PROJ/LOCA</title>
+      </g>
+      <g transform="translate(0,48)">
+          <circle cx="48" r="2.5" fill="#999" />
+          <text dy="0.32em" x="54">
+              <tspan font-weight="600">SAMP</tspan>
+              <tspan dx="2">Sample information</tspan>
+          </text>
+          <title>PROJ/LOCA/SAMP</title>
+      </g>
+      <g transform="translate(0,72)">
+          <circle cx="48" r="2.5" fill="#999" />
+          <text dy="0.32em" x="54">
+              <tspan font-weight="600">ISPT</tspan>
+              <tspan dx="2">Standard Penetration Test Results</tspan>
+          </text>
+          <title>PROJ/LOCA/ISPT</title>
+      </g>
+    </g>
+</svg>
+
+AGS4 successfully addresses many aspects of GI data organization, but its specialized nature and age creates limitations.
+
+* Its use is limited to geotechnical engineering applications, meaning we can't easily process or view the data using common tools. This also inhibits sharing this data with others in the civil engineering sector.
+* One project's data is spread over multiple different files.
+
+## Geospatial Databases
+
+The hierarchical structure of GI data aligns closely with [relational databases](https://observablehq.com/blog/databases-101-basics-data-analysts#what-are-relational-databases).
+Relational databases organize data in tables with rows and columns.
+Tables can be related to each other using keys.
+A primary key uniquely identifies each row in a table. 
+A foreign key links the rows of one table to the primary keys of another one, allowing data from different tables to be combined and queried efficiently.
+Relational databases are foundational to modern data management, and probably the most common type of database.
+
+Geospatial databases are extensions of databases with capabilities for storing, accessing, analyzing and visualizing location-based data.
+Geospatial relational databases have one additional column in their tables, which contains the location or geometry linked to the data in each row.
+Each row in a geospatial database is called a feature.
+
+## Benefits of Geospatial Databases
+
+The purpose of Bedrock is NOT to become THE standard for GI data, because we don't need 15 instead of 14 competing standards:
 
 <figure style="margin-block: 16px; margin-inline: auto; text-align: center;">
   <img src="https://bedrock.engineer/public/images/14Become15Standards.png" alt="14 competing standards become 15 competing standards | xkcd.com/927" width="60%"/>
   <figcaption>Source: <a href="https://xkcd.com/927/" target="_blank">https://xkcd.com/927</a></figcaption>
 </figure> 
 
-For example, us geotechnical engineers who are used to working with AGS data know that the "ISPT group" is a table that describes an In-Situ Standard Penetration Test and we know what headings, i.e. columns that AGS group, i.e. table has. Therefore, Bedrock doesn't change the naming of those columns. Bedrock just makes sure that the data is structured in a sensible way, such that Ground Investigation data from multiple sources can be converted into a single GIS database.
+Rather, Bedrock lets you transform GI data from specialized formats like AGS 4 into geospatial databases to overcome these constraints while preserving the hierarchical relationships of the data.
+By assigning (3D) geospatial geometry to each of the GI locations, in-situ tests and samples the GI data becomes a geospatial database.
+This lets you bridge the gap between specialized GI data formats and the wider world of geospatial / GIS tools and standards.
 
-A GIS database with Ground Investigation data contains tables that describe the Ground Investigation `'Project'`, the `'Location'`s where GI data was collected, the `'Sample'`s and `'InSitu'` measurements taken at these `'Location'`s, and the `'Lab'` tests that were performed on the collected `'Sample'`s.
+Geospatial GI data gives you greater flexibility in utilizing your GI data.
+It makes the GI data accessible through portable file formats like [GeoPackage](https://geopackage.org/), [GeoJSON](https://geojson.org/) or [GeoParquet](https://geoparquet.org/) or database systems like [PostGIS](https://postgis.net/).
+This breaks data silos and unlocks multiple workflows, from Python-based scientific computing for advanced analysis, machine learning, 3D visualization and creating dashboards, to traditional GIS software for mapping.
 
-The `'Project'`, `'Location'`, `'Sample'`, `'InSitu'` measurement and `'Lab'` test tables are related to each other: each lab test belongs to a sample, which belongs to a GI location, which belongs to a project. These relationships can be visualized in a hierarchy like this:
-
-<svg width="928" height="144" viewBox="-12,-24,928,144" style="max-width: 100%; height: auto; font: 13px sans-serif; overflow: visible;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g fill="none" stroke="#999"><path d="&#10;M0,0&#10;V24&#10;h24&#10;"/><path d="&#10;M24,24&#10;V48&#10;h24&#10;"/><path d="&#10;M24,24&#10;V72&#10;h24&#10;"/><path d="&#10;M48,72&#10;V96&#10;h24&#10;"/></g><g><g transform="translate(0,0)"><circle cx="0" r="2.5"/><text dy="0.32em" x="6"><tspan font-weight="600">Project</tspan><tspan dx="2"/></text><title>Project</title></g><g transform="translate(0,24)"><circle cx="24" r="2.5"/><text dy="0.32em" x="30"><tspan font-weight="600">Location</tspan><tspan dx="2"/></text><title>Project/Location</title></g><g transform="translate(0,48)"><circle cx="48" r="2.5"/><text dy="0.32em" x="54"><tspan font-weight="600">InSitu</tspan><tspan dx="2"/></text><title>Project/Location/InSitu</title></g><g transform="translate(0,72)"><circle cx="48" r="2.5"/><text dy="0.32em" x="54"><tspan font-weight="600">Sample</tspan><tspan dx="2"/></text><title>Project/Location/Sample</title></g><g transform="translate(0,96)"><circle cx="72" r="2.5"/><text dy="0.32em" x="78"><tspan font-weight="600">Lab</tspan><tspan dx="2"/></text><title>Project/Location/Sample/Lab</title></g></g></svg>
-
-These relationships are represented in the database tables with so-called "foreign keys". For example, the results of an Atterberg Limits Lab test (i.e. Liquid Limit and Plastic Limit tests) that originated from an AGS file would be in stored in the `'Lab_LLPL'` table. Each row in this table represents the Atterberg Limit test results performed on a specific sample. Each row knows to which project, GI location and sample it belongs through its `project_uid`, `location_uid` and `sample_uid` respectively.
-
-This relational database with Ground Investigation data becomes a GIS database by assigning a (3D) GIS geometry to each of the rows in each of the database tables (except for the `'Project'` table).
+Lastly, geospatial databases ensure proper spatial referencing and Coordinate Reference System (CRS) transformations, allowing information to flow across project boundaries.
+This supports integration with the broader civil engineering ecosystem and throughout the project lifecycle.
+Allowing your GI data to be viewed with above-ground geospatial information like satellite imagery, Digital Elevation Models (DEM) and be connect with BIM environments through GeoBIM workflows or platforms like Speckle.
+This way, Bedrock lays the open-source foundation for more comprehensive project understanding and more informed engineering decisions.
