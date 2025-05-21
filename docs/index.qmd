@@ -31,18 +31,17 @@ This enables integration of GI data with other software and workflows used in th
 ## Hierarchical Nature of GI data
 
 Ground investigation data is information collected about the soil, rock, and groundwater conditions at a site before construction begins.
-It includes test results and samples that reveal the ground’s properties.
-This helps engineers design safe and suitable foundations while identifying potential risks or hazards.
-This data is essential for making informed decisions and avoiding problems during construction.
+It includes test results and samples that reveal the ground's properties.
+This information helps engineers design safe and suitable foundations while identifying potential risks or hazards.
+This is essential for making informed decisions and avoiding problems during construction.
 
 GI data inherently exists in a structured hierarchy. This hierarchy follows how ground investigations are performed.
 A project, say a new building or bridge, comprises multiple test locations.
-An in-situ tests are performed at a specific location.
-This location can also yield multiple samples from different depths. In turn, these samples may undergo multiple laboratory tests.
-
+In-situ tests are performed at a specific locations.
+One test location can also yield multiple samples from different depths. In turn, these samples may undergo multiple laboratory tests.
 These hierarchical relationships can be visualized in a tree diagram like this:
 
-<svg viewBox="-12,-24,200,144" style="width: 50%; height: auto; font: 13px sans-serif; display: block;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg viewBox="-12,-24,300,144" style="max-width: 50%; height: auto; font: 13px sans-serif; display: block;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <g fill="none" stroke="#999">
     <path d="M0,0V24h24"/><path d="M24,24V48h24"/>
     <path d="M24,24V72h24"/><path d="M48,72V96h24"/>
@@ -92,10 +91,52 @@ These hierarchical relationships can be visualized in a tree diagram like this:
 
 ## AGS4 Data
 
-Industry GI formats like [AGS](/articles/2025-04-14-ags/) follow a hierarchical structure in a text-based file format.
-It does so by organizing GI data into structured tables called "Groups".
-Each group represents a specific aspect of s Ground Investigation, for example, project information (PROJ), location details (LOCA), sample information (SAMP), or an in-situ test like a Standard Penetration Test (ISPT).
-These groups are organised in a hierarchical manner: samples and in-situ tests belong to locations, which belong to projects, mirroring the natural structure of geotechnical investigations.
+Industry GI data formats like [AGS](/articles/2025-04-14-ags/) implement a hierarchical data structure in text-based files.
+AGS does so by organizing GI data into structured tables called "Groups".
+Each group represents a specific aspect of a Ground Investigation, for example, project information (PROJ), location details (LOCA), sample information (SAMP), or an in-situ test like a Standard Penetration Test (ISPT).
+These groups are organised in a hierarchical manner: samples and in-situ tests belong to locations, which belong to projects, mirroring how ground investigations are conducted.
+
+<svg viewBox="-12,-24,300,124" style="max-width: 50%; height: auto; font: 13px sans-serif; display: block;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g fill="none" stroke="#999">
+        <path d="M0,0 V24 h24" />
+        <path d="M24,24 V48 h24" />
+        <path d="M24,24 V72 h24" />
+    </g>
+    <g>
+      <g transform="translate(0,0)">
+        <circle cx="0" r="2.5" />
+        <text dy="0.32em" x="6">
+            <tspan font-weight="600">PROJ</tspan>
+            <tspan dx="2">Project information</tspan>
+        </text>
+        <title>PROJ</title>
+      </g>
+      <g transform="translate(0,24)">
+          <circle cx="24" r="2.5" />
+          <text dy="0.32em" x="30">
+              <tspan font-weight="600">LOCA</tspan>
+              <tspan dx="2">Location details</tspan>
+          </text>
+          <title>PROJ/LOCA</title>
+      </g>
+      <g transform="translate(0,48)">
+          <circle cx="48" r="2.5" fill="#999" />
+          <text dy="0.32em" x="54">
+              <tspan font-weight="600">SAMP</tspan>
+              <tspan dx="2">Sample information</tspan>
+          </text>
+          <title>PROJ/LOCA/SAMP</title>
+      </g>
+      <g transform="translate(0,72)">
+          <circle cx="48" r="2.5" fill="#999" />
+          <text dy="0.32em" x="54">
+              <tspan font-weight="600">ISPT</tspan>
+              <tspan dx="2">Standard Penetration Test Results</tspan>
+          </text>
+          <title>PROJ/LOCA/ISPT</title>
+      </g>
+    </g>
+</svg>
 
 AGS4 successfully addresses many aspects of GI data organization, but its specialized nature and age creates limitations.
 
@@ -124,12 +165,12 @@ The purpose of Bedrock is NOT to become THE standard for GI data, because we don
   <figcaption>Source: <a href="https://xkcd.com/927/" target="_blank">https://xkcd.com/927</a></figcaption>
 </figure> 
 
-Rather, Bedrock converts GI data from specialized formats like AGS4 into geospatial databases to overcome these constraints while preserving the hierarchical relationships of the data.
+Rather, Bedrock lets you transform GI data from specialized formats like AGS4 into geospatial databases to overcome these constraints while preserving the hierarchical relationships of the data.
 By assigning (3D) geospatial geometry to each of the features in GI data that have a geographic element (like locations, samples, in-situ tests), it becomes a geospatial database.
 This lets you bridge the gap between specialized GI data and the wider world of geospatial tools and standards.
 
 Geospatial GI data gives you greater flexibility in utilizing the data.
-It makes the data accessible through portable file formats like GeoPackage or GeoParquet or database systems like PostGIS.
+It makes the data accessible through portable file formats like [GeoPackage](https://www.geopackage.org/) or [GeoParquet](https://geoparquet.org/) or database systems like [PostGIS](https://postgis.net/).
 This breaks data silos and unlocks multiple workflows, from Python-based scientific computing for advanced analysis, 3D visualization, and machine learning, to traditional GIS software for mapping.
 The same dataset can be used in parametric design tools like Rhino3D or power interactive web maps.
 
