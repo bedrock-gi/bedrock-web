@@ -1,0 +1,32 @@
+---
+# Front Matter
+title: "Professional Help"
+description: "Get professional help implementing Bedrock."
+
+# Quarto settings
+format:
+  html:
+    code-fold: true
+    code-annotations: true
+---
+
+If you want to implement Bedrock but don't know where to start, you can get implementation support and consultancy services directly from Bedrocks creators.
+We'll help transform your ground investigation workflows and unlock the full potential of your GI data.
+
+## Implementation consulting
+
+* Data migration to standardized geoformats, like GeoPackage
+* Workflow setup
+* Training
+* Ongoing technical support
+
+## Custom development
+
+* Specialized parsers for file formats
+* Integrations with existing geotechnical databases
+* Custom visualizations and dashboards
+
+## About
+
+Bedrock is built by engineers with deep domain knowledge and ample software development experience
+For more information, get in touch via info@bedrock.engineer.
