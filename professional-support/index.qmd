@@ -28,5 +28,5 @@ We'll help transform your ground investigation workflows and unlock the full pot
 
 ## About
 
-Bedrock is built by engineers with deep domain knowledge and ample software development experience
+Bedrock is built by engineers with domain knowledge and ample software development experience
 For more information, get in touch via info@bedrock.engineer.
