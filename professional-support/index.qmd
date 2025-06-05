@@ -1,7 +1,7 @@
 ---
 # Front Matter
-title: "Professional Help"
-description: "Get professional help implementing Bedrock."
+title: "Professional Support"
+description: "Get professional support implementing Bedrock."
 
 # Quarto settings
 format:
