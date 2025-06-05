@@ -175,4 +175,4 @@ Please take a look at the [contributors page](https://github.com/bedrock-enginee
 
 ## Professional Support
 
-While `bedrock-ge` is an Free Open Source Software (FOSS) project, you might be looking for professional support implementing it, contact <info@bedrock.engineer> for more information.
+While `bedrock-ge` is an Free Open Source Software (FOSS) project, you might be looking for [professional support](https://www.bedrock.engineer/professional-support) implementing it, contact <info@bedrock.engineer> for more information.

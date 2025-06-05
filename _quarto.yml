@@ -42,9 +42,9 @@ website:
           - text: "Ask Bedrock a Question"
             icon: "chat-right-text"
             href: "https://github.com/orgs/bedrock-engineer/discussions"
-          - text: "Ask Speckle a Question"
-            icon: "question-square-fill"
-            href: "https://speckle.community/"
+          - text: "Professional Support"
+            icon: "person-raised-hand"
+            href: "/professional-support"
           # - text: "FAQ"
           #   icon: "question-circle"
           #   href: faq.qmd

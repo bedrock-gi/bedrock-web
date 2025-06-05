@@ -82,7 +82,7 @@ Please feel free to:
 2. Start a discussion in this GitHub repo: [Bedrock discussions](https://github.com/orgs/bedrock-engineer/discussions),
 3. Or start a discussion on the Speckle community forum if that's more appropriate: [Speckle community forum](https://speckle.community/)
 
-All feedback and engagement with the Bedrock community is welcome 🤗
+All feedback and engagement with the Bedrock community is welcome.
 
 ## 👷 Contributing
 
@@ -92,19 +92,23 @@ Wait, please read this too!
 
 :::
 
-Contributing isn't scary 😄
+Contributing isn't scary. 
 
 Contributing isn't just about writing code:
 
-- Use Bedrock and provide [feedback](#-feedback) 🪲
-- Share how you use Bedrock 🏗️
+- Use Bedrock and provide [feedback](#-feedback)
+- Share how you use Bedrock
 - If you have a project with publicly available GI data, please share that in a [discussion](https://github.com/orgs/bedrock-engineer/discussions), such that we can create a tutorial from it.
 - Help each other out, e.g. by replying to questions in the [discussions](https://github.com/orgs/bedrock-engineer/discussions) or [`bedrock-ge` issues](https://github.com/bedrock-engineer/bedrock-ge/issues) 🤝
-- Spread the word about Bedrock 🤩
+- Spread the word about Bedrock!
 - Documentation and tutorials 📃
 - Most pages on the [bedrock.engineer](https://bedrock.engineer/) website can be edited, so if you see a spelling mistake or have a suggestion on how to explain something better, please smash that button! 🖱️💥
 
 <img src="https://bedrock.engineer/public/images/EditThisPage.png" alt="Edit this page on GitHub button on bedrock.engineer" width="20%" style="border: 1px solid #333;" />
 
-- If you would like to contribute code, AWESOME! 💖
+- If you would like to contribute code, AWESOME!
   Please create an issue for what you'd like to contribute. If you don't know how to get started, please indicate this in your issue, and we'll help you out.
+
+## Professional Support
+
+While `bedrock-ge` is an Free Open Source Software (FOSS) project, you might be looking for [professional support](/professional-support) implementing it, contact <info@bedrock.engineer> for more information.
