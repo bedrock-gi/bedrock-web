@@ -7,13 +7,10 @@ app = marimo.App()
 @app.cell
 def _():
     import json
-    from pathlib import Path
 
     import marimo as mo
     import pandas as pd
     import pdfplumber
-
-    Path.cwd()
     return json, mo, pd, pdfplumber
 
 
@@ -39,10 +36,10 @@ def _(mo):
 
 
 @app.cell(hide_code=True)
-def _(pd):
-    df1 = pd.read_csv("ags3_chatgpt_groups_and_headings.tsv", sep="\t")
+def _(mo, pd):
+    df1 = pd.read_csv(mo.notebook_location() / "ags3_chatgpt_groups_and_headings.tsv", sep="\t")
     df1["df"] = 1
-    df2 = pd.read_csv("ags3_chatgpt_groups_and_headings2.tsv", sep="\t")
+    df2 = pd.read_csv(mo.notebook_location() / "ags3_chatgpt_groups_and_headings2.tsv", sep="\t")
     df2["df"] = 2
 
     # Concatenate the two DataFrames
@@ -191,13 +188,27 @@ def _(
                         if group_name == previous_group_name:
                             extracted_data[-1]["headings"].extend(headings)
                         else:
+                            # Determine group type
+                            group_type = "Other"
+                            for d in headings:
+                                heading = d["heading"]
+                                if "SAMP_TOP" in heading:
+                                    group_type = "Lab"
+                                    break
+                                elif group_type == "Other" and (
+                                    "HOLE_ID" in heading or "LOCA_ID" in heading
+                                ):
+                                    group_type = "In-Situ"
+
                             extracted_data.append(
                                 {
                                     "group_name": group_name,
                                     "group_description": group_description,
+                                    "group_type": group_type,
                                     "headings": headings,
                                 }
                             )
+
                         previous_group_name = group_name
 
         # Save the extracted data to a JSON file
