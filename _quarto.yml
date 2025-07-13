@@ -2,30 +2,20 @@ project:
   type: website
   resources:
     - "public/**/*"
-
-format:
-  html:
-    theme:
-      light: [cosmo, theme.scss]
-    # There are 3 types of navigation in Quarto:
-    # 1. Top Navigation - navbar: - https://quarto.org/docs/websites/website-navigation.html#top-navigation
-    # 2. Side Navigation (left of page content) - sidebar: - https://quarto.org/docs/websites/website-navigation.html#side-navigation
-    # 3. On Page Navigation (right of page content) - toc: - https://quarto.org/docs/reference/formats/html.html#table-of-contents
-    toc: true
-    toc-depth: 2
-    link-external-icon: true
-    link-external-newwindow: true
-    jupyter: python3
-    code-copy: true
-    code-fold: true
-    code-annotations: hover
-
+  preview:
+    port: 4200
+  
 website:
   title: "Bedrock"
   description: "Bedrock, the Open Source Foundation for Geotechnical Engineering"
   image: "public/Bedrock_inCircle.png"
   favicon: "public/favicon.ico"
-  open-graph: true
+  open-graph: 
+    title: "Bedrock"
+    description: "Bedrock, the Open Source Foundation for Geotechnical Engineering"
+    image: "public/Bedrock_TextRight.png"
+    locale: en_US
+  twitter-card: true
   site-url: https://bedrock.engineer
   repo-url: https://github.com/bedrock-engineer/bedrock-web
   issue-url: https://github.com/bedrock-engineer/bedrock-ge/issues/new/choose
@@ -41,6 +31,8 @@ website:
         href: docs/index.qmd
       - text: "Articles"
         href: articles.qmd
+      - text: "API Reference"
+        href: reference/index.qmd
       # - text: "Community"
       #   href: community.qmd
       - text: "Help"
@@ -50,10 +42,10 @@ website:
             href: "https://github.com/bedrock-engineer/bedrock-ge/issues"
           - text: "Ask Bedrock a Question"
             icon: "chat-right-text"
-            href: "https://github.com/orgs/bedrock-ge/discussions"
-          - text: "Ask Speckle a Question"
-            icon: "question-square-fill"
-            href: "https://speckle.community/"
+            href: "https://github.com/orgs/bedrock-engineer/discussions"
+          - text: "Professional Support"
+            icon: "person-raised-hand"
+            href: "/professional-support"
           # - text: "FAQ"
           #   icon: "question-circle"
           #   href: faq.qmd
@@ -110,3 +102,92 @@ execute:
 
 language: 
   search-box-placeholder: Search
+
+# options specified here will apply to all pages in this folder
+# https://quarto.org/docs/websites/website-navigation.html#side-navigation
+# Sidebar Navigation goes into _quarto.yml, not here in the _metadata.yml
+# quarto.org uses id's to identify sections
+
+# website:
+#   sidebar:
+#     style: "floating"
+#     contents:
+#       - text: "Documentation"
+#         href: index.qmd
+#       - section: "Getting Started"
+#         href: getting-started.qmd
+#         contents:
+#           - index.qmd
+#           - basics-knitr.qmd
+#           - basics-jupyter.qmd
+#       - section: "Layout"
+#         contents:
+#           - layout.qmd
+#           - layout-knitr.qmd
+#           - layout-jupyter.qmd
+#       - section: advanced.qmd
+#         contents:
+#           - raw-code.qmd
+#           - custom-theme.qmd
+#       - acknowlegment.qmd
+
+format:
+  html:
+    theme:
+      light: [cosmo, theme.scss]
+    toc: true
+    toc-depth: 2
+    link-external-icon: true
+    link-external-newwindow: true
+    jupyter: python3
+    code-copy: true
+    code-fold: true
+    code-annotations: hover
+    include-in-header:
+      - text: <link rel="icon" href="./public/Bedrock.svg" type="image/svg+xml">
+
+quartodoc:
+  # the name used to import the package you want to create reference docs for
+  package: bedrock_ge
+  parser: google
+
+  # write sidebar data to this file
+  sidebar: _sidebar.yml
+
+  sections:
+    - title: AGS
+      desc: Read, transform & validate AGS Files
+      contents:
+        - gi.ags.read.ags_to_dfs
+        - gi.ags.read.ags3_to_dfs
+        - gi.ags.read.ags4_to_dfs
+        - gi.ags.transform.ags3_db_to_no_gis_brgi_db
+        - gi.ags.transform.ags_proj_to_brgi_project
+        - gi.ags.validate.check_ags_proj_group
+
+    - title: Validate
+      desc: Validate Bedrock GI databases
+      contents: 
+        - gi.validate.check_brgi_database
+        - gi.validate.check_no_gis_brgi_database
+        - gi.validate.check_foreign_key
+    
+    - title: Write
+      desc: Write Bedrock GI databases to different file formats
+      contents: 
+        - gi.write.write_gi_db_to_gpkg
+        - gi.write.write_gi_db_to_excel
+        - gi.write.sanitize_table_name
+    
+    - title: Concatenate
+      contents: 
+        - gi.concatenate.concatenate_databases
+    
+    - title: GIS Geometry
+      desc: Calculate GIS Geometry for Bedrock GI databases and GI locations
+      contents: 
+        - gi.gis_geometry.calculate_gis_geometry
+        - gi.gis_geometry.calculate_location_gis_geometry
+        - gi.gis_geometry.calculate_wgs84_coordinates
+        - gi.gis_geometry.create_lon_lat_height_table
+        - gi.gis_geometry.calculate_in_situ_gis_geometry

@@ -1,0 +1,27 @@
+# gi.gis_geometry.calculate_wgs84_coordinates { #bedrock_ge.gi.gis_geometry.calculate_wgs84_coordinates }
+
+```python
+gi.gis_geometry.calculate_wgs84_coordinates(
+    from_crs,
+    easting,
+    northing,
+    elevation=None,
+)
+```
+
+Transforms coordinates from an arbitrary Coordinate Reference System (CRS) to the WGS84 CRS, which is the standard for geodetic coordinates.
+
+## Parameters {.doc-section .doc-section-parameters}
+
+| Name      | Type          | Description                                                | Default    |
+|-----------|---------------|------------------------------------------------------------|------------|
+| from_crs  | pyproj.CRS    | The pyproj.CRS object of the CRS to transform from.        | _required_ |
+| easting   | float         | The easting coordinate of the point to transform.          | _required_ |
+| northing  | float         | The northing coordinate of the point to transform.         | _required_ |
+| elevation | float or None | The elevation of the point to transform. Defaults to None. | `None`     |
+
+## Returns {.doc-section .doc-section-returns}
+
+| Name   | Type   | Description                                                                                                                                                                                                    |
+|--------|--------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| tuple  | Tuple  | A tuple containing the longitude, latitude and WGS84 height of the transformed point, in that order. The height is None if no elevation was given, or if the provided CRS doesn't have a proper datum defined. |

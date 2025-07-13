@@ -1,0 +1,41 @@
+# gi.gis_geometry.calculate_gis_geometry { #bedrock_ge.gi.gis_geometry.calculate_gis_geometry }
+
+```python
+gi.gis_geometry.calculate_gis_geometry(no_gis_brgi_db, verbose=True)
+```
+
+Calculates GIS geometry for tables in a Bedrock Ground Investigation database.
+
+This function processes a dictionary of DataFrames containing Ground Investigation (GI) data,
+adding appropriate GIS geometry to each table. It handles both 2D and 3D geometries,
+including vertical boreholes and sampling locations.
+
+## Parameters {.doc-section .doc-section-parameters}
+
+| Name           | Type                                                 | Description                                                                                                                                            | Default    |
+|----------------|------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|------------|
+| no_gis_brgi_db | Dict\[str, Union\[pd.DataFrame, gpd.GeoDataFrame\]\] | Dictionary containing the Bedrock GI database tables without GIS geometry. Keys are table names, values are either pandas DataFrames or GeoDataFrames. | _required_ |
+| verbose        | bool                                                 | Whether to print progress information. Defaults to True.                                                                                               | `True`     |
+
+## Returns {.doc-section .doc-section-returns}
+
+| Name   | Type                          | Description                                                                       |
+|--------|-------------------------------|-----------------------------------------------------------------------------------|
+|        | Dict\[str, gpd.GeoDataFrame\] | Dict[str, gpd.GeoDataFrame]: Dictionary containing the Bedrock GI database tables |
+|        | Dict\[str, gpd.GeoDataFrame\] | with added GIS geometry. All tables are converted to GeoDataFrames with           |
+|        | Dict\[str, gpd.GeoDataFrame\] | appropriate CRS and geometry columns.                                             |
+
+## Raises {.doc-section .doc-section-raises}
+
+| Name   | Type       | Description                                                                       |
+|--------|------------|-----------------------------------------------------------------------------------|
+|        | ValueError | If the projects in the database use different Coordinate Reference Systems (CRS). |
+
+## Note {.doc-section .doc-section-note}
+
+The function performs the following operations:
+1. Verifies all projects use the same CRS
+2. Calculates GIS geometry for the 'Location' table
+3. Creates a 'LonLatHeight' table for 2D visualization
+4. Processes 'Sample' table if present
+5. Processes all tables starting with "InSitu_"

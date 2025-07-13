@@ -1,0 +1,25 @@
+# gi.ags.validate.check_ags_proj_group { #bedrock_ge.gi.ags.validate.check_ags_proj_group }
+
+```python
+gi.ags.validate.check_ags_proj_group(ags_proj)
+```
+
+Checks if the AGS 3 or AGS 4 PROJ group is correct.
+
+## Parameters {.doc-section .doc-section-parameters}
+
+| Name     | Type         | Description                        | Default    |
+|----------|--------------|------------------------------------|------------|
+| ags_proj | pd.DataFrame | The DataFrame with the PROJ group. | _required_ |
+
+## Raises {.doc-section .doc-section-raises}
+
+| Name   | Type       | Description                                  |
+|--------|------------|----------------------------------------------|
+|        | ValueError | If AGS 3 of AGS 4 PROJ group is not correct. |
+
+## Returns {.doc-section .doc-section-returns}
+
+| Name   | Type   | Description                                               |
+|--------|--------|-----------------------------------------------------------|
+| bool   | bool   | Returns True if the AGS 3 or AGS 4 PROJ group is correct. |
