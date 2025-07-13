@@ -16,10 +16,9 @@ def _():
 @app.cell
 def _(mo, pl):
     df = pl.read_json(mo.notebook_location() / f"ags4_data_dictionary.json")
-    # Using Enums in polars improves efficiency, but makes the marimo column filter not work.
-    # df = df.with_columns(
-    #     pl.col("group_type").cast(pl.Enum(["In-Situ", "Lab", "Other"]))
-    # )
+    df = df.with_columns(
+        pl.col("group_type").cast(pl.Enum(["In-Situ", "Lab", "Other"]))
+    )
     df
     return (df,)
 
@@ -32,8 +31,7 @@ def _(df, pl):
     # The General tables have a G as the last letter of the group name.
     first_3_chars = pl.col("group_name").str.slice(0, 3)
     unique_tests = df.filter(
-        # pl.col("group_type").str.contains("Other").not_(),
-        pl.col("group_type").cast(pl.Enum(["In-Situ", "Lab", "Other"])) != "Other",
+        pl.col("group_type") != "Other",
         (
             first_3_chars.is_duplicated()
             & pl.col("group_name").str.contains(first_3_chars + "G").not_()
