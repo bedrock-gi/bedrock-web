@@ -1,0 +1,22 @@
+# gi.ags3.ags3_to_brgi_db_mapping { #bedrock_ge.gi.ags3.ags3_to_brgi_db_mapping }
+
+```python
+gi.ags3.ags3_to_brgi_db_mapping(source, projected_crs, vertical_crs, encoding)
+```
+
+Map AGS 3 data to the Bedrock GI data model.
+
+## Parameters {.doc-section .doc-section-parameters}
+
+| Name          | Type                                             | Description                                                                                                                                                                                                                                                                | Default    |
+|---------------|--------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------|
+| source        | str \| Path \| IO\[str\] \| IO\[bytes\] \| bytes | The AGS 3 file (str or Path) or a file-like object that represents the AGS 3 file.                                                                                                                                                                                         | _required_ |
+| projected_crs | CRS                                              | Projected Coordinate Reference System (CRS). For example: - OSGB36 / British National Grid: `pyproj.CRS("EPSG:27700")` - Hong Kong 1980 Grid System: `pyproj.CRS("EPSG:2326")`                                                                                             | _required_ |
+| vertical_crs  | CRS                                              | Vertical CRS. Defaults to EGM2008 height, EPSG:3855, which measures the orthometric height w.r.t. the Earth Gravitational Model 2008. - Ordnance Datum Newlyn (ODN) Height: `pyproj.CRS("EPSG:5701")` - Hong Kong Principle Datum (HKPD) Height: `pyproj.CRS("EPSG:5738")` | _required_ |
+| encoding      | str                                              | Encoding of the text file or bytes stream.                                                                                                                                                                                                                                 | _required_ |
+
+## Returns {.doc-section .doc-section-returns}
+
+| Name   | Type             | Description                                           |
+|--------|------------------|-------------------------------------------------------|
+|        | BedrockGIMapping | Object that maps AGS 3 data to Bedrock GI data model. |

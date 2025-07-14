@@ -1,4 +1,4 @@
----
+<!-- ---
 title: "FAQ"
 website:
   description: "Frequently Asked Questions about Bedrock."
@@ -103,4 +103,4 @@ Thanks for finding something and sharing with us! You can file an issue in the Q
 
 ### Where can I ask questions and discuss using Quarto with others?
 
-The best place to ask questions and see what questions other people have is in Quarto discussions (<https://github.com/quarto-dev/quarto-cli/discussions>). 
+The best place to ask questions and see what questions other people have is in Quarto discussions (<https://github.com/quarto-dev/quarto-cli/discussions>).  -->

@@ -1,0 +1,25 @@
+# gi.geospatial.create_lon_lat_height_geodf { #bedrock_ge.gi.geospatial.create_lon_lat_height_geodf }
+
+```python
+gi.geospatial.create_lon_lat_height_geodf(brgi_db)
+```
+
+Creates GeoDataFrame with (lon, lat, height) for each location in a Bedrock GI database.
+
+This function processes all GI locations in a Bedrock GI database, transforming the
+(easting, northing, ground level elevation) coordinates to WGS84 (lon, lat)
++ EGM2008 orthometric height coordinates, which have coordinate reference system EPSG:9518.
+It returns a GeoDataFrame with the transformed longitude, latitude, and
+EGM2008 ground level height, along with the corresponding point geometries in EPSG:9518.
+
+## Parameters {.doc-section .doc-section-parameters}
+
+| Name    | Type              | Description                                                                                   | Default    |
+|---------|-------------------|-----------------------------------------------------------------------------------------------|------------|
+| brgi_db | BedrockGIDatabase | The source Bedrock Ground Investigation database containing location and project information. | _required_ |
+
+## Returns {.doc-section .doc-section-returns}
+
+| Name   | Type             | Description                                                                                                                                           |
+|--------|------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
+|        | gpd.GeoDataFrame | A GeoDataFrame with the transformed longitude, latitude, and EGM2008 ground level height, along with the corresponding point geometries in EPSG:9518. |

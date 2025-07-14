@@ -1,0 +1,23 @@
+# gi.io_utils.coerce_string { #bedrock_ge.gi.io_utils.coerce_string }
+
+```python
+gi.io_utils.coerce_string(string)
+```
+
+Converts a string to an appropriate Python data type.
+
+## Parameters {.doc-section .doc-section-parameters}
+
+| Name   | Type   | Description                       | Default    |
+|--------|--------|-----------------------------------|------------|
+| string | str    | The input string to be converted. | _required_ |
+
+## Returns {.doc-section .doc-section-returns}
+
+| Name   | Type                         | Description                                                            |
+|--------|------------------------------|------------------------------------------------------------------------|
+|        | None \| bool \| float \| str | None if the string is 'none', 'null', or empty.                        |
+|        | None \| bool \| float \| str | bool if the string is 'true' or 'false' (case insensitive).            |
+|        | None \| bool \| float \| str | int if the string can be converted to a float and has no decimal part. |
+|        | None \| bool \| float \| str | float if the string can be converted to a float with a decimal part.   |
+|        | None \| bool \| float \| str | str if the string cannot be converted to any of the above types.       |

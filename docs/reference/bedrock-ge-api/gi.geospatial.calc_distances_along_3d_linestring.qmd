@@ -1,0 +1,7 @@
+# gi.geospatial.calc_distances_along_3d_linestring { #bedrock_ge.gi.geospatial.calc_distances_along_3d_linestring }
+
+```python
+gi.geospatial.calc_distances_along_3d_linestring(linestring)
+```
+
+Calculate cumulative distances along a 3D LineString.
