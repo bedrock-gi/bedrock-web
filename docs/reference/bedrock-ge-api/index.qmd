@@ -1,0 +1,42 @@
+# Function reference {.doc .doc-index}
+
+## Map to Bedrock GI
+
+Functions for mapping any type of GI data to the Bedrock GI geospatial database schema.
+
+| | |
+| --- | --- |
+| [gi.mapper.map_to_brgi_db](gi.mapper.map_to_brgi_db.qmd#bedrock_ge.gi.mapper.map_to_brgi_db) | Creates a Bedrock GI Database for a single project from a BedrockGIMapping. |
+| [gi.db_operations.merge_dbs](gi.db_operations.merge_dbs.qmd#bedrock_ge.gi.db_operations.merge_dbs) | Merges the incoming Bedrock GI database into the target Bedrock GI database. |
+| [gi.geospatial.create_brgi_geodb](gi.geospatial.create_brgi_geodb.qmd#bedrock_ge.gi.geospatial.create_brgi_geodb) | Creates a Bedrock GI geospatial database from a Bedrock GI database. |
+| [gi.geospatial.create_location_geodf](gi.geospatial.create_location_geodf.qmd#bedrock_ge.gi.geospatial.create_location_geodf) | Creates a geospatial DataFrame for the Location table from a Bedrock GI database. |
+| [gi.geospatial.create_lon_lat_height_geodf](gi.geospatial.create_lon_lat_height_geodf.qmd#bedrock_ge.gi.geospatial.create_lon_lat_height_geodf) | Creates GeoDataFrame with (lon, lat, height) for each location in a Bedrock GI database. |
+| [gi.geospatial.interpolate_gi_geometry](gi.geospatial.interpolate_gi_geometry.qmd#bedrock_ge.gi.geospatial.interpolate_gi_geometry) | Interpolates the geospatial geometry for a given In-Situ test DataFrame using the corresponding GI Location GeoDataFrame. |
+| [gi.geospatial.interpolate_3d](gi.geospatial.interpolate_3d.qmd#bedrock_ge.gi.geospatial.interpolate_3d) | Interpolate a point along a 3D LineString using true 3D distance. |
+| [gi.geospatial.substring_3d](gi.geospatial.substring_3d.qmd#bedrock_ge.gi.geospatial.substring_3d) | Extract a substring of a 3D LineString using true 3D distances. |
+
+## IO
+
+Validate Bedrock GI databases
+
+| | |
+| --- | --- |
+| [gi.write.write_brgi_db_to_file](gi.write.write_brgi_db_to_file.qmd#bedrock_ge.gi.write.write_brgi_db_to_file) | Writes a Bedrock GI (geospatial) database to a file. |
+| [gi.validate.check_foreign_key](gi.validate.check_foreign_key.qmd#bedrock_ge.gi.validate.check_foreign_key) | Validates referential integrity between two tables by checking foreign key relationships. |
+| [gi.io_utils.geodf_to_df](gi.io_utils.geodf_to_df.qmd#bedrock_ge.gi.io_utils.geodf_to_df) | Convenience function to convert GeoDataFrames to DataFrames for nicer display in notebook environments like marimo. |
+| [gi.io_utils.brgi_db_to_dfs](gi.io_utils.brgi_db_to_dfs.qmd#bedrock_ge.gi.io_utils.brgi_db_to_dfs) | Converts a Bedrock GI (geospatial) database to a dictionary of DataFrames. |
+| [gi.io_utils.open_text_data_source](gi.io_utils.open_text_data_source.qmd#bedrock_ge.gi.io_utils.open_text_data_source) | Opens or wraps a given source for reading AGS (text-based) data. |
+| [gi.io_utils.detect_encoding](gi.io_utils.detect_encoding.qmd#bedrock_ge.gi.io_utils.detect_encoding) | Detect the character encoding of various input types. |
+| [gi.io_utils.coerce_string](gi.io_utils.coerce_string.qmd#bedrock_ge.gi.io_utils.coerce_string) | Converts a string to an appropriate Python data type. |
+
+## AGS
+
+Functions for creating Bedrock GI mapping objects from AGS files.
+
+| | |
+| --- | --- |
+| [gi.ags.ags_to_brgi_db_mapping](gi.ags.ags_to_brgi_db_mapping.qmd#bedrock_ge.gi.ags.ags_to_brgi_db_mapping) | Map AGS 3 or AGS 4 data to the Bedrock GI data model. |
+| [gi.ags4.ags4_to_dfs](gi.ags4.ags4_to_dfs.qmd#bedrock_ge.gi.ags4.ags4_to_dfs) | Converts AGS 4 data to a dictionary of pandas DataFrames. |
+| [gi.ags3.ags3_to_brgi_db_mapping](gi.ags3.ags3_to_brgi_db_mapping.qmd#bedrock_ge.gi.ags3.ags3_to_brgi_db_mapping) | Map AGS 3 data to the Bedrock GI data model. |
+| [gi.ags3.ags3_to_dfs](gi.ags3.ags3_to_dfs.qmd#bedrock_ge.gi.ags3.ags3_to_dfs) | Converts AGS 3 data to a dictionary of pandas DataFrames. |
+| [gi.ags_schemas.check_ags_proj_group](gi.ags_schemas.check_ags_proj_group.qmd#bedrock_ge.gi.ags_schemas.check_ags_proj_group) | Checks if the AGS 3 or AGS 4 PROJ group is correct. |

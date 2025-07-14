@@ -68,51 +68,52 @@ website:
         text: Bedrock's LinkedIn
 
   sidebar:
-    id: docs
-    style: "floating"
-    contents:
-      - docs/getting-started.qmd
-      - docs/tutorials/index.qmd
-      - docs/how-to/index.qmd
-      - section: "Explanations"
-        href: docs/explanations/index.qmd
-        contents:
-          - docs/explanations/gi/index.qmd
-          - docs/explanations/gi/soil_classification.qmd
-      - section: "Reference"
-        href: docs/reference/index.qmd
-        contents:
-          - docs/reference/glossary/index.qmd
-          - docs/reference/glossary/index.qmd
-          - section: "`bedrock-ge` API"
-            href: docs/reference/bedrock-ge-api/index.qmd
-            contents:
-              - contents:
-                - docs/reference/bedrock-ge-api/gi.mapper.map_to_brgi_db.qmd
-                - docs/reference/bedrock-ge-api/gi.db_operations.merge_dbs.qmd
-                - docs/reference/bedrock-ge-api/gi.geospatial.create_brgi_geodb.qmd
-                - docs/reference/bedrock-ge-api/gi.geospatial.create_location_geodf.qmd
-                - docs/reference/bedrock-ge-api/gi.geospatial.create_lon_lat_height_geodf.qmd
-                - docs/reference/bedrock-ge-api/gi.geospatial.interpolate_gi_geometry.qmd
-                - docs/reference/bedrock-ge-api/gi.geospatial.interpolate_3d.qmd
-                - docs/reference/bedrock-ge-api/gi.geospatial.substring_3d.qmd
-                section: Map to Bedrock GI
-              - contents:
-                - docs/reference/bedrock-ge-api/gi.write.write_brgi_db_to_file.qmd
-                - docs/reference/bedrock-ge-api/gi.validate.check_foreign_key.qmd
-                - docs/reference/bedrock-ge-api/gi.io_utils.geodf_to_df.qmd
-                - docs/reference/bedrock-ge-api/gi.io_utils.brgi_db_to_dfs.qmd
-                - docs/reference/bedrock-ge-api/gi.io_utils.open_text_data_source.qmd
-                - docs/reference/bedrock-ge-api/gi.io_utils.detect_encoding.qmd
-                - docs/reference/bedrock-ge-api/gi.io_utils.coerce_string.qmd
-                section: IO
-              - contents:
-                - docs/reference/bedrock-ge-api/gi.ags.ags_to_brgi_db_mapping.qmd
-                - docs/reference/bedrock-ge-api/gi.ags4.ags4_to_dfs.qmd
-                - docs/reference/bedrock-ge-api/gi.ags3.ags3_to_brgi_db_mapping.qmd
-                - docs/reference/bedrock-ge-api/gi.ags3.ags3_to_dfs.qmd
-                - docs/reference/bedrock-ge-api/gi.ags_schemas.check_ags_proj_group.qmd
-                section: AGS
+    - id: docs
+      style: "floating"
+      contents:
+        - docs/index.qmd
+        - docs/getting-started.qmd
+        - docs/tutorials/index.qmd
+        - docs/how-to/index.qmd
+        - section: "Explanations"
+          href: docs/explanations/index.qmd
+          contents:
+            - docs/explanations/gi/index.qmd
+            - docs/explanations/gi/soil-classification.qmd
+        - section: "Reference"
+          href: docs/reference/index.qmd
+          contents:
+            - docs/reference/glossary/index.qmd
+            - section: "`bedrock-ge` API"
+              href: docs/reference/bedrock-ge-api/index.qmd
+              contents:
+                - contents:
+                  - docs/reference/bedrock-ge-api/gi.mapper.map_to_brgi_db.qmd
+                  - docs/reference/bedrock-ge-api/gi.db_operations.merge_dbs.qmd
+                  - docs/reference/bedrock-ge-api/gi.geospatial.create_brgi_geodb.qmd
+                  - docs/reference/bedrock-ge-api/gi.geospatial.create_location_geodf.qmd
+                  - docs/reference/bedrock-ge-api/gi.geospatial.create_lon_lat_height_geodf.qmd
+                  - docs/reference/bedrock-ge-api/gi.geospatial.interpolate_gi_geometry.qmd
+                  - docs/reference/bedrock-ge-api/gi.geospatial.interpolate_3d.qmd
+                  - docs/reference/bedrock-ge-api/gi.geospatial.substring_3d.qmd
+                  section: Map to Bedrock GI
+                - contents:
+                  - docs/reference/bedrock-ge-api/gi.write.write_brgi_db_to_file.qmd
+                  - docs/reference/bedrock-ge-api/gi.validate.check_foreign_key.qmd
+                  - docs/reference/bedrock-ge-api/gi.io_utils.geodf_to_df.qmd
+                  - docs/reference/bedrock-ge-api/gi.io_utils.brgi_db_to_dfs.qmd
+                  - docs/reference/bedrock-ge-api/gi.io_utils.open_text_data_source.qmd
+                  - docs/reference/bedrock-ge-api/gi.io_utils.detect_encoding.qmd
+                  - docs/reference/bedrock-ge-api/gi.io_utils.coerce_string.qmd
+                  section: IO
+                - contents:
+                  - docs/reference/bedrock-ge-api/gi.ags.ags_to_brgi_db_mapping.qmd
+                  - docs/reference/bedrock-ge-api/gi.ags4.ags4_to_dfs.qmd
+                  - docs/reference/bedrock-ge-api/gi.ags3.ags3_to_brgi_db_mapping.qmd
+                  - docs/reference/bedrock-ge-api/gi.ags3.ags3_to_dfs.qmd
+                  - docs/reference/bedrock-ge-api/gi.ags_schemas.check_ags_proj_group.qmd
+                  section: AGS
+            - docs/reference/bibliography/index.qmd
   
   search:
     type: textbox
@@ -125,9 +126,7 @@ quartodoc:
   # the name used to import the package you want to create reference docs for
   package: bedrock_ge
   parser: google
-  title: "`bedrock-ge` API"
   dir: docs/reference/bedrock-ge-api
-  out_index: docs/reference/bedrock-ge-api/index.qmd
   sidebar: _quartodoc-sidebar.yml
 
   sections:
