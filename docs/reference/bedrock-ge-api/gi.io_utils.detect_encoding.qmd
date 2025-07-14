@@ -1,0 +1,26 @@
+# gi.io_utils.detect_encoding { #bedrock_ge.gi.io_utils.detect_encoding }
+
+```python
+gi.io_utils.detect_encoding(source)
+```
+
+Detect the character encoding of various input types.
+
+## Parameters {.doc-section .doc-section-parameters}
+
+| Name   | Type                                             | Description                                                                                                                                                                                                                       | Default    |
+|--------|--------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------|
+| source | str \| Path \| IO\[str\] \| IO\[bytes\] \| bytes | The source to detect encoding from. - str or Path: File path. - IO[str]: Already decoded text stream (returns `DEFAULT_ENCODING`) - IO[bytes]: Binary stream to detect encoding from - bytes: Binary data to detect encoding from | _required_ |
+
+## Returns {.doc-section .doc-section-returns}
+
+| Name   | Type   | Description                                                             |
+|--------|--------|-------------------------------------------------------------------------|
+|        | str    | The detected encoding name (e.g., 'utf-8', 'iso-8859-1', 'ascii', etc.) |
+
+## Raises {.doc-section .doc-section-raises}
+
+| Name   | Type              | Description                       |
+|--------|-------------------|-----------------------------------|
+|        | TypeError         | If the source type is unsupported |
+|        | FileNotFoundError | If a file path doesn't exist      |

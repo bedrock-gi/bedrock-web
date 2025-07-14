@@ -1,0 +1,33 @@
+# gi.ags.ags_to_brgi_db_mapping { #bedrock_ge.gi.ags.ags_to_brgi_db_mapping }
+
+```python
+gi.ags.ags_to_brgi_db_mapping(
+    source,
+    projected_crs,
+    vertical_crs=CRS(3855),
+    encoding=None,
+)
+```
+
+Map AGS 3 or AGS 4 data to the Bedrock GI data model.
+
+## Parameters {.doc-section .doc-section-parameters}
+
+| Name          | Type                                             | Description                                                                                                                                                                                                                                                                | Default     |
+|---------------|--------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------|
+| source        | str \| Path \| IO\[str\] \| IO\[bytes\] \| bytes | The AGS file (str or Path) or a file-like object that represents the AGS file.                                                                                                                                                                                             | _required_  |
+| projected_crs | CRS                                              | Projected Coordinate Reference System (CRS). For example: - OSGB36 / British National Grid: `pyproj.CRS("EPSG:27700")` - Hong Kong 1980 Grid System: `pyproj.CRS("EPSG:2326")`                                                                                             | _required_  |
+| vertical_crs  | CRS                                              | Vertical CRS. Defaults to EGM2008 height, EPSG:3855, which measures the orthometric height w.r.t. the Earth Gravitational Model 2008. - Ordnance Datum Newlyn (ODN) Height: `pyproj.CRS("EPSG:5701")` - Hong Kong Principle Datum (HKPD) Height: `pyproj.CRS("EPSG:5738")` | `CRS(3855)` |
+| encoding      | str \| None                                      | Encoding of the text file or bytes stream. Defaults to None. An attempt at detecting the encoding will be made if None.                                                                                                                                                    | `None`      |
+
+## Raises {.doc-section .doc-section-raises}
+
+| Name   | Type       | Description                                       |
+|--------|------------|---------------------------------------------------|
+|        | ValueError | If the data does not match AGS 3 or AGS 4 format. |
+
+## Returns {.doc-section .doc-section-returns}
+
+| Name   | Type             | Description                                                    |
+|--------|------------------|----------------------------------------------------------------|
+|        | BedrockGIMapping | Object that maps AGS 3 or AGS 4 data to Bedrock GI data model. |

@@ -1,0 +1,26 @@
+# gi.io_utils.open_text_data_source { #bedrock_ge.gi.io_utils.open_text_data_source }
+
+```python
+gi.io_utils.open_text_data_source(source, encoding=None)
+```
+
+Opens or wraps a given source for reading AGS (text-based) data.
+
+## Parameters {.doc-section .doc-section-parameters}
+
+| Name     | Type                                             | Description                                                                                                                                                                                   | Default    |
+|----------|--------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------|
+| source   | str \| Path \| IO\[str\] \| IO\[bytes\] \| bytes | The source to read from. - str or Path: File path or direct string content. - IO[str]: A file-like text stream. - IO[bytes]: Byte stream - bytes: Binary content or stream (will be decoded). | _required_ |
+| encoding | str \| None                                      | Encoding to use for decoding bytes. Default is None.                                                                                                                                          | `None`     |
+
+## Returns {.doc-section .doc-section-returns}
+
+| Name   | Type                            | Description                               |
+|--------|---------------------------------|-------------------------------------------|
+|        | ContextManager\[io.TextIOBase\] | A context manager yielding a text stream. |
+
+## Raises {.doc-section .doc-section-raises}
+
+| Name   | Type      | Description                                                          |
+|--------|-----------|----------------------------------------------------------------------|
+|        | TypeError | If the source type is unsupported or binary streams are not decoded. |

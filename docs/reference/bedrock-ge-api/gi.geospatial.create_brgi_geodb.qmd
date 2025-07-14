@@ -1,0 +1,30 @@
+# gi.geospatial.create_brgi_geodb { #bedrock_ge.gi.geospatial.create_brgi_geodb }
+
+```python
+gi.geospatial.create_brgi_geodb(brgi_db)
+```
+
+Creates a Bedrock GI geospatial database from a Bedrock GI database.
+
+Creates a Bedrock GI geospatial database by performing the following steps:
+1. Creates a geospatial DataFrame for the Location table using the
+   `create_location_geodf` function.
+2. Creates a geospatial DataFrame for the LonLatHeight table using the
+   `create_lon_lat_height_geodf` function.
+3. Creates a dictionary of geospatial DataFrames for the In-Situ test tables
+   using the `interpolate_gi_geometry` function.
+4. Creates a geospatial DataFrame for the Sample table using the
+   `interpolate_gi_geometry` function, if the Sample table exists.
+5. Returns a BedrockGIGeospatialDatabase object.
+
+## Parameters {.doc-section .doc-section-parameters}
+
+| Name    | Type              | Description                              | Default    |
+|---------|-------------------|------------------------------------------|------------|
+| brgi_db | BedrockGIDatabase | The Bedrock GI database to be converted. | _required_ |
+
+## Returns {.doc-section .doc-section-returns}
+
+| Name   | Type                        | Description                                   |
+|--------|-----------------------------|-----------------------------------------------|
+|        | BedrockGIGeospatialDatabase | The resulting Bedrock GI geospatial database. |

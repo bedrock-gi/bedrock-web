@@ -1,0 +1,24 @@
+# gi.write.write_brgi_db_to_file { #bedrock_ge.gi.write.write_brgi_db_to_file }
+
+```python
+gi.write.write_brgi_db_to_file(brgi_db, path, driver='GPKG')
+```
+
+Writes a Bedrock GI (geospatial) database to a file.
+
+Writes a Bedrock GI (geospatial) database to a file. The file type is
+determined by the `driver` argument. Possible values are "GPKG" and "EXCEL".
+
+## Parameters {.doc-section .doc-section-parameters}
+
+| Name    | Type                                             | Description                                                          | Default    |
+|---------|--------------------------------------------------|----------------------------------------------------------------------|------------|
+| brgi_db | BedrockGIDatabase \| BedrockGIGeospatialDatabase | The Bedrock GI (geospatial) database.                                | _required_ |
+| path    | str \| Path                                      | The path of the output file.                                         | _required_ |
+| driver  | Literal\[\'EXCEL\', \'GPKG\'\]                   | The type of the output file. Possible values are "GPKG" and "EXCEL". | `'GPKG'`   |
+
+## Returns {.doc-section .doc-section-returns}
+
+| Name   | Type   | Description   |
+|--------|--------|---------------|
+|        | None   | None          |
