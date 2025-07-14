@@ -1,0 +1,23 @@
+# gi.ags3.ags3_to_dfs { #bedrock_ge.gi.ags3.ags3_to_dfs }
+
+```python
+gi.ags3.ags3_to_dfs(source, encoding)
+```
+
+Converts AGS 3 data to a dictionary of pandas DataFrames.
+
+Also strips '?' from non-standard AGS 3 group and header names, in order to
+make the rest of the code more generic.
+
+## Parameters {.doc-section .doc-section-parameters}
+
+| Name     | Type                                             | Description                                                                        | Default    |
+|----------|--------------------------------------------------|------------------------------------------------------------------------------------|------------|
+| source   | str \| Path \| IO\[str\] \| IO\[bytes\] \| bytes | The AGS 3 file (str or Path) or a file-like object that represents the AGS 3 file. | _required_ |
+| encoding | str                                              | Encoding of the text file or bytes stream.                                         | _required_ |
+
+## Returns {.doc-section .doc-section-returns}
+
+| Name   | Type                      | Description                                                                                                                                                                 |
+|--------|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|        | dict\[str, pd.DataFrame\] | A dictionary of pandas DataFrames, i.e. a database, where each key is an AGS 3 group, and the corresponding value is a pandas DataFrame containing the data for that group. |

@@ -1,0 +1,24 @@
+# gi.db_operations.merge_dbs { #bedrock_ge.gi.db_operations.merge_dbs }
+
+```python
+gi.db_operations.merge_dbs(brgi_dbs)
+```
+
+Merges the incoming Bedrock GI database into the target Bedrock GI database.
+
+The function concatenates the pandas DataFrames of the second dict of
+DataFrames to the first dict of DataFrames for the keys they have in common.
+Keys that are unique to either dictionary will be included in the final
+concatenated dictionary.
+
+## Parameters {.doc-section .doc-section-parameters}
+
+| Name     | Type                          | Description                                                | Default    |
+|----------|-------------------------------|------------------------------------------------------------|------------|
+| brgi_dbs | Iterable\[BedrockGIDatabase\] | The Bedrock GI databases containing the data to be merged. | _required_ |
+
+## Returns {.doc-section .doc-section-returns}
+
+| Name   | Type              | Description                 |
+|--------|-------------------|-----------------------------|
+|        | BedrockGIDatabase | Merged Bedrock GI database. |

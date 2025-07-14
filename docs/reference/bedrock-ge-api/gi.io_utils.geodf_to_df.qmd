@@ -1,0 +1,7 @@
+# gi.io_utils.geodf_to_df { #bedrock_ge.gi.io_utils.geodf_to_df }
+
+```python
+gi.io_utils.geodf_to_df(geodf)
+```
+
+Convenience function to convert GeoDataFrames to DataFrames for nicer display in notebook environments like marimo.

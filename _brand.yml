@@ -1,0 +1,14 @@
+color:
+  palette:
+    green: "#63805e"
+    teal: "#538f99"
+    brown: "#806040"
+    gray: "#868b85"
+
+# https://quarto.org/docs/authoring/brand.html#logo
+# When setting a logo here, the logo is added by default to both the navbar and sidebar
+# and there seems to be no option to turn off the logo in just the sidebar.
+# logo:
+#   small:
+#   medium: public/Bedrock.png
+#   large:

@@ -1,0 +1,27 @@
+# gi.geospatial.interpolate_gi_geometry { #bedrock_ge.gi.geospatial.interpolate_gi_geometry }
+
+```python
+gi.geospatial.interpolate_gi_geometry(insitu_test_df, location_geodf)
+```
+
+Interpolates the geospatial geometry for a given In-Situ test DataFrame using the corresponding GI Location GeoDataFrame.
+
+This function takes an In-Situ test or Sample DataFrame and a GI Location GeoDataFrame and
+returns a GeoDataFrame with its geometry interpolated from the Location GeoDataFrame.
+The In-Situ test geometry is always a LineString or Point, depending on whether the
+In-Situ test is performed at a specific depth or over a depth interval inside a borehole.
+The geometry is calculated by linearly interpolating the depth values for each row
+in a In-Situ test DataFrame along the corresponding location's LineString geometry.
+
+## Parameters {.doc-section .doc-section-parameters}
+
+| Name           | Type                                                       | Description                                                                                 | Default    |
+|----------------|------------------------------------------------------------|---------------------------------------------------------------------------------------------|------------|
+| insitu_test_df | DataFrame\[InSituTestSchema\] \| DataFrame\[SampleSchema\] | The In-Situ test or Sample DataFrame containing the depth values to be interpolated.        | _required_ |
+| location_geodf | gpd.GeoDataFrame                                           | The location GeoDataFrame containing the location LineStrings to be used for interpolation. | _required_ |
+
+## Returns {.doc-section .doc-section-returns}
+
+| Name   | Type             | Description                                                                                    |
+|--------|------------------|------------------------------------------------------------------------------------------------|
+|        | gpd.GeoDataFrame | A GeoDataFrame containing the interpolated geospatial geometry for the In-Situ test DataFrame. |

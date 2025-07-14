@@ -1,0 +1,20 @@
+# gi.io_utils.brgi_db_to_dfs { #bedrock_ge.gi.io_utils.brgi_db_to_dfs }
+
+```python
+gi.io_utils.brgi_db_to_dfs(brgi_db)
+```
+
+Converts a Bedrock GI (geospatial) database to a dictionary of DataFrames.
+
+## Parameters {.doc-section .doc-section-parameters}
+
+| Name    | Type                                             | Description                           | Default    |
+|---------|--------------------------------------------------|---------------------------------------|------------|
+| brgi_db | BedrockGIDatabase \| BedrockGIGeospatialDatabase | The Bedrock GI (geospatial) database. | _required_ |
+
+## Returns {.doc-section .doc-section-returns}
+
+| Name   | Type                                          | Description                                                                   |
+|--------|-----------------------------------------------|-------------------------------------------------------------------------------|
+|        | dict\[str, pd.DataFrame \| gpd.GeoDataFrame\] | A dictionary where the keys are the Bedrock GI table names and the values are |
+|        | dict\[str, pd.DataFrame \| gpd.GeoDataFrame\] | the DataFrames that contain the data for each table.                          |

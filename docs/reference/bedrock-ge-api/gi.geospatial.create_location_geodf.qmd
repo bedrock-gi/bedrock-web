@@ -1,0 +1,25 @@
+# gi.geospatial.create_location_geodf { #bedrock_ge.gi.geospatial.create_location_geodf }
+
+```python
+gi.geospatial.create_location_geodf(brgi_db)
+```
+
+Creates a geospatial DataFrame for the Location table from a Bedrock GI database.
+
+This function generates a GeoDataFrame for the Location table using the input
+Bedrock GI database. It assumes the boreholes are vertical (for now) and calculates
+elevation at the base of each borehole. It raises an error if multiple
+horizontal or vertical coordinate reference systems (CRS) are found in the
+project data.
+
+## Parameters {.doc-section .doc-section-parameters}
+
+| Name    | Type              | Description                                                                   | Default    |
+|---------|-------------------|-------------------------------------------------------------------------------|------------|
+| brgi_db | BedrockGIDatabase | The Bedrock GI database containing location data and project CRS information. | _required_ |
+
+## Returns {.doc-section .doc-section-returns}
+
+| Name   | Type             | Description                                                                                                                                               |
+|--------|------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
+|        | gpd.GeoDataFrame | A GeoDataFrame with LineString geometries representing vertical boreholes, using the compound CRS derived from the project's horizontal and vertical CRS. |

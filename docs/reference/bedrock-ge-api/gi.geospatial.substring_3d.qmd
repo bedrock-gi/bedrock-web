@@ -1,0 +1,21 @@
+# gi.geospatial.substring_3d { #bedrock_ge.gi.geospatial.substring_3d }
+
+```python
+gi.geospatial.substring_3d(linestring, start_dist, end_dist)
+```
+
+Extract a substring of a 3D LineString using true 3D distances.
+
+## Parameters {.doc-section .doc-section-parameters}
+
+| Name       | Type       | Description                               | Default    |
+|------------|------------|-------------------------------------------|------------|
+| linestring | LineString | A 3D LineString geometry                  | _required_ |
+| start_dist | float      | Start distance along the line in 3D space | _required_ |
+| end_dist   | float      | End distance along the line in 3D space   | _required_ |
+
+## Returns {.doc-section .doc-section-returns}
+
+| Name   | Type                | Description                         |
+|--------|---------------------|-------------------------------------|
+|        | LineString \| Point | The extracted 3D LineString segment |
