@@ -10,7 +10,7 @@ format:
     code-annotations: true
 ---
 
-If you want to implement Bedrock but don't know where to start, you can get implementation support and consultancy services directly from Bedrocks creators.
+If you want to implement Bedrock but don't know where to start, you can get implementation support and consultancy services directly from Bedrock's creators.
 We'll help transform your ground investigation workflows and unlock the full potential of your GI data.
 
 ## Implementation consulting
